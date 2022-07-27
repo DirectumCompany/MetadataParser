@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.IDE.Server</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.IDE.DeployServerHandlers">
+            <summary>
+            Обработчики событий сущности IDeploy.
+            </summary>
+        </member>
+        <member name="M:Sungero.IDE.DeployServerHandlers.Created(Sungero.IDE.IDeploy,Sungero.Domain.CreatedEventArgs)">
+            <summary>
+            Обработчик события создания сущности.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="T:Sungero.IDE.Server.Deploy">
+            <summary>
+            Сущность деплой.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.Deploy.DeployFinish">
+            <summary>
+            Время.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.Deploy.Owner">
+            <summary>
+            Владелец.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.Deploy.DeployPackage">
+            <summary>
+            ZIP архив пакета деплоя в формате бинарных данных.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.Deploy.DeployPackageUid">
+            <summary>
+            Уникальный идентификатор пакета.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.Deploy.IsFastDeploy">
+            <summary>
+            Флаг определяющий был ли деплой быстрым.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Server.DeployRepositoryImplementer`1">
+            <summary>
+            Реализация репозитория "Деплой".
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="P:Sungero.IDE.Server.FullDeploy.Name">
+            <summary>
+            Имя сборки.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.FullDeploy.Version">
+            <summary>
+            Версия сборки.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.FullDeploy.AssemblyData">
+            <summary>
+            Сборка.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.FullDeploy.AssemblyDataHash">
+            <summary>
+            Хеш сборки.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Server.FullDeploy.ModuleGuid">
+            <summary>
+            Guid модуля.
+            </summary>
+        </member>
+        <member name="M:Sungero.IDE.Server.FullDeploy.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+            <remarks>
+            Зависимости регистрируются в IoC с InjectionConstructor, по этому нужен конструктор
+            по умолчанию.
+            </remarks>
+        </member>
+        <member name="T:Sungero.IDE.Server.FullDeployRepositoryImplementer`1">
+            <summary>
+            Реализация репозитория "Полный деплой".
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="T:Sungero.IDE.Server.IDEModule">
+            <summary>
+            Композитный модуль среды разработки.
+            </summary>
+        </member>
+        <member name="M:Sungero.IDE.Server.IDEModule.RegisterIDEEntitiesInfo">
+            <summary>
+            Зарегистрировать EntityInfo для сущностей модуля IDE.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Server.ModuleFunctions">
+            <summary>
+            Функции модуля.
+            </summary>
+        </member>
+        <member name="M:Sungero.IDE.Server.ModuleFunctions.GetRecipients">
+            <summary>
+            Получить субъекты прав.
+            </summary>
+            <returns>Список субъектов.</returns>
+        </member>
+        <member name="M:Sungero.IDE.Server.ModuleFunctions.GetUsers">
+            <summary>
+            Получить пользователей.
+            </summary>
+            <returns>Список пользователей.</returns>
+        </member>
+        <member name="T:Sungero.IDE.Server.ModuleFunctions.RecipientTypeComparer">
+            <summary>
+            Сравнивает типы реципиентов, роли имеют высший приоритет.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Functions.Module">
+            <summary>
+            Функции модуля.
+            </summary>
+        </member>
+    </members>
+</doc>

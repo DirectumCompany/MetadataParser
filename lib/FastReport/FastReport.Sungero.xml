@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FastReport.Sungero</name>
+    </assembly>
+    <members>
+        <member name="T:SungeroPlugin.AssemblyInitializer">
+            <summary>
+            Класс для регистрации кастомных типов в FastReport.
+            </summary>
+        </member>
+        <member name="M:SungeroPlugin.AssemblyInitializer.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroDataType">
+            <summary>
+            Описание типа данных.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroDataType.DisplayName">
+            <summary>
+            Отображаемое имя.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroDataType.FullName">
+            <summary>
+            Полное имя.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroDataType.IsSimpleDataType">
+            <summary>
+            Признак что параметр простого типа.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroDataType.EntityTypeId">
+            <summary>
+            ИД типа сущности.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroDataTypeConverter">
+            <summary>
+            Конвертер типа данных, необходим для работы редактора типа данных.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroDataTypeEditor">
+            <summary>
+            Редактор типа данных FastReport, предоставляет выбор из системных типов и интерфейсов сущностей.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroDataTypeEditor.editorService">
+            <summary>
+            Сервис редактора поля сетки свойств.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroDataTypeListBox">
+            <summary>
+            Реализация выпадающего списка, необходимая для корректного отображения типа данных в редакторе свойств FastReport.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroDataTypeManager">
+            <summary>
+            Менеджер типов данных используемых в параметрах отчета.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroDataTypeManager.systemTypes">
+            <summary>
+            Список системных типов данных.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroDataTypeManager.KnownDataTypes">
+            <summary>
+            Список описаний известных типов данных.
+            </summary>
+        </member>
+        <member name="M:SungeroPlugin.SungeroDataTypeManager.UpdateKnownDataTypes">
+            <summary>
+            Обновить список описаний известных типов данных.
+            </summary>
+        </member>
+        <member name="M:SungeroPlugin.SungeroDataTypeManager.UpdateDataTypeName(SungeroPlugin.SungeroDataType)">
+            <summary>
+            Обновить имя типа данных в описаннии.
+            </summary>
+            <param name="type">Описание типа данных.</param>
+        </member>
+        <member name="T:SungeroPlugin.SungeroEntityDataSource">
+            <summary>
+            DesignTime-класс для представления источников данных, связанных с типом сущности.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroEntityDataSource.EntityTypeId">
+            <summary>
+            ИД типа сущности.
+            </summary>
+        </member>
+        <member name="M:SungeroPlugin.SungeroEntityDataSource.#ctor(Sungero.Metadata.ReportDataSourceMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="dataSourceMetadata">Метаданные источника данных.</param>
+        </member>
+        <member name="M:SungeroPlugin.SungeroEntityDataSource.#ctor">
+            <summary>
+            Конструктор для десериализации.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroParameter">
+            <summary>
+            Параметр отчета, расширяет базовый тип поддержкой коллекций.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroParameter.defaulDataType">
+            <summary>
+            Тип данных параметра по умолчанию.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroParameter.id">
+            <summary>
+            Идентификатор параметра.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroParameter.IsRequired">
+            <summary>
+            Признак обязательности параметра.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroParameter.IsCollection">
+            <summary>
+            Признак того, что параметр является коллекцией.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroParameter.InternalDataType">
+            <summary>
+            Тип данных в дизайнере.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroParameter.DataType">
+            <summary>
+            Тип данных.
+            </summary>
+            <remarks>
+            Свойство возврощает реальнй тип данных, если отчет опубликован иначе тип по умолчанию.
+            </remarks>
+        </member>
+        <member name="T:SungeroPlugin.SungeroSqlDataConnection">
+            <summary>
+            Специальный тип подключения, использующий в DesignTime предопределенную структуру таблиц, не запрашивая ее с БД.
+            </summary>
+        </member>
+        <member name="T:SungeroPlugin.SungeroSqlDataConnection.TypeAccordanceInfo">
+            <summary>
+            Информация о сопоставлении типов.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroSqlDataConnection.TypeAccordanceInfo.SqlDbType">
+            <summary>
+            Тип SqlDbType.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroSqlDataConnection.TypeAccordanceInfo.DbType">
+            <summary>
+            Тип DbType.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroSqlDataConnection.TypeAccordanceInfo.Type">
+            <summary>
+            CLR тип.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroSqlDataConnection.tables">
+            <summary>
+            Хранилище структур таблиц для отображения их в редакторе.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroSqlDataConnection.defaultFieldType">
+            <summary>
+            Тип данных поля по умолчанию, используется если в структуре таблицы встретился неизвестный тип данных.
+            </summary>
+        </member>
+        <member name="P:SungeroPlugin.SungeroSqlDataConnection.DbConnectionProvider">
+            <summary>
+            Провайдер подключения к базе данных.
+            </summary>
+        </member>
+        <member name="F:SungeroPlugin.SungeroSqlDataConnection.dbTypeAccordanceList">
+            <summary>
+            Список соответствия типов данных.
+            </summary>
+            <remarks>
+            Источник: https://msdn.microsoft.com/ru-ru/library/cc716729(v=vs.110).aspx.
+            </remarks>
+        </member>
+        <member name="M:SungeroPlugin.SungeroSqlDataConnection.SetTablesStructure(System.Collections.Generic.IEnumerable{Sungero.Reporting.Shared.DBTableStructureInfo})">
+            <summary>
+            Задать информацию о структуре таблиц.
+            </summary>
+            <param name="tablesStructureInfo">Набор данных о структуре таблиц.</param>
+        </member>
+        <member name="M:SungeroPlugin.SungeroSqlDataConnection.CoerceParameter(FastReport.Data.CommandParameter)">
+            <summary>
+            Сконвертировать параметр.
+            </summary>
+            <param name="parameter">Параметр.</param>
+        </member>
+    </members>
+</doc>

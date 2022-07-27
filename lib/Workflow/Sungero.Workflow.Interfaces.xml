@@ -1,0 +1,662 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Workflow.Interfaces</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Core.ForwardingLocation.End">
+      <summary>Задание будет стартовано после завершения всех заданий.</summary>
+    </member>
+    <member name="F:Sungero.Core.ForwardingLocation.Next">
+      <summary>Задание будет стартовано после завершения текущего задания.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.AssignmentAccessRightsTypes.Complete">
+      <summary>Выполнение задания.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.AssignmentOperations.ChangeText">
+      <summary>Изменить текст задания.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.AssignmentOperations.Complete">
+      <summary>Выполнить задание.</summary>
+    </member>
+    <member name="M:Sungero.Core.AssignmentExtensions.Abort(Sungero.Workflow.IAssignment)">
+      <summary>Прекратить задание.</summary>
+      <param name="assignment">Задание.</param>
+    </member>
+    <member name="M:Sungero.Core.AssignmentExtensions.Complete(Sungero.Workflow.IAssignment,System.Nullable{Sungero.Core.Enumeration})">
+      <summary>Выполнить задание с заданным результатом.</summary>
+      <param name="assignment">Задание.</param>
+      <param name="result">Результат.</param>
+    </member>
+    <member name="M:Sungero.Core.AssignmentExtensions.Forward(Sungero.Workflow.IAssignment,Sungero.CoreEntities.IUser)">
+      <summary>Переадресовать задание.</summary>
+      <param name="assignment">Задание.</param>
+      <param name="performer">Исполнитель.</param>
+    </member>
+    <member name="M:Sungero.Core.AssignmentExtensions.Forward(Sungero.Workflow.IAssignment,Sungero.CoreEntities.IUser,Sungero.Core.ForwardingLocation)">
+      <summary>Переадресовать задание.</summary>
+      <param name="assignment">Задание.</param>
+      <param name="performer">Исполнитель.</param>
+      <param name="performerPosition">Позиция добавления задания в маршрут задачи. Задается только для маршрутов задач с последовательным выполнением заданий.</param>
+    </member>
+    <member name="M:Sungero.Core.AssignmentExtensions.Forward(Sungero.Workflow.IAssignment,Sungero.CoreEntities.IUser,Sungero.Core.ForwardingLocation,System.Nullable{System.DateTime})">
+      <summary>Переадресовать задание.</summary>
+      <param name="assignment">Задание.</param>
+      <param name="performer">Исполнитель.</param>
+      <param name="performerPosition">Позиция добавления задания в маршрут задачи. Задается только для маршрутов задач с последовательным выполнением заданий.</param>
+      <param name="deadline">Срок задания.</param>
+    </member>
+    <member name="M:Sungero.Core.AssignmentExtensions.Forward(Sungero.Workflow.IAssignment,Sungero.CoreEntities.IUser,System.Nullable{System.DateTime})">
+      <summary>Переадресовать задание с заданным сроком.</summary>
+      <param name="assignment">Задание.</param>
+      <param name="performer">Исполнитель.</param>
+      <param name="deadline">Срок задания.</param>
+    </member>
+    <member name="M:Sungero.Core.TaskExtensions.Abort(Sungero.Workflow.ITask)">
+      <summary>Прекратить задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Core.TaskExtensions.Restart(Sungero.Workflow.ITask)">
+      <summary>Рестартовать задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Core.TaskExtensions.Resume(Sungero.Workflow.ITask)">
+      <summary>Возобновить задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Core.TaskExtensions.Start(Sungero.Workflow.ITask)">
+      <summary>Стартовать задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Workflow.IAssignmentExtensions.Abort(Sungero.Workflow.IAssignment)">
+      <summary>Прекратить задание.</summary>
+      <param name="assignment">Задание.</param>
+    </member>
+    <member name="M:Sungero.Workflow.IAssignmentExtensions.Complete(Sungero.Workflow.IAssignment,System.Nullable{Sungero.Core.Enumeration})">
+      <summary>Выполнить задание с заданным результатом.</summary>
+      <param name="assignment">Задание.</param>
+      <param name="result">Результат.</param>
+    </member>
+    <member name="M:Sungero.Workflow.IReviewAssignmentExtensions.Accept(Sungero.Workflow.IReviewAssignment)">
+      <summary>Принять.</summary>
+      <param name="assignment">Задание на приемку.</param>
+    </member>
+    <member name="M:Sungero.Workflow.IReviewAssignmentExtensions.SendForRework(Sungero.Workflow.IReviewAssignment)">
+      <summary>Отправить на доработку.</summary>
+      <param name="assignment">Задание на приемку.</param>
+    </member>
+    <member name="M:Sungero.Workflow.ITaskExtensions.Abort(Sungero.Workflow.ITask)">
+      <summary>Прекратить задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Workflow.ITaskExtensions.Restart(Sungero.Workflow.ITask)">
+      <summary>Рестартовать задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Workflow.ITaskExtensions.Resume(Sungero.Workflow.ITask)">
+      <summary>Возобновить задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Workflow.ITaskExtensions.Start(Sungero.Workflow.ITask)">
+      <summary>Стартовать задачу.</summary>
+      <param name="task">Задача.</param>
+    </member>
+    <member name="M:Sungero.Workflow.Interfaces.IAttachmentGroupStateStorage.GetAttachmentGroupState(System.Guid)">
+      <summary>Получить состояние группы вложений.</summary>
+      <param name="groupGuid">Идентификатор группы.</param>
+      <returns>Состояние.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Interfaces.IAttachmentInfo.IsLinkedTo(Sungero.Domain.Shared.IEntity)">
+      <summary>Проверить, что информация о вложении относится к указанному вложению.</summary>
+      <param name="attachment">Вложение.</param>
+      <returns>Признак того, что информация о вложении относится к указанному вложению.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.ReviewAssignmentExtensions.Accept(Sungero.Workflow.IReviewAssignment)">
+      <summary>Принять задачу.</summary>
+      <param name="assignment">Задание на приемку.</param>
+    </member>
+    <member name="M:Sungero.Workflow.ReviewAssignmentExtensions.LeadingAssignment(Sungero.Workflow.IReviewAssignment)">
+      <summary>Получить ведущее задание у задания на приемку.</summary>
+      <param name="reviewAssignment">Задание на приёмку.</param>
+      <returns>Ведущее задание.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.ReviewAssignmentExtensions.SendForRework(Sungero.Workflow.IReviewAssignment)">
+      <summary>Отправить на доработку.</summary>
+      <param name="assignment">Задание на приемку.</param>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.NoticeRepository`1.Create(Sungero.Workflow.ITask)">
+      <summary>Создать уведомление к задаче.</summary>
+      <param name="parentTask">Ведущая задача.</param>
+      <returns>Уведомление.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.Create(System.String,Sungero.CoreEntities.IRecipient[])">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="performers">Исполнители.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.Create(System.String,System.Collections.Generic.IEnumerable{Sungero.CoreEntities.IRecipient},System.Collections.Generic.IEnumerable{Sungero.Domain.Shared.IEntity})">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="performers">Исполнители.</param>
+      <param name="attachments">Вложения.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.Create(System.String,System.DateTime,Sungero.CoreEntities.IRecipient[])">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="deadline">Срок исполнения.</param>
+      <param name="performers">Исполнители.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.Create(System.String,System.DateTime,System.Collections.Generic.IEnumerable{Sungero.CoreEntities.IRecipient},System.Collections.Generic.IEnumerable{Sungero.Domain.Shared.IEntity})">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="deadline">Крайний срок.</param>
+      <param name="performers">Исполнители.</param>
+      <param name="attachments">Вложения.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.Create(System.String,System.Nullable{Sungero.Core.Enumeration},Sungero.CoreEntities.IRecipient[])">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="routeType">Тип маршрутизации.</param>
+      <param name="performers">Исполнители.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.CreateAsSubtask(Sungero.Workflow.IAssignmentBase)">
+      <summary>Создать подзадачу.</summary>
+      <param name="parentAssignment">Задание.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.CreateAsSubtask(Sungero.Workflow.ITask)">
+      <summary>Создать подзадачу.</summary>
+      <param name="parentTask">Задача.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.CreateWithNotices(System.String,Sungero.CoreEntities.IRecipient[])">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="performers">Исполнители.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.SimpleTaskRepository`1.CreateWithNotices(System.String,System.Collections.Generic.IEnumerable{Sungero.CoreEntities.IRecipient},Sungero.Domain.Shared.IEntity[])">
+      <summary>Создать простую задачу.</summary>
+      <param name="subject">Тема.</param>
+      <param name="performers">Исполнители.</param>
+      <param name="attachments">Вложения.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.TaskRepository`1.CreateAsSubtask(Sungero.Workflow.IAssignmentBase)">
+      <summary>Создать подзадачу к заданию.</summary>
+      <param name="parentAssignment">Задание.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.Shared.TaskRepository`1.CreateAsSubtask(Sungero.Workflow.ITask)">
+      <summary>Создать подзадачу к задаче.</summary>
+      <param name="parentTask">Задача.</param>
+      <returns>Новая задача.</returns>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.ForwardedFrom">
+      <summary>Ссылка на исходное задание, которое было переадресовано.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.ForwardedTo">
+      <summary>Пользователи, которым переадресовано задание.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.IsExpired">
+      <summary>Признак того, что задание просрочено.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.Result">
+      <summary>Результат выполнения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.ResultAllowedItems">
+      <summary>Перечисление результатов выполнения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignment.State">
+      <summary>Состояние.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.ActiveText">
+      <summary>Текущий текст задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.AllAttachments">
+      <summary>Все вложения семейства задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.AttachmentDetails">
+      <summary>Детальная информация о вложениях задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Attachments">
+      <summary>Вложения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.AttachmentsInfo">
+      <summary>Информация о вложениях задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Author">
+      <summary>Инициатор задачи, в рамках которой создано задание.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.BlockId">
+      <summary>ИД блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.BlockUid">
+      <summary>Идентификатор блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Created">
+      <summary>Дата и время создания задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Deadline">
+      <summary>Срок выполнения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Importance">
+      <summary>Важность задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.ImportanceAllowedItems">
+      <summary>Перечисление важности задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.IsRead">
+      <summary>Признак того, что задание прочитано.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.IterationId">
+      <summary>ИД итерации, в рамках которой создано задание или уведомление по блоку.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.MainTask">
+      <summary>Главная задача всего семейства задач/заданий.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Modified">
+      <summary>Дата и время последнего изменения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Performer">
+      <summary>Исполнитель.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Status">
+      <summary>Состояние задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.StatusAllowedItems">
+      <summary>Перечисление статусов задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Subject">
+      <summary>Тема.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Subtasks">
+      <summary>Подзадачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Task">
+      <summary>Задача, в рамках которой создано задание.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.TaskStartId">
+      <summary>Количество стартов задачи, в рамках которой создано задание или уведомление.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.Texts">
+      <summary>Тексты задания.</summary>
+      <remarks>На данный момент задание может иметь только один текст.</remarks>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentBase.ThreadSubject">
+      <summary>Тема задания в переписке.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAssignmentState.Pages">
+      <summary>Состояние вкладок на форме сущности.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAttachmentGroupInfo.Id">
+      <summary>Идентификатор группы.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IAttachmentGroupInfo.IsRequired">
+      <summary>Признак того, что группа вложений обязательна для заполнения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalAssignmentBase.BlockId">
+      <summary>Идентификатор блока (свойство устарело, оставлено для совместимости)</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalAssignmentBase.BlockUid">
+      <summary>Идентификатор блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalAssignmentBase.IterationId">
+      <summary>ИД итерации.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalAssignmentBase.MainTask">
+      <summary>Главная задача всего семейства задач/заданий.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalAssignmentBase.Task">
+      <summary>Задача, по которой создано задание.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalAssignmentBase.TaskStartId">
+      <summary>ИД старта родительской задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.BlockId">
+      <summary>ИД блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.BlockUid">
+      <summary>Идентификатор блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.IterationId">
+      <summary>ИД итерации.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.MainTask">
+      <summary>Главная задача всего семейства задач/заданий.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.ParentAssignment">
+      <summary>Родительское задание.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.ParentStartId">
+      <summary>ИД старта родительской задачи/задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.ParentTask">
+      <summary>Родительская задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.SchemeVersionId">
+      <summary>ИД версии схемы, по которой стартована задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.IInternalTask.StartId">
+      <summary>ИД старта.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.ActiveText">
+      <summary>Текущий текст задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.AllAttachments">
+      <summary>Все вложения семейства задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.AttachmentDetails">
+      <summary>Детальная информация о вложениях задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Attachments">
+      <summary>Вложения задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.AttachmentsInfo">
+      <summary>Информация о вложениях задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Author">
+      <summary>Инициатор задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.BlockId">
+      <summary>ИД блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.BlockUid">
+      <summary>Идентификатор блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Created">
+      <summary>Дата и время создания задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Importance">
+      <summary>Важность задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.ImportanceAllowedItems">
+      <summary>Перечисление важности задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.IsExpired">
+      <summary>Признак того, что задача просрочена.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.IterationId">
+      <summary>ИД итерации, в рамках которой создана задача по блоку.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.MainTask">
+      <summary>Главная задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.MainTaskId">
+      <summary>ИД главной задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.MaxDeadline">
+      <summary>Конечный срок задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Modified">
+      <summary>Дата и время последнего изменения задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.NeedsReview">
+      <summary>Признак того, что инициатору задачи нужно отправить задание на приемку после того, как исполнители выполнят задания. Задача завершится, если задние на приемку будет принято.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Observers">
+      <summary>Список наблюдателей.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.ParentAssignment">
+      <summary>Родительское задание.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.ParentStartId">
+      <summary>ИД старта родительской задачи/задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.ParentTask">
+      <summary>Родительская задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.SchemeVersion">
+      <summary>Номер версии схемы, по которой была стартована задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.SchemeVersionId">
+      <summary>ИД версии схемы, по которой стартована задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.StartId">
+      <summary>Количество стартов задачи. Значение больше 1, если задача была рестартована.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Started">
+      <summary>Дата и время отправки задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.StartedBy">
+      <summary>Пользователь, от имени которого отправлена задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Status">
+      <summary>Состояние задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.StatusAllowedItems">
+      <summary>Перечисление статусов задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Subject">
+      <summary>Тема.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Subtasks">
+      <summary>Подзадачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.Texts">
+      <summary>Тексты задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITask.ThreadSubject">
+      <summary>Тема задачи в переписке.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObservers.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObservers.Observer">
+      <summary>Наблюдатель.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObservers.State">
+      <summary>Состояние.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObservers.Task">
+      <summary>Задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObserversCollectionPropertyStates.Observer">
+      <summary>Наблюдатель.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObserversPropertiesInfo.Observer">
+      <summary>Наблюдатель.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObserversPropertyStates.Observer">
+      <summary>Наблюдатель.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObserversPropertyStates.Task">
+      <summary>Задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskObserversState.Properties">
+      <summary>Состояние свойств сущности.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.ITaskState.Pages">
+      <summary>Состояние вкладок на форме сущности.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.BaseAttachmentEventArgs.Attachment">
+      <summary>Вложение.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IAttachmentGroupState.IsEnabled">
+      <summary>Признак того, что группа вложений доступна для изменения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IAttachmentGroupState.IsVisible">
+      <summary>Признак того, что группа вложений является видимой.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IAttachmentInfo.AttachedAt">
+      <summary>Дата и время добавления вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IAttachmentInfo.AttachedBy">
+      <summary>Пользователь, который добавил вложение.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IAttachmentInfo.GroupName">
+      <summary>Имя группы вложений, в которую добавлено вложение.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IAttachmentInfo.Owner">
+      <summary>Задача или задание, в которые добавлено вложение.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.ActiveText">
+      <summary>Текст переписки.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.AllAttachments">
+      <summary>Все вложения семейства задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.Attachments">
+      <summary>Вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.AttachmentsInfo">
+      <summary>Информация о вложениях.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.BlockId">
+      <summary>Идентификатор блока (свойство устарело, оставлено для совместимости)</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.BlockUid">
+      <summary>Идентификатор блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.Id">
+      <summary>Идентификатор сущности.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.IsActiveTextAutoGenerated">
+      <summary>Признак того, что текст переписки сгенерирован автоматически.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.IsActiveTextEnabled">
+      <summary>Признак того, что текст переписки доступен для редактирования.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.IterationId">
+      <summary>Идентификатор итерации, при выполнении которой создана сущность.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.MainTask">
+      <summary>Главная задача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.State">
+      <summary>Состояние.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.Status">
+      <summary>Статус.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.Subject">
+      <summary>Тема.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntity.ThreadSubject">
+      <summary>Тема.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentGroup.All">
+      <summary>Все вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentStates.AttachmentGroups">
+      <summary>Состояния групп вложений.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentStates.SelectedAttachments">
+      <summary>Выделенные вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Interfaces.IWorkflowEntityState.AttachmentStates">
+      <summary>Состояния групп вложений.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.SpecialFolders.RecentTasks">
+      <summary>Папка "Недавние задачи".</summary>
+    </member>
+    <member name="T:Sungero.Core.AssignmentExtensions">
+      <summary>Дополнительные методы для работы с заданием.</summary>
+    </member>
+    <member name="T:Sungero.Core.ForwardingLocation">
+      <summary>Позиция добавления задания в маршрут задачи.</summary>
+      <remarks>ВНИМАНИЕ!!!! Используется в схемах workflow. 
+     Не переименовывать и не менять namespace, во избежание проблем с возобновлением ранее стартованных задач на проде.</remarks>
+    </member>
+    <member name="T:Sungero.Core.TaskExtensions">
+      <summary>Дополнительные методы задачи.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Assignment.IAssignmentResources">
+      <summary>Represents interface of Assignment resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AssignmentAccessRightsTypes">
+      <summary>Имена типов прав для задания.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AssignmentBase.IAssignmentBaseResources">
+      <summary>Represents interface of AssignmentBase resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AssignmentOperations">
+      <summary>Операции авторизации для заданий.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.IAssignmentBase">
+      <summary>Базовое задание.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.IAssignmentExtensions">
+      <summary>Дополнительные методы по работе с заданием.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.IAttachmentGroupInfo">
+      <summary>Информация о группе вложений.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.IInternalAssignmentBase">
+      <summary>Внутренний интерфейс для работы с заданиями.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.IInternalTask">
+      <summary>Внутренний интерфейс для работы с задачами.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.IReviewAssignmentExtensions">
+      <summary>Дополнительные методы задания на приемку.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.ITask">
+      <summary>Задача.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.ITaskExtensions">
+      <summary>Дополнительные методы для работы с задачей.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.AttachmentAddedEventArgs">
+      <summary>Аргументы события "Добавление вложения".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.AttachmentCreatedEventArgs">
+      <summary>Аргументы события "Создание вложения".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.AttachmentDeletedEventArgs">
+      <summary>Аргументы события "Удаление вложения".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.BaseAttachmentEventArgs">
+      <summary>Аргументы события вложения.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IAttachmentGroupState">
+      <summary>Состояние группы вложений.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IAttachmentGroupStateStorage">
+      <summary>Хранилище состояний групп вложений.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IAttachmentInfo">
+      <summary>Информация о вложении.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IWorkflowEntity">
+      <summary>Сущность Workflow.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentGroup">
+      <summary>Группа вложений.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentStates">
+      <summary>Состояние групп вложений.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Interfaces.IWorkflowEntityState">
+      <summary>Состояние сущности Workflow.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Notice.INoticeResources">
+      <summary>Represents interface of Notice resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.ReviewAssignment.IReviewAssignmentResources">
+      <summary>Represents interface of ReviewAssignment resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.ReviewAssignmentExtensions">
+      <summary>Дополнительные методы задания на приемку.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.SimpleAssignment.ISimpleAssignmentResources">
+      <summary>Represents interface of SimpleAssignment resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.SimpleTask.ISimpleTaskResources">
+      <summary>Represents interface of Task resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Task.ITaskResources">
+      <summary>Represents interface of Task resources.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.WorkflowHistory.IWorkflowHistoryResources">
+      <summary>Represents interface of WorkflowHistory resources.</summary>
+    </member>
+  </members>
+</doc>

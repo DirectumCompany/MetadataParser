@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonLibrary.Reflection</name>
+    </assembly>
+    <members>
+        <member name="T:System.Diagnostics.Contracts.ContractArgumentValidatorAttribute">
+            <summary>
+            Атрибуты контрактов.
+            </summary>
+            <remarks>
+            Enables factoring legacy if-then-throw into separate methods for reuse and full control over
+            thrown exception and arguments.
+            </remarks>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractAbbreviatorAttribute">
+            <summary>
+            Enables writing abbreviations for contracts that get copied to other methods.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractOptionAttribute">
+            <summary>
+            Allows setting contract and tool options at assembly, type, or method granularity.
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Reflection.IAssemblyMetadata">
+            <summary>
+            Работа с метаданными сборки.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Reflection.IAssemblyMetadata.AssemblyName">
+            <summary>
+            Имя сборки.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Reflection.IAssemblyMetadata.TryGetAssemblyResource(System.String,System.Byte[]@)">
+            <summary>
+            Получить ресурс сборки.
+            </summary>
+            <param name="resourceName">Имя ресурса.</param>
+            <param name="resource">Полученный из сборки ресурс.</param>
+            <returns>True, если удалось получить ресурс с таким именем, иначе false.</returns>
+        </member>
+        <member name="M:CommonLibrary.Reflection.IAssemblyMetadata.GetAssemblyResource(System.String)">
+            <summary>
+            Получить ресурс сборки.
+            </summary>
+            <param name="resourceName">Имя ресурса.</param>
+            <returns>Содержимое ресурса сборки.</returns>
+        </member>
+        <member name="M:CommonLibrary.Reflection.IAssemblyMetadata.GetManifestResourceNames">
+            <summary>
+            Получение списка имен ресурсов.
+            </summary>
+            <returns>Имена ресурсов.</returns>
+        </member>
+        <member name="T:CommonLibrary.Reflection.ReflectionAssemblyMetadata">
+            <summary>
+            Класс для работы с метаданными сборки через Reflection.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Reflection.ReflectionAssemblyMetadata.Assembly">
+            <summary>
+            Сборка.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Reflection.ReflectionAssemblyMetadata.GetResourceDataByName(System.String)">
+            <summary>
+            Получить ресурс из сборки по имени.
+            </summary>
+            <param name="resourceName">Имя ресурса.</param>
+            <returns>Ресурс сборки.</returns>
+        </member>
+        <member name="M:CommonLibrary.Reflection.ReflectionAssemblyMetadata.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="assembly">Загруженная сборка.</param>
+        </member>
+        <member name="T:CommonLibrary.Reflection.SimpleAssemblyMetadata">
+            <summary>
+            Класс для работы с метаданными сборки без ее загрузки.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Reflection.SimpleAssemblyMetadata.assembly">
+            <summary>
+            Сама сборка.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Reflection.SimpleAssemblyMetadata.GetResourceDataByName(System.String)">
+            <summary>
+            Получить ресурс из сборки по имени.
+            </summary>
+            <param name="resourceName">Имя ресурса.</param>
+            <returns>Ресурс сборки.</returns>
+        </member>
+        <member name="M:CommonLibrary.Reflection.SimpleAssemblyMetadata.#ctor(System.Byte[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="assemblyData">Данные сборки.</param>
+        </member>
+    </members>
+</doc>

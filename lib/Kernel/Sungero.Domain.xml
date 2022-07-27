@@ -1,0 +1,631 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Domain</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Core.MailPriority.High">
+      <summary>Высокая.</summary>
+    </member>
+    <member name="F:Sungero.Core.MailPriority.Low">
+      <summary>Низкая.</summary>
+    </member>
+    <member name="F:Sungero.Core.MailPriority.Normal">
+      <summary>Обычная.</summary>
+    </member>
+    <member name="M:Sungero.Core.AccessRights.AllowRead(System.Action)">
+      <summary>Выполнить с правами на просмотр.</summary>
+      <param name="executor">Действие, которое необходимо выполнить с повышением прав пользователя.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,Sungero.Core.Enumeration,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,Sungero.Domain.Shared.ISimpleAppliedStructure,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Boolean,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Char,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.DateTime,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Decimal,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Double,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Guid,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Int16,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Int32,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Int64,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.String,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.AddOrUpdate(System.String,System.Uri,System.DateTime)">
+      <summary>Добавить или обновить значение в кэше.</summary>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <param name="deathDate">Срок хранения в кэше.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.Remove(System.String)">
+      <summary>Удалить значение из кэша.</summary>
+      <param name="key">Ключ.</param>
+    </member>
+    <member name="M:Sungero.Core.Cache.TryGetValue``1(System.String,``0@)">
+      <summary>Получить значение из кэша.</summary>
+      <typeparam name="T">Тип значения.</typeparam>
+      <param name="key">Ключ.</param>
+      <param name="value">Значение.</param>
+      <returns>Признак того, что значение получено из кэша.</returns>
+    </member>
+    <member name="M:Sungero.Core.Encryption.Decrypt(System.String)">
+      <summary>Расшифровать данные.</summary>
+      <param name="encodedData">Зашифрованные данные.</param>
+      <returns>Расшифрованные данные.</returns>
+    </member>
+    <member name="M:Sungero.Core.Encryption.Encrypt(System.String)">
+      <summary>Зашифровать данные.</summary>
+      <param name="data">Данные для шифрования.</param>
+      <returns>Зашифрованные данные.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEmailMessage.AddAttachment(System.IO.Stream,System.String)">
+      <summary>Добавить вложение.</summary>
+      <param name="contentStream">Содержимое вложения.</param>
+      <param name="name">Название вложения.</param>
+      <returns>Вложение.</returns>
+    </member>
+    <member name="M:Sungero.Core.Mail.CreateMailMessage">
+      <summary>Создать письмо.</summary>
+      <returns>Письмо.</returns>
+    </member>
+    <member name="M:Sungero.Core.Mail.Send(Sungero.Core.IEmailMessage)">
+      <summary>Отправить письмо.</summary>
+      <param name="message">Письмо.</param>
+    </member>
+    <member name="M:Sungero.Core.Mail.Send(System.Collections.Generic.IEnumerable{Sungero.Core.IEmailMessage})">
+      <summary>Отправить письма.</summary>
+      <param name="messages">Письма.</param>
+    </member>
+    <member name="M:Sungero.Core.SQL.AddArrayParameter``1(System.Data.IDbCommand,System.String,System.Collections.Generic.IEnumerable{``0},System.Data.DbType)">
+      <summary>Добавить параметр-список к команде.</summary>
+      <param name="command">Команда.</param>
+      <param name="name">Имя параметра.</param>
+      <param name="values">Значения параметров.</param>
+      <param name="type">SQL-тип параметров.</param>
+      <typeparam name="T">Тип значений параметров.</typeparam>
+      <returns>Параметры запроса.</returns>
+    </member>
+    <member name="M:Sungero.Core.SQL.AddCurrentDateParameter(System.Data.IDbCommand)">
+      <summary>Добавить параметр с текущей датой и временем.</summary>
+      <param name="command">Команда.</param>
+      <returns>Экземпляр параметра запроса.</returns>
+    </member>
+    <member name="M:Sungero.Core.SQL.AddParameter(System.Data.IDbCommand,System.String,System.Object,System.Data.DbType)">
+      <summary>Добавить параметр к команде.</summary>
+      <param name="command">Команда.</param>
+      <param name="name">Имя параметра.</param>
+      <param name="value">Значение параметра.</param>
+      <param name="type">Тип параметра.</param>
+      <returns>Экземпляр параметра запроса.</returns>
+    </member>
+    <member name="M:Sungero.Core.SQL.CreateBulkCopy">
+      <summary>Создать объект для пакетной передачи данных в БД.</summary>
+      <returns>Объект для пакетной передачи данных в БД.</returns>
+    </member>
+    <member name="M:Sungero.Core.SQL.CreateConnection">
+      <summary>Создать подключение к текущей базе данных.</summary>
+      <returns>Подключение.</returns>
+    </member>
+    <member name="M:Sungero.Core.SQL.GetCurrentConnection">
+      <summary>Получить текущее подключение к базе данных.</summary>
+      <returns>Если сессия открыта, возвращаем подключение, иначе Exception.</returns>
+    </member>
+    <member name="M:Sungero.Core.Transactions.Execute(System.Action)">
+      <summary>Выполнить функцию в транзакции.</summary>
+      <param name="func">Функция.</param>
+      <returns>Признак того, что транзакция успешно завершена.</returns>
+    </member>
+    <member name="M:Sungero.Core.Zip.Create">
+      <summary>Создать Zip-архив.</summary>
+      <returns>Zip-архив.</returns>
+    </member>
+    <member name="M:Sungero.Core.ZipServerExtensions.Add(Sungero.Core.IZip,Sungero.Domain.Shared.IBinaryData,System.String,System.String[])">
+      <summary>Добавить в архив бинарные данные.</summary>
+      <param name="zip">Zip-архив.</param>
+      <param name="data">Бинарные данные.</param>
+      <param name="fileName">Имя файла в архиве.</param>
+      <param name="path">Относительный путь в архиве.</param>
+      <returns>Относительный путь до файла в архиве.</returns>
+    </member>
+    <member name="M:Sungero.Core.ZipServerExtensions.Add(Sungero.Core.IZip,Sungero.Domain.Shared.ISignature,System.String,System.String[])">
+      <summary>Добавить подпись в архив.</summary>
+      <param name="zip">Zip-архив.</param>
+      <param name="signature">Подпись.</param>
+      <param name="fileName">Имя файла в архиве.</param>
+      <param name="path">Относительный путь в архиве.</param>
+      <returns>Относительный путь до файла в архиве.</returns>
+    </member>
+    <member name="M:Sungero.Core.ZipServerExtensions.Add(Sungero.Core.IZip,System.Byte[],System.String,System.String,System.String[])">
+      <summary>Добавить в архив массив байт.</summary>
+      <param name="zip">Zip-архив</param>
+      <param name="data">Массив байт.</param>
+      <param name="fileName">Имя файла в архиве.</param>
+      <param name="extension">Расширение файла в архиве.</param>
+      <param name="path">Относительный путь в архиве.</param>
+      <returns>Относительный путь до файла в архиве.</returns>
+    </member>
+    <member name="M:Sungero.Core.ZipServerExtensions.Save(Sungero.Core.IZip,System.String)">
+      <summary>Сохранить Zip-архив в хранилище.</summary>
+      <param name="zip">Zip-архив.</param>
+      <param name="fileName">Имя файла.</param>
+    </member>
+    <member name="M:Sungero.Domain.BeforeSigningEventArgs.AddError(System.String)">
+      <summary>Добавить сообщение об ошибке при подписании.</summary>
+      <param name="message">Текст сообщения.</param>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IBinaryDataPropertyInfo,Sungero.Domain.Shared.IBinaryDataPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Бинарные данные в хранилище".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Бинарные данные в хранилище" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Бинарные данные в хранилище" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IBooleanPropertyInfo,Sungero.Domain.Shared.IBooleanPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Логическое".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Логическое" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Логическое" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.ICollectionPropertyInfo,Sungero.Domain.Shared.ICollectionPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Коллекция".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Коллекция" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Коллекция" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IDataPropertyInfo,Sungero.Domain.Shared.IDataPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Бинарные данные".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Бинарные данные" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Бинарные данные" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IDateTimePropertyInfo,Sungero.Domain.Shared.IDateTimePropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Дата".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Дата" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Дата" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IDoublePropertyInfo,Sungero.Domain.Shared.IDoublePropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Вещественное".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Вещественное" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Вещественное" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IEnumPropertyInfo,Sungero.Domain.Shared.IEnumPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Перечисление".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Перечисление" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Перечисление" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IImagePropertyInfo,Sungero.Domain.Shared.IImagePropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Картинка".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Картинка" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Картинка" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IIntegerPropertyInfo,Sungero.Domain.Shared.IIntegerPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Целое".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Целое" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Целое" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.IStringPropertyInfo,Sungero.Domain.Shared.IStringPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Строка".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Строка" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Строка" в Исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map(Sungero.Domain.Shared.ITextPropertyInfo,Sungero.Domain.Shared.ITextPropertyInfo)">
+      <summary>Задать правило заполнения свойства типа "Текст".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Текст" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Текст" в исходном типе сущности.</param>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.ConvertingFromEventArgs.Map``2(Sungero.Domain.Shared.INavigationPropertyInfo{``0},Sungero.Domain.Shared.INavigationPropertyInfo{``1})">
+      <summary>Задать правило заполнения свойства типа "Ссылка".</summary>
+      <param name="targetProperty">Информация о свойстве типа "Ссылка" в новом типе сущности.</param>
+      <param name="sourceProperty">Информация о свойстве типа "Ссылка" в исходном типе сущности.</param>
+      <typeparam name="TTargetValue">Тип новой сущности.</typeparam>
+      <typeparam name="TSourceValue">Тип исходной сущности.</typeparam>
+      <returns>Аргументы события "Смена типа".</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IBinaryDataPropertyInfo,Sungero.Domain.Shared.IComponent)">
+      <summary>Задать правило заполнения свойства типа "Бинарные данные в хранилище".</summary>
+      <param name="property">Информация о свойстве типа "Бинарные данные в хранилище".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IBooleanPropertyInfo,System.Boolean)">
+      <summary>Задать правило заполнения свойства типа "Логическое".</summary>
+      <param name="property">Информация о свойстве типа "Логическое".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IDataPropertyInfo,System.Byte[])">
+      <summary>Задать правило заполнения свойства типа "Бинарные данные".</summary>
+      <param name="property">Информация о свойстве типа "Бинарные данные".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IDateTimePropertyInfo,System.Nullable{System.DateTime})">
+      <summary>Задать правило заполнения свойства типа "Дата".</summary>
+      <param name="property">Информация о свойстве типа "Дата".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IDoublePropertyInfo,System.Nullable{System.Double})">
+      <summary>Задать правило заполнения свойства типа "Вещественное".</summary>
+      <param name="property">Информация о свойстве типа "Вещественное".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IEnumPropertyInfo,System.Nullable{Sungero.Core.Enumeration})">
+      <summary>Задать правило заполнения свойства типа "Перечисление".</summary>
+      <param name="property">Информация о свойстве типа "Перечисление".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Аргументы события "Копирование".</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IIntegerPropertyInfo,System.Nullable{System.Int32})">
+      <summary>Задать правило заполнения свойства типа "Целое".</summary>
+      <param name="property">Информация о свойстве типа "Целое".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.IStringPropertyInfo,System.String)">
+      <summary>Задать правило заполнения свойства типа "Строка".</summary>
+      <param name="property">Информация о свойстве типа "Строка".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map(Sungero.Domain.Shared.ITextPropertyInfo,System.String)">
+      <summary>Задать правило заполнения свойства типа "Текст".</summary>
+      <param name="property">Информация о свойстве типа "Текст".</param>
+      <param name="value">Значение свойства.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map``1(Sungero.Domain.Shared.ICollectionPropertyInfo,Sungero.Domain.Shared.IChildEntityCollection{``0})">
+      <summary>Задать правило заполнения свойства-коллекции.</summary>
+      <param name="property">Информация о свойстве типа "Коллекция".</param>
+      <param name="values">Значения свойства.</param>
+      <typeparam name="TValue">Тип значений коллекции.</typeparam>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map``1(Sungero.Domain.Shared.ICollectionPropertyInfo,``0[])">
+      <summary>Задать правило заполнения свойства-коллекции.</summary>
+      <param name="property">Информация о свойстве типа "Коллекция".</param>
+      <param name="values">Значения свойства.</param>
+      <typeparam name="TValue">Тип значений массива.</typeparam>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Map``1(Sungero.Domain.Shared.INavigationPropertyInfo{``0},Sungero.Domain.Shared.IEntity)">
+      <summary>Задать правило заполнения свойства типа "Ссылка".</summary>
+      <param name="property">Информация о свойстве типа "Ссылка".</param>
+      <param name="value">Значение свойства.</param>
+      <typeparam name="TValue">Тип сущности.</typeparam>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.CreatingFromEventArgs.Without(Sungero.Domain.Shared.IPropertyInfo)">
+      <summary>Исключить свойство из списка копируемых.</summary>
+      <param name="property">Свойство.</param>
+      <returns>Свой собственный экземпляр, для реализации Fluent интерфейса.</returns>
+    </member>
+    <member name="M:Sungero.Domain.EntityFilteringServerHandler`1.Filtering(System.Linq.IQueryable{`0},Sungero.Domain.FilteringEventArgs)">
+      <summary>Обработчик события "Фильтрация".</summary>
+      <param name="query">Запрос.</param>
+      <param name="e">Аргументы.</param>
+      <returns>Обработанный запрос.</returns>
+    </member>
+    <member name="M:Sungero.Domain.EntityHistories.GetHistory(Sungero.Domain.Shared.IEntity)">
+      <summary>Получить историю сущности.</summary>
+      <param name="entity">Сущность.</param>
+    </member>
+    <member name="M:Sungero.Domain.HistoryEventArgs.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String)">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью. 
+    В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции.
+    В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции. 
+    В истории работы с сущностью отображается как нелокализованная часть комментария. 
+    Расположение  в комментарии зависит от настроек параметра OperationDetailed. 
+    Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+    </member>
+    <member name="M:Sungero.Domain.HistoryEventArgs.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String,System.Boolean)">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью. 
+    В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции. 
+    В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции. 
+    В истории работы с сущностью отображается как нелокализованная часть комментария. 
+    Расположение в комментарии зависит от настроек параметра OperationDetailed. 
+    Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+      <param name="isSubstitute">Признак того, что действие выполнялось по замещению.</param>
+    </member>
+    <member name="M:Sungero.Domain.IDatabaseBulkCopy.Write``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+      <summary>Записать данные в БД.</summary>
+      <param name="destinationTableName">Имя таблицы-приемника.</param>
+      <param name="source">Источник данных.</param>
+      <typeparam name="T">Тип элементов источника данных.</typeparam>
+    </member>
+    <member name="M:Sungero.Domain.Initialization.InitializationLogger.Debug(System.String)">
+      <summary>Добавить сообщение о ходе инициализации в лог.</summary>
+      <param name="message">Текст сообщения.</param>
+    </member>
+    <member name="M:Sungero.Domain.Initialization.InitializationLogger.DebugFormat(System.String,System.Object[])">
+      <summary>Добавить сообщение о ходе инициализации в лог по формату.</summary>
+      <param name="format">Формат строки.</param>
+      <param name="args">Аргументы.</param>
+    </member>
+    <member name="P:Sungero.Core.ConverterAttribute.DisplayNameResource">
+      <summary>Имя ресурса, в котором содержится отображаемое значение функции.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.Bcc">
+      <summary>Список получателей скрытой копии письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.Body">
+      <summary>Текст письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.CC">
+      <summary>Список получателей копии письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.From">
+      <summary>Отправитель письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.IsBodyHtml">
+      <summary>Признак того, что текст письма имеет формат HTML.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.Priority">
+      <summary>Важность письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.Subject">
+      <summary>Тема письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IEmailMessage.To">
+      <summary>Список адресатов письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IMailAttachment.ContentId">
+      <summary>Идентификатор вложения.</summary>
+    </member>
+    <member name="P:Sungero.Core.IMailAttachment.ContentStream">
+      <summary>Поток содержимого вложения.</summary>
+    </member>
+    <member name="P:Sungero.Core.IMailAttachment.IsInline">
+      <summary>Признак того, что вложение находится в тексте письма.</summary>
+    </member>
+    <member name="P:Sungero.Core.IMailAttachment.MediaType">
+      <summary>Тип мультимедиа, которое содержится во вложении.</summary>
+    </member>
+    <member name="P:Sungero.Core.IMailAttachment.Name">
+      <summary>Название вложения.</summary>
+    </member>
+    <member name="P:Sungero.Core.RemoteAttribute.IsPure">
+      <summary>Признак того, что функция не изменяет данные в базе данных.</summary>
+      <remarks>Для таких функций результат выполнения не сохраняется в базу данных и для них не собираются измененные или связанные сущности.</remarks>
+    </member>
+    <member name="P:Sungero.Core.RemoteAttribute.PackResultEntityEagerly">
+      <summary>Признак того, что все свойства возвращаемой сущности необходимо загружать сразу вместе с сущностью (жадная загрузка).</summary>
+    </member>
+    <member name="P:Sungero.Domain.BeforeSigningEventArgs.IsValid">
+      <summary>Признак того, что при подписании не было ошибок.</summary>
+    </member>
+    <member name="P:Sungero.Domain.BeforeSigningEventArgs.Signature">
+      <summary>Электронная подпись.</summary>
+    </member>
+    <member name="P:Sungero.Domain.CreatedEventArgs.Filter">
+      <summary>Получить строку фильтра, по которому создается новая сущность.</summary>
+    </member>
+    <member name="P:Sungero.Domain.FilteringEventArgs.DisableUiFiltering">
+      <summary>Отключить выполнение обработчика события "UI-фильтрация".</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.Action">
+      <summary>Действие с сущностью.</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.Comment">
+      <summary>Комментарий к операции. В истории работы с сущностью отображается как нелокализованная часть комментария. Расположение  в комментарии зависит от настроек параметра OperationDetailed. Например, при экспорте документа в файл указывается имя файла в комментарии.</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.HistoryDate">
+      <summary>Дата и время действия.</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.HostName">
+      <summary>Имя компьютера, с которого было выполнено действие.</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.IsSubstitute">
+      <summary>Признак того, что действие выполнялось по замещению.</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.Operation">
+      <summary>Логическая операция в предметной области, выполняющаяся над сущностью. В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</summary>
+    </member>
+    <member name="P:Sungero.Domain.HistoryEventArgs.OperationDetailed">
+      <summary>Детальная информация о логической операции. В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</summary>
+    </member>
+    <member name="P:Sungero.Domain.PropertyFilteringEventArgs`1.DisableUiFiltering">
+      <summary>Отключить выполнение обработчика события "UI-фильтрация".</summary>
+    </member>
+    <member name="P:Sungero.Domain.PropertyFilteringEventArgs`1.SourceEntity">
+      <summary>Главная сущность.</summary>
+    </member>
+    <member name="P:Sungero.Domain.PropertySearchDialogFilteringEventArgs.DisableUiFiltering">
+      <summary>Отключить выполнение обработчика события "UI-фильтрация".</summary>
+    </member>
+    <member name="P:Sungero.Domain.PropertySearchDialogFilteringEventArgs.EntityType">
+      <summary>Тип сущности, выбранный в диалоге поиска.</summary>
+    </member>
+    <member name="T:Sungero.Core.AccessRights">
+      <summary>Работа с действиями, которые необходимо выполнить с повышенными правами.</summary>
+    </member>
+    <member name="T:Sungero.Core.Cache">
+      <summary>Работа с кэшем.</summary>
+      <remarks>Используется в прикладной разработке.</remarks>
+    </member>
+    <member name="T:Sungero.Core.ConverterAttribute">
+      <summary>Атрибут для указания функций конвертации значений и функций форматирования.</summary>
+    </member>
+    <member name="T:Sungero.Core.Encryption">
+      <summary>Работа с шифрованием.</summary>
+    </member>
+    <member name="T:Sungero.Core.IEmailMessage">
+      <summary>Письмо.</summary>
+    </member>
+    <member name="T:Sungero.Core.IMailAttachment">
+      <summary>Вложение письма.</summary>
+    </member>
+    <member name="T:Sungero.Core.Mail">
+      <summary>Почтовый сервер.</summary>
+    </member>
+    <member name="T:Sungero.Core.MailException">
+      <summary>Исключение при работе с почтой.</summary>
+    </member>
+    <member name="T:Sungero.Core.MailPriority">
+      <summary>Важность письма.</summary>
+    </member>
+    <member name="T:Sungero.Core.RemoteAttribute">
+      <summary>Атрибут для указания серверных функций, которые могут вызываться из клиентского кода модуля или типа сущности.</summary>
+    </member>
+    <member name="T:Sungero.Core.SQL">
+      <summary>Работа с SQL.</summary>
+    </member>
+    <member name="T:Sungero.Core.Transactions">
+      <summary>Работа с транзакциями.</summary>
+    </member>
+    <member name="T:Sungero.Core.Zip">
+      <summary>Zip-архив.</summary>
+    </member>
+    <member name="T:Sungero.Core.ZipServerExtensions">
+      <summary>Работа с Zip-архивом.</summary>
+    </member>
+    <member name="T:Sungero.Domain.AfterDeleteEventArgs">
+      <summary>Аргументы события "После удаления".</summary>
+    </member>
+    <member name="T:Sungero.Domain.AfterSaveEventArgs">
+      <summary>Аргументы события "После сохранения".</summary>
+    </member>
+    <member name="T:Sungero.Domain.BeforeDeleteEventArgs">
+      <summary>Аргументы события "До удаления".</summary>
+    </member>
+    <member name="T:Sungero.Domain.BeforeSaveEventArgs">
+      <summary>Аргументы события "До сохранения".</summary>
+    </member>
+    <member name="T:Sungero.Domain.BeforeSearchingEventArgs">
+      <summary>Аргументы события "До поиска".</summary>
+    </member>
+    <member name="T:Sungero.Domain.BeforeSigningEventArgs">
+      <summary>Аргументы события "До подписания".</summary>
+    </member>
+    <member name="T:Sungero.Domain.ChildEntityPropertyFilteringServerHandler">
+      <summary>Класс-заглушка, от него наследуются классы обработчики событий фильтрации дочерних свойств.</summary>
+    </member>
+    <member name="T:Sungero.Domain.ConvertingFromEventArgs">
+      <summary>Аргументы события "Смена типа".</summary>
+    </member>
+    <member name="T:Sungero.Domain.CreatedEventArgs">
+      <summary>Аргументы события "Создание".</summary>
+    </member>
+    <member name="T:Sungero.Domain.CreatingFromEventArgs">
+      <summary>Аргументы события "Копирование".</summary>
+    </member>
+    <member name="T:Sungero.Domain.DeletingEventArgs">
+      <summary>Аргументы события "До удаления (в транзакции)".</summary>
+    </member>
+    <member name="T:Sungero.Domain.EntityFilteringServerHandler`1">
+      <summary>Класс, от которого на прикладном слое наследуются классы – обработчики события "Фильтрация".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Domain.EntityHistories">
+      <summary>Класс точки доступа для истории сущности.</summary>
+    </member>
+    <member name="T:Sungero.Domain.EntityPropertyFilteringServerHandler">
+      <summary>Класс-заглушка, от него наследуются классы обработчики событий фильтрации свойств.</summary>
+    </member>
+    <member name="T:Sungero.Domain.FilteringEventArgs">
+      <summary>Аргументы события "Фильтрация".</summary>
+    </member>
+    <member name="T:Sungero.Domain.GetDigestEventArgs">
+      <summary>Аргументы события "Показ подсказки с информацией о сущности".</summary>
+    </member>
+    <member name="T:Sungero.Domain.HistoryEventArgs">
+      <summary>Аргументы события "До сохранения истории".</summary>
+    </member>
+    <member name="T:Sungero.Domain.IDatabaseBulkCopy">
+      <summary>Пакетная передача данных в БД.</summary>
+    </member>
+    <member name="T:Sungero.Domain.Initialization.InitializationLogger">
+      <summary>Работа с логом инициализации модулей.</summary>
+      <remarks>Сообщения о ходе инициализации будут отображаться в окне вывода среды разработки и в DeploymentTool.</remarks>
+    </member>
+    <member name="T:Sungero.Domain.PropertyFilteringEventArgs">
+      <summary>Аргументы события "Фильтрация выбора из списка" для свойств типа "Ссылка".</summary>
+    </member>
+    <member name="T:Sungero.Domain.PropertyFilteringEventArgs`1">
+      <summary>Аргументы события "Фильтрация выбора из списка" для свойств типа "Ссылка".</summary>
+      <typeparam name="T">Тип исходной сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Domain.PropertySearchDialogFilteringEventArgs">
+      <summary>Аргументы события "Фильтрация выбора из списка при поиске" для свойств типа "Ссылка".</summary>
+    </member>
+    <member name="T:Sungero.Domain.RefreshSearchDialogEventArgs">
+      <summary>Аргументы события "Обновление диалога поиска".</summary>
+    </member>
+    <member name="T:Sungero.Domain.SavedEventArgs">
+      <summary>Аргументы события "После сохранения (в транзакции).</summary>
+    </member>
+    <member name="T:Sungero.Domain.SavingEventArgs">
+      <summary>Аргументы события "До сохранения (в транзакции)".</summary>
+    </member>
+  </members>
+</doc>

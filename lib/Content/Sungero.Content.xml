@@ -1,0 +1,64 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Content</name>
+  </assembly>
+  <members>
+    <member name="M:Sungero.Content.DocumentHistoryEventArgs.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String,System.Nullable{System.Int32})">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью. В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции. В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции. В истории работы с сущностью отображается как нелокализованная часть комментария. Расположение  в комментарии зависит от настроек параметра OperationDetailed. Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+      <param name="versionNumber">Номер версии документа.</param>
+    </member>
+    <member name="M:Sungero.Content.DocumentHistoryEventArgs.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью. В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции. В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции. В истории работы с сущностью отображается как нелокализованная часть комментария. Расположение  в комментарии зависит от настроек параметра OperationDetailed. Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+      <param name="versionNumber">Номер версии документа.</param>
+      <param name="isSubstitute">Признак того, что действие выполнялось по замещению.</param>
+    </member>
+    <member name="M:Sungero.Core.DocumentHistoryExtensions.WhereDocumentHistory``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{Sungero.Content.IDocumentHistory,System.Boolean}})">
+      <summary>Отфильтровать по истории работы с документом.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="source">Фильтруемый запрос.</param>
+      <param name="expression">Фильтр по истории.</param>
+      <returns>Отфильтрованный по истории список сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.MailMessageExtensions.AddAttachment(Sungero.Core.IEmailMessage,Sungero.Content.IElectronicDocumentVersions)">
+      <summary>Добавить вложение.</summary>
+      <param name="message">Письмо.</param>
+      <param name="version">Версия документа.</param>
+    </member>
+    <member name="M:Sungero.Core.PreviewService.PreparePreview(Sungero.Content.IElectronicDocumentVersions)">
+      <summary>Подготовить документ для предпросмотра.</summary>
+      <param name="documentVersion">Версия документа.</param>
+    </member>
+    <member name="M:Sungero.Core.PreviewService.PreparePreview(Sungero.Content.IElectronicDocumentVersions,System.Int32)">
+      <summary>Подготовить для предпросмотра указанное количество страниц документа.</summary>
+      <param name="documentVersion">Версия документа.</param>
+      <param name="pages">Количество страниц от начала документа.</param>
+    </member>
+    <member name="P:Sungero.Content.DocumentHistoryEventArgs.VersionNumber">
+      <summary>Номер версии документа.</summary>
+    </member>
+    <member name="T:Sungero.Content.DocumentHistoryBinaryDataHandler">
+      <summary>Обработчик записи в историю операций над телом версии.</summary>
+    </member>
+    <member name="T:Sungero.Content.DocumentHistoryEventArgs">
+      <summary>Аргументы события "До сохранения истории".</summary>
+    </member>
+    <member name="T:Sungero.Content.ElectronicDocumentHistories">
+      <summary>История работы с документом.</summary>
+    </member>
+    <member name="T:Sungero.Core.DocumentHistoryExtensions">
+      <summary>Класс расширений для работы с историей.</summary>
+    </member>
+    <member name="T:Sungero.Core.MailMessageExtensions">
+      <summary>Методы расширения для отправки сообщения по почте.</summary>
+    </member>
+    <member name="T:Sungero.Core.PreviewService">
+      <summary>Сервис предпросмотра.</summary>
+    </member>
+  </members>
+</doc>

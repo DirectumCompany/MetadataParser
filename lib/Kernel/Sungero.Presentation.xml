@@ -1,0 +1,157 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Presentation</name>
+  </assembly>
+  <members>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.Show(Sungero.Domain.Shared.IEntity)">
+      <summary>Показать карточку сущности.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.Show(Sungero.Domain.Shared.IEntity,System.String)">
+      <summary>Показать карточку сущности.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+      <param name="title">Дополнительный заголовок карточки.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.Show(System.Type)">
+      <summary>Показать список сущностей.</summary>
+      <param name="entityType">Тип сущности.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.Show(System.Type,System.Int32)">
+      <summary>Показать карточку сущности по идентификатору.</summary>
+      <param name="entityType">Тип сущности.</param>
+      <param name="id">Идентификатор сущности.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowModal(Sungero.Domain.Shared.IEntity)">
+      <summary>Показать карточку сущности в модальном окне.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowModal(Sungero.Domain.Shared.IEntity,System.String)">
+      <summary>Показать карточку сущности в модальном окне.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+      <param name="title">Дополнительный заголовок карточки.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowModal``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в модальном окне.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowModal``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в модальном окне.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelect``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelect``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.ShowSelect``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.Show``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensionsService.Show``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+    </member>
+    <member name="M:Sungero.Core.ExtensionInputDialogService.AddSelectMany``1(CommonLibrary.IInputDialog,System.String,System.Boolean,``0[])">
+      <summary>Добавить контрол "Выпадающий список со множественным выбором" для сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="dialog">Диалог ввода.</param>
+      <param name="title">Заголовок контрола.</param>
+      <param name="isRequired">Признак того, что контрол является обязательным для заполнения.</param>
+      <param name="defaultValue">Значения по умолчанию.</param>
+      <returns>Контрол "Выпадающий список со множественным выбором" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.ExtensionInputDialogService.AddSelect``1(CommonLibrary.IInputDialog,System.String,System.Boolean,``0)">
+      <summary>Добавить контрол "Выпадающий список" для сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="dialog">Диалог ввода.</param>
+      <param name="title">Заголовок контрола.</param>
+      <param name="isRequired">Признак того, что контрол является обязательным для заполнения.</param>
+      <param name="defaultValue">Значение по умолчанию.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.MessageTypeHelper.GetMessageBoxImage(Sungero.Core.MessageType)">
+      <summary>Получить иконку для диалога по типу сообщения.</summary>
+      <param name="messageType">Тип сообщения.</param>
+      <returns>Тип иконки.</returns>
+    </member>
+    <member name="T:Sungero.Core.EntityViewsExtensionsService">
+      <summary>Методы-расширения для работы с представлениями сущностей.</summary>
+    </member>
+    <member name="T:Sungero.Core.ExtensionInputDialogService">
+      <summary>Расширение для класса InputDialog с возможностью выбора сущностей.</summary>
+    </member>
+    <member name="T:Sungero.Core.MessageTypeHelper">
+      <summary>Вспомогательный класс для работы с типом сообщения.</summary>
+    </member>
+  </members>
+</doc>

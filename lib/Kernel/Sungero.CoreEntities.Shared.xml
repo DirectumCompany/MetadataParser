@@ -1,0 +1,716 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.CoreEntities.Shared</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Core.Calendar.SqlMaxValue">
+      <summary>Максимальное значение даты, поддерживаемое SQL.</summary>
+    </member>
+    <member name="F:Sungero.Core.Calendar.SqlMinValue">
+      <summary>Минимальное значение даты, поддерживаемое SQL.</summary>
+    </member>
+    <member name="F:Sungero.Core.Calendar.TimePeriodOptions.ExcludeBeginDay">
+      <summary>Исключение времени начала дня из периода.</summary>
+    </member>
+    <member name="F:Sungero.Core.Calendar.TimePeriodOptions.ExcludeBeginLunch">
+      <summary>Исключение времени начала обеда из периода.</summary>
+    </member>
+    <member name="F:Sungero.Core.Calendar.TimePeriodOptions.ExcludeEndDay">
+      <summary>Исключение времени окончания дня из периода.</summary>
+    </member>
+    <member name="F:Sungero.Core.Calendar.TimePeriodOptions.ExcludeEndLunch">
+      <summary>Исключение времени окончания обеда из периода.</summary>
+    </member>
+    <member name="F:Sungero.Core.Calendar.TimePeriodOptions.None">
+      <summary>Границы не заданы.</summary>
+    </member>
+    <member name="M:Sungero.Core.Calendar.AddWorkingDays(System.DateTime,Sungero.CoreEntities.IRecipient,System.Int32)">
+      <summary>Добавить рабочие дни пользователю или группе.</summary>
+      <param name="dateTime">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <param name="dayCount">Количество дней.</param>
+      <returns>Рабочий день и время через определенное количество дней от указанной даты.</returns>
+      <remarks>Если указанная дата выпадает на выходной, то дни добавляются к последнему рабочему дню перед выходным.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.AddWorkingDays(System.DateTime,System.Int32)">
+      <summary>Добавить рабочие дни.</summary>
+      <param name="dateTime">Дата.</param>
+      <param name="dayCount">Количество дней.</param>
+      <returns>Рабочий день и время через определенное количество дней от переданной даты.</returns>
+      <remarks>Если дата, к которой добавляются дни, выпадает на выходной день, то в качестве исходной берется дата окончания предыдущего рабочего дня.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.AddWorkingHours(System.DateTime,Sungero.CoreEntities.IRecipient,System.Double)">
+      <summary>Добавить рабочие часы к указанной дате для пользователя или группы пользователей.</summary>
+      <param name="dateTime">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <param name="hours">Рабочие часы.</param>
+      <returns>Рабочий день и время через определенное количество часов от указанной даты.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.AddWorkingHours(System.DateTime,System.Double)">
+      <summary>Добавить рабочие часы.</summary>
+      <param name="dateTime">Дата.</param>
+      <param name="hours">Рабочие часы.</param>
+      <returns>Получить рабочий день и время через определенное количество рабочих часов от переданной даты.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfDay(System.DateTime)">
+      <summary>Получить начало дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfMonth(System.DateTime)">
+      <summary>Получить начало месяца.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало месяца.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWeek(System.DateTime)">
+      <summary>Получить начало недели.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало недели.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWorkingDay(System.DateTime)">
+      <summary>Получить начало рабочего дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало рабочего дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWorkingDay(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Возвращает начало рабочего дня для пользователя или группы пользователей.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Начало рабочего дня пользователя или группы.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWorkingMonth(System.DateTime)">
+      <summary>Получить начало первого рабочего дня в месяце.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало первого рабочего дня в месяце.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWorkingMonth(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Возвращает начало первого рабочего дня в месяце для пользователя или группы пользователей.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Начало первого рабочего дня в месяце для пользователя или группы.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWorkingYear(System.DateTime)">
+      <summary>Получить начало первого рабочего дня в году.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало первого рабочего дня в году.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfWorkingYear(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Возвращает начало первого рабочего дня в году для пользователя или группы.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Начало первого рабочего дня в году для пользователя или группы.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.BeginningOfYear(System.DateTime)">
+      <summary>Получить начало года.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало года.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.Between(System.Nullable{System.DateTime},System.DateTime,System.DateTime)">
+      <summary>Проверить, находится ли дата в указанном периоде.</summary>
+      <param name="date">Дата.</param>
+      <param name="begin">Начало периода.</param>
+      <param name="end">Конец периода.</param>
+      <returns>Признак того, что дата входит в период.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.CalculateDeadline(System.DateTime,Sungero.CoreEntities.IRecipient,System.Nullable{System.Int32},System.Nullable{System.Double})">
+      <summary>Возвращает срок завершения задания для пользователя или группы пользователей.</summary>
+      <param name="timeBase">Точка отсчета, относительно которой рассчитывается конечный срок.</param>
+      <param name="recipient">Пользователь или группа.</param>
+      <param name="workingDays">Количество дней.</param>
+      <param name="workingHours">Количество часов.</param>
+      <returns>Срок завершения задания для пользователя или группы пользователей.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.CalculateDeadline(System.DateTime,System.Nullable{System.Int32},System.Nullable{System.Double})">
+      <summary>Возвращает дату срока завершения.</summary>
+      <param name="timeBase">Точка отсчёта, относительно которой рассчитывается относительный срок.</param>
+      <param name="workingDays">Количество дней.</param>
+      <param name="workingHours">Количество часов.</param>
+      <returns>Дата срока завершения.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfDay(System.DateTime)">
+      <summary>Получить конец дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfMonth(System.DateTime)">
+      <summary>Получить конец месяца.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец месяца.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWeek(System.DateTime)">
+      <summary>Получить конец недели.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец недели.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWorkingDay(System.DateTime)">
+      <summary>Получить конец рабочего дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец рабочего дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWorkingDay(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Возвращает конец рабочего дня для пользователя или группы пользователей.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Конец рабочего дня для пользователя или группы пользователей.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWorkingMonth(System.DateTime)">
+      <summary>Получить конец последнего рабочего дня в месяце.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец последнего рабочего дня в месяце.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWorkingMonth(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Возвращает конец последнего рабочего дня в месяце для пользователя или группы.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Конец последнего рабочего дня в месяце для пользователя или группы.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWorkingYear(System.DateTime)">
+      <summary>Получить конец последнего рабочего дня в году.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец последнего рабочего дня в году.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfWorkingYear(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Возвращает конец последнего рабочего дня в году для пользователя или группы.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Конец последнего рабочего дня в году для пользователя или группы.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.EndOfYear(System.DateTime)">
+      <summary>Получить конец года.</summary>
+      <param name="date">Дата.</param>
+      <returns>Конец года.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.FromUserTime(System.DateTime)">
+      <summary>Преобразовать локальные дату и время текущего пользователя в дату и время сервера приложений.</summary>
+      <param name="dateTime">Дата со временем.</param>
+      <returns>Дата и время сервера приложений.</returns>
+      <remarks>Если дата без времени, то преобразование выполняться не будет.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.FromUserTime(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Преобразовать локальные дату и время пользователя или группы пользователей в дату и время сервера приложений.</summary>
+      <param name="dateTime">Дата и время.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Дата и время сервера приложений.</returns>
+      <remarks>Если дата указана без времени, то преобразование не выполнится.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.FromUserTime(System.Nullable{System.DateTime})">
+      <summary>Преобразовать локальные дату и время текущего пользователя в дату и время сервера приложений.</summary>
+      <param name="dateTime">Дата со временем.</param>
+      <returns>Дата и время сервера приложений.</returns>
+      <remarks>Если дата без времени, то преобразование выполняться не будет.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.FromUserTime(System.Nullable{System.DateTime},Sungero.CoreEntities.IRecipient)">
+      <summary>Преобразовать локальные дату и время пользователя или группы пользователей в дату и время сервера приложений.</summary>
+      <param name="dateTime">Дата и время.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Дата и время сервера приложений.</returns>
+      <remarks>Если дата указана без времени, то преобразование не выполнится.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.FromUtcTime(System.DateTime)">
+      <summary>Преобразовать дату и время из формата UTC в дату и время сервера приложений.</summary>
+      <param name="dateTime">Дата и время в формате UTC.</param>
+      <returns>Дата и время сервера приложений.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.FromUtcTime(System.Nullable{System.DateTime})">
+      <summary>Преобразовать дату и время из формата UTC в дату и время сервера приложений.</summary>
+      <param name="dateTime">Дата и время в формате UTC.</param>
+      <returns>Дата и время сервера приложений.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.GetDate(System.Int32,System.Int32,System.Int32)">
+      <summary>Получить дату.</summary>
+      <param name="year">Год.</param>
+      <param name="month">Месяц.</param>
+      <param name="day">День.</param>
+      <returns>Дата.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.GetUserNow(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить локальную дату и время для пользователя или группы пользователей.</summary>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+    </member>
+    <member name="M:Sungero.Core.Calendar.GetUserToday(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить локальную дату для пользователя или группы пользователей.</summary>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+    </member>
+    <member name="M:Sungero.Core.Calendar.HasTime(System.DateTime)">
+      <summary>Проверить, указана ли дата со временем.</summary>
+      <param name="date">Дата.</param>
+      <returns>Признак того, что дата указана со временем.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsLunchTime(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Проверить, выпадают ли дата и время на обеденный перерыв.</summary>
+      <param name="dateTime">Дата и время, которые нужно проверить.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>True, если дата и время выпадают на обеденный перерыв, иначе –  false.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsLunchTime(System.DateTime,Sungero.CoreEntities.IRecipient,Sungero.Core.Calendar.TimePeriodOptions)">
+      <summary>Проверить, выпадают ли дата и время на обеденный перерыв.</summary>
+      <param name="dateTime">Дата и время, которые нужно проверить.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <param name="timePeriodOptions">Границы обеда, которые не нужно включать в обеденное время.</param>
+      <returns>True, если время попадает на обеденный перерыв, иначе - false.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsWorkingDay(System.DateTime)">
+      <summary>Проверить, является ли день рабочим по календарю рабочего времени.</summary>
+      <param name="date">День, который нужно проверить.</param>
+      <returns>Признак того, что день является рабочим.</returns>
+      <remarks>День считается рабочим, если в течение дня есть рабочее время.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsWorkingDay(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Проверить, является ли день рабочим по календарю рабочего времени для пользователя или группы.</summary>
+      <param name="date">День, который нужно проверить.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>True, если день рабочий, иначе - false.</returns>
+      <remarks>День считается рабочим, если в течение дня у пользователя или группы есть рабочее время.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsWorkingTime(System.DateTime)">
+      <summary>Проверить, являются ли дата и время рабочими по календарю рабочего времени.</summary>
+      <param name="dateTime">Дата и время, которые нужно проверить.</param>
+      <returns>Признак того, что день является рабочим.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsWorkingTime(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Проверить, являются ли дата и время рабочими по календарю рабочего времени для пользователя или группы.</summary>
+      <param name="dateTime">Дата и время, которые нужно проверить.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>True, если время рабочее, иначе - false.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.IsWorkingTime(System.DateTime,Sungero.CoreEntities.IRecipient,Sungero.Core.Calendar.TimePeriodOptions)">
+      <summary>Проверить, являются ли дата и время рабочими по календарю рабочего времени для пользователя или группы пользователей с учетом границ обеденного времени.</summary>
+      <param name="dateTime">Дата и время, которые нужно проверить.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <param name="timePeriodOptions">Границы дня или обеда, которые не нужно включать в рабочее время.</param>
+      <returns>True, если дата и время являются рабочими, иначе – false.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.NextDay(System.DateTime)">
+      <summary>Получить начало следующего дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало следующего дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.NextMonth(System.DateTime)">
+      <summary>Получить начало следующего месяца.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало следующего месяца.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.NextWeek(System.DateTime)">
+      <summary>Получить начало следующей недели.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало следующей недели.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.NextWorkingDay(System.DateTime)">
+      <summary>Получить дату следующего рабочего дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Дата следующего рабочего дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.NextWorkingDay(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Получить дату следующего рабочего дня пользователя или группы.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Следующий рабочий день для пользователя или группы пользователей после указанной даты.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.NextYear(System.DateTime)">
+      <summary>Получить начало следующего года.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало следующего года.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.Preload(Sungero.CoreEntities.IRecipient[],System.Int32,System.Int32)">
+      <summary>Загрузить в кэш информацию о часовых поясах для пользователей или групп.</summary>
+      <param name="recipients">Пользователи или группы пользователей.</param>
+      <param name="oneYear">Год начала периода.</param>
+      <param name="twoYear">Год окончания периода.</param>
+      <remarks>Вызывайте данный метод, если собираетесь использовать API календарей для большого количества пользователей.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreloadUtcOffsets(Sungero.CoreEntities.IRecipient[])">
+      <summary>Загрузить в кэш информацию о часовых поясах для пользователей или групп.</summary>
+      <param name="recipients">Пользователи или группы пользователей.</param>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreviousDay(System.DateTime)">
+      <summary>Получить начало предыдущего дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало предыдущего дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreviousMonth(System.DateTime)">
+      <summary>Получить начало предыдущего месяца.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало предыдущего месяца.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreviousWeek(System.DateTime)">
+      <summary>Получить начало предыдущей недели.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало предыдущей недели.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreviousWorkingDay(System.DateTime)">
+      <summary>Получить дату предыдущего рабочего дня.</summary>
+      <param name="date">Дата.</param>
+      <returns>Дата предыдущего рабочего дня.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreviousWorkingDay(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Получить дату предыдущего рабочего дня для пользователя или группы пользователей.</summary>
+      <param name="date">Дата.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Предыдущий рабочий день для пользователя или группы пользователей перед указанной датой.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.PreviousYear(System.DateTime)">
+      <summary>Получить начало предыдущего года.</summary>
+      <param name="date">Дата.</param>
+      <returns>Начало предыдущего года.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.ToUserTime(System.DateTime)">
+      <summary>Преобразовать дату и время в локальную дату и время текущего пользователя.</summary>
+      <param name="dateTime">Дата со временем.</param>
+      <returns>Локальная дата и время текущего пользователя.</returns>
+      <remarks>Если дата без времени, то преобразование выполняться не будет.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.ToUserTime(System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Преобразовать дату и время в локальную дату и время пользователя или группы пользователей.</summary>
+      <param name="dateTime">Дата и время.</param>
+      <param name="recipient">Пользователь или группа.</param>
+      <remarks>Если дата указана без времени, то преобразование не выполнится.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.ToUserTime(System.Nullable{System.DateTime})">
+      <summary>Преобразовать дату и время в локальную дату и время текущего пользователя.</summary>
+      <param name="dateTime">Дата со временем.</param>
+      <returns>Локальная дата и время текущего пользователя.</returns>
+      <remarks>Если дата без времени, то преобразование выполняться не будет.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.ToUserTime(System.Nullable{System.DateTime},Sungero.CoreEntities.IRecipient)">
+      <summary>Преобразовать дату и время в локальную дату и время пользователя или группы пользователей.</summary>
+      <param name="dateTime">Дата и время.</param>
+      <param name="recipient">Пользователь или группа.</param>
+      <remarks>Если дата указана без времени, то преобразование не выполнится.</remarks>
+    </member>
+    <member name="M:Sungero.Core.Calendar.ToUtcTime(System.DateTime)">
+      <summary>Преобразовать дату и время сервера приложений в формат UTC.</summary>
+      <param name="dateTime">Дата и время сервера приложений.</param>
+      <returns>Дата и время в формате UTC.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.ToUtcTime(System.Nullable{System.DateTime})">
+      <summary>Преобразовать дату и время сервера приложений в формат UTC.</summary>
+      <param name="dateTime">Дата и время сервера приложений.</param>
+      <returns>Дата и время в формате UTC.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.TryParseDate(System.String,System.DateTime@)">
+      <summary>Попробовать преобразовать строку в дату.</summary>
+      <param name="value">Строка, которая преобразовывается в дату.</param>
+      <param name="result">Результат преобразования.</param>
+      <returns>Признак того, что преобразование прошло успешно.</returns>
+    </member>
+    <member name="M:Sungero.Core.Calendar.TryParseDateTime(System.String,System.DateTime@)">
+      <summary>Попробовать преобразовать строку в дату со временем.</summary>
+      <param name="value">Строка, которая преобразовывается в дату со временем.</param>
+      <param name="result">Результат преобразования.</param>
+      <returns>Признак того, что преобразование прошло успешно.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.ActiveUsersWhoSubstitute(Sungero.CoreEntities.IUser)">
+      <summary>Получить список действующих пользователей, которые замещают заданного пользователя.</summary>
+      <param name="user">Пользователь.</param>
+      <returns>Список открытых пользователей, которые замещают заданного пользователя.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.UsersWhoSubstitute(Sungero.CoreEntities.IUser)">
+      <summary>Получить список пользователей, которые замещают заданного пользователя.</summary>
+      <param name="user">Пользователь.</param>
+      <returns>Список пользователей, которые замещают заданного пользователя.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.UsersWhoSubstitute(Sungero.CoreEntities.IUser,System.DateTime)">
+      <summary>Получить список пользователей, которые замещают заданного пользователя.</summary>
+      <param name="user">Пользователь.</param>
+      <param name="dateTime">Время.</param>
+      <returns>Список пользователей, которые замещают заданного пользователя.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.LoginSharedHandlers.TypeAuthenticationChanged(Sungero.CoreEntities.ILogin,Sungero.Domain.Shared.PropertyChangedEventArgs{System.Nullable{Sungero.Core.Enumeration}})">
+      <summary>Обработчик события "Изменение значения свойства" для свойства TypeAuthentication.</summary>
+      <param name="entity">Сущность.</param>
+      <param name="e">Параметры события.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.PeriodFilterState.GetBeginPeriod">
+      <summary>Получить начало периода. Для расчета используются локальные дата и время пользователя.</summary>
+    </member>
+    <member name="M:Sungero.CoreEntities.PeriodFilterState.GetEndPeriod">
+      <summary>Получить конец периода. Для расчета используются локальные дата и время пользователя.</summary>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.RecipientRepository`1.AllRecipientIdsFor(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить идентификаторы всех субъектов прав, правами которых обладает указанный пользователь.</summary>
+      <param name="recipient">Субъект прав.</param>
+      <returns>Идентификаторы субъектов прав.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.RecipientRepository`1.AllRecipientSidsFor(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить идентификаторы всех субъектов прав, правами которых обладает указанный пользователь.</summary>
+      <param name="recipient">Субъект прав.</param>
+      <returns>Идентификаторы субъектов прав.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.RecipientRepository`1.DirectSubstitutionRecipientIdsFor(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить список идентификаторов пользователей, которых напрямую замещает указанный пользователь.</summary>
+      <param name="recipient">Субъект прав.</param>
+      <returns>Идентификаторы пользователей.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.RecipientRepository`1.OwnRecipientIdsFor(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить идентификаторы субъектов прав, правами которых непосредственно обладает указанный пользователь.</summary>
+      <param name="recipient">Субъект прав.</param>
+      <returns>Идентификаторы субъектов прав.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.RecipientRepository`1.UserAndDirectSubstitutionRecipientIdsFor(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить идентификатор указанного пользователя и идентификаторы пользователей, которых он напрямую замещает.</summary>
+      <param name="recipient">Субъект прав.</param>
+      <returns>Идентификаторы пользователей.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.UserRepository`1.GetUtcOffset(Sungero.CoreEntities.IRecipient)">
+      <summary>Получить смещение даты и времени пользователя или группы пользователей от UTC.</summary>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1.GetAllCachedByYear(System.Int32)">
+      <summary>Получить из кэша календари рабочего времени за указанный год.</summary>
+      <param name="year">Год, за который нужно получить из кэша календари рабочего времени.</param>
+      <returns>Записи справочника "Календари рабочего времени".</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1.GetAllCachedByYear(System.Int32,Sungero.CoreEntities.IRecipient)">
+      <summary>Получить из кэша календари рабочего времени за указанный год с учетом частных календарей.</summary>
+      <param name="year">Год, за который нужно получить из кэша календари рабочего времени.</param>
+      <param name="recipient">Пользователь, для которого запрашиваются календари рабочего времени.</param>
+      <returns>Записи справочника "Календари рабочего времени".</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1.GetDurationInWorkingDays(System.DateTime,System.DateTime)">
+      <summary>Получить количество рабочих дней в указанном интервале дат.</summary>
+      <param name="startDate">Дата начала с учетом времени на сервере приложений.</param>
+      <param name="endDate">Дата окончания с учетом времени на сервере приложений.</param>
+      <returns>Количество рабочих дней.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1.GetDurationInWorkingDays(System.DateTime,System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Получить количество рабочих дней пользователя в указанном интервале дат.</summary>
+      <param name="startDate">Дата начала без времени.</param>
+      <param name="endDate">Дата окончания без времени.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Количество рабочих дней.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1.GetDurationInWorkingHours(System.DateTime,System.DateTime)">
+      <summary>Получить количество рабочих часов в указанном интервале дат.</summary>
+      <param name="startDate">Дата начала с учетом времени на сервере приложений.</param>
+      <param name="endDate">Дата окончания с учетом времени на сервере приложений.</param>
+      <returns>Количество рабочих часов.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1.GetDurationInWorkingHours(System.DateTime,System.DateTime,Sungero.CoreEntities.IRecipient)">
+      <summary>Получить количество рабочих часов пользователя в указанном интервале дат.</summary>
+      <param name="startDate">Дата начала с учетом времени на сервере приложений.</param>
+      <param name="endDate">Дата окончания с учетом времени на сервере приложений.</param>
+      <param name="recipient">Пользователь или группа пользователей.</param>
+      <returns>Количество рабочих часов.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.UserDomainSharedHandlers.PersonalPhotoChanged(Sungero.CoreEntities.IUser)">
+      <summary>Обработчик события на изменение фотографии пользователя.</summary>
+      <param name="user">Пользователь.</param>
+    </member>
+    <member name="P:Sungero.Core.Calendar.Now">
+      <summary>Текущие дата и время сервера приложений.</summary>
+    </member>
+    <member name="P:Sungero.Core.Calendar.Today">
+      <summary>Текущая дата сервера приложений.</summary>
+    </member>
+    <member name="P:Sungero.Core.Calendar.UserNow">
+      <summary>Локальная дата и время текущего пользователя.</summary>
+    </member>
+    <member name="P:Sungero.Core.Calendar.UserToday">
+      <summary>Получить локальную дату текущего пользователя.</summary>
+      <returns>Локальная дата пользователя.</returns>
+    </member>
+    <member name="P:Sungero.Core.Calendar.UtcOffset">
+      <summary>Смещение даты и времени сервера приложений от UTC.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.IPrivateWorkingTimeCalendarRepositoryImplementer`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.IPrivateWorkingTimeCalendarRepositoryImplementer`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.ActiveSubstitutedUsers">
+      <summary>Список действующих пользователей, которых замещает текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.ActiveSubstitutedUsersWithoutSystem">
+      <summary>Список открытых пользователей, которых замещает текущий пользователь без учета системных замещений.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.SubstitutedUsers">
+      <summary>Список пользователей, которых замещает текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.SubstitutedUsersWithoutSystem">
+      <summary>Список действующих пользователей, которых замещает текущий пользователь без учета системных замещений.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ISubstitutionRepositoryImplementer`1.SubstitutionFolders">
+      <summary>Список папок отсутствующих пользователей.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ITimeZoneRepositoryImplementer`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.ITimeZoneRepositoryImplementer`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.PeriodFilterState.Last30Days">
+      <summary>Последние 30 дней.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.PeriodFilterState.Last3Days">
+      <summary>Последние 3 дня.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.PeriodFilterState.Last7Days">
+      <summary>Последние 7 дней.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.PeriodFilterState.Today">
+      <summary>Сегодня.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.AccessRightsTypeRepository`1.Resources">
+      <summary>Получить ресурсы сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.FolderRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.GroupRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.LoginRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.PrivateWorkingTimeCalendarRepository`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.PrivateWorkingTimeCalendarRepository`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.PrivateWorkingTimeCalendarRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.AllRecipientIds">
+      <summary>Идентификаторы всех субъектов прав, правами которых обладает текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.AllRecipientSids">
+      <summary>Идентификаторы всех субъектов прав, правами которых обладает текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.DirectSubstitutionRecipientIds">
+      <summary>Идентификаторы пользователей, которых напрямую замещает текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.OwnRecipientIds">
+      <summary>Идентификаторы субъектов прав, правами которых непосредственно обладает текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RecipientRepository`1.UserAndDirectSubstitutionRecipientIds">
+      <summary>Идентификатор текущего пользователя и идентификаторы пользователей, которых он напрямую замещает.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.RoleRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.StorageRepository`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.StorageRepository`1.Default">
+      <summary>Хранилище по умолчанию.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.StorageRepository`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.StorageRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.TimeZoneRepository`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.TimeZoneRepository`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.TimeZoneRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.UserRepository`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.UserRepository`1.Current">
+      <summary>Текущий пользователь.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.UserRepository`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.UserRepository`1.Resources">
+      <summary>Ресурсы типа сущности.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.UserRepository`1.ServiceUserIds">
+      <summary>Идентификаторы служебных пользователей.</summary>
+    </member>
+    <member name="P:Sungero.CoreEntities.Shared.UserRepository`1.UtcOffsetOfCurrent">
+      <summary>Получить смещение часового пояса пользователя от UTC.</summary>
+    </member>
+    <member name="T:Sungero.Core.Calendar">
+      <summary>API для работы с датой и временем.</summary>
+    </member>
+    <member name="T:Sungero.Core.Calendar.TimePeriodOptions">
+      <summary>Границы начала и окончания дня или обеда. Используются, чтобы исключать значения границ при проверке периода.</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.AccessRightsTypes">
+      <summary>Репозиторий сущностей "Тип прав".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Databooks">
+      <summary>Репозиторий базовых сущностей "Справочник". Рекомендуется использовать только операцию Union.</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Folders">
+      <summary>Репозиторий типа сущности "Папка".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Groups">
+      <summary>Репозиторий типа сущности "Группа".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.LoginSharedHandlers">
+      <summary>Обработчики событий сущности "Логин".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Logins">
+      <summary>Репозиторий типа сущности "Учетная запись".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.PeriodFilterState">
+      <summary>Базовое состояние фильтра по периоду в панели фильтрации.</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Recipients">
+      <summary>Репозиторий типа сущности "Субъект прав".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Roles">
+      <summary>Репозиторий типа сущности "Роль".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.AccessRightsTypeRepository`1">
+      <summary>Репозиторий сущностей "Тип прав".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.FolderRepository`1">
+      <summary>Репозиторий сущностей "Папка".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.GroupRepository`1">
+      <summary>Репозиторий сущностей "Группа".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.LoginRepository`1">
+      <summary>Репозиторий сущностей "Логин".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.PrivateWorkingTimeCalendarRepository`1">
+      <summary>Репозиторий сущностей "Частные календари рабочего времени".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.RecipientRepository`1">
+      <summary>Репозиторий сущностей "Субъект прав".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.RoleRepository`1">
+      <summary>Репозиторий сущностей "Роль".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.UserRepository`1">
+      <summary>Репозиторий сущностей "Пользователь".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Shared.WorkingTimeCalendarRepository`1">
+      <summary>Репозиторий сущностей "Календари рабочего времени".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.CoreEntities.Storages">
+      <summary>Репозиторий типа сущности "Хранилище".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.Users">
+      <summary>Репозиторий типа сущности "Пользователь".</summary>
+    </member>
+  </members>
+</doc>

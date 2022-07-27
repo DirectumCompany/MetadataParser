@@ -1,0 +1,16 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Reporting.Server</name>
+  </assembly>
+  <members>
+    <member name="P:Sungero.Reporting.Server.AfterExecuteEventArgs.IsSuccessful">
+      <summary>Признак того, что генерация отчета выполнена успешно.</summary>
+    </member>
+    <member name="T:Sungero.Reporting.Server.AfterExecuteEventArgs">
+      <summary>Аргументы события "После выполнения".</summary>
+    </member>
+    <member name="T:Sungero.Reporting.Server.BeforeExecuteEventArgs">
+      <summary>Аргументы события "До выполнения".</summary>
+    </member>
+  </members>
+</doc>

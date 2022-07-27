@@ -1,0 +1,377 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Workflow.Blocks</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Workflow.AssignRights.AllPerformersAllAttachments">
+      <summary>Всем исполнителям на все вложения.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.AssignRights.AllPerformersOnlyLocalAttachments">
+      <summary>Всем исполнителям на вложенное в этом блоке.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.AssignRights.None">
+      <summary>Не выдавать права.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.BlockAssignmentType.Assignment">
+      <summary>Задание.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.BlockAssignmentType.Notice">
+      <summary>Уведомление.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.BlockRouteType.Parallel">
+      <summary>Паралелльная маршрутизация.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.BlockRouteType.Sequential">
+      <summary>Последовательная маршрутизация.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.CompleteAssignment">
+      <summary>Шаблон имени обработчика события "Выполнение задания" для блока "Задание".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.DecisionResult">
+      <summary>Шаблон имени обработчика события "Result" для блока "Decision".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.EndBlock">
+      <summary>Шаблон имени обработчика события "Конец" для блока.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.MonitoringResult">
+      <summary>Шаблон имени обработчика события "Result" для блока "Мониторинг".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.ScriptExecute">
+      <summary>Шаблон имени обработчика события "Выполение" для блока "Скрипт".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.StartAssignment">
+      <summary>Шаблон имени обработчика события "Старт задания" для блока "Задание".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.StartBlock">
+      <summary>Шаблон имени обработчика события "Старт" для блока.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.StartNotice">
+      <summary>Шаблон имени обработчика события "Старт уведомления" для блока "Уведомление".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.StartReviewAssignment">
+      <summary>Шаблон имени обработчика события "Старт задания на приёмку" для блока "Finish".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventHandlerNameTemplates.StartTask">
+      <summary>Шаблон имени обработчика события "Старт задачи" для блоков "Задача" и "Простая задача".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.CompleteAssignment">
+      <summary>Имя события "Выполнение задания" для блока "Задание".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.DecisionResult">
+      <summary>Имя события "Result" для блока "Decision".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.EndBlock">
+      <summary>Имя события "Конец" для блока.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.MonitoringResult">
+      <summary>Имя события "Result" для блока "Мониторинг".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.ScriptExecute">
+      <summary>Имя события "Выполение" для блока "Скрипт".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.StartAssignment">
+      <summary>Имя события "Старт задания" для блока "Задание".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.StartBlock">
+      <summary>Имя события "Старт" для блока.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.StartNotice">
+      <summary>Имя события "Старт уведомления" для блока "Уведомление".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.StartReviewAssignment">
+      <summary>Имя события "Старт задания на приёмку" для блока "Finish".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.RouteEventNames.StartTask">
+      <summary>Имя события "Старт задачи" для блока "Задача" и "Простая задача".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.TaskImportance.High">
+      <summary>Высокая важность.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.TaskImportance.Low">
+      <summary>Низкая важность.</summary>
+    </member>
+    <member name="F:Sungero.Workflow.WorkflowEntityNames.Assignment">
+      <summary>Имя сущности "Задание".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.WorkflowEntityNames.Notice">
+      <summary>Имя сущности "Уведомление".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.WorkflowEntityNames.ReviewAssignment">
+      <summary>Имя сущности "Задание на приёмку".</summary>
+    </member>
+    <member name="F:Sungero.Workflow.WorkflowEntityNames.Task">
+      <summary>Имя сущности "Задача".</summary>
+    </member>
+    <member name="M:Sungero.Workflow.AssignmentBlock.GetStopDeadline">
+      <summary>Получить срок, при достижении которого все невыполненные задания по блоку будут прекращены.</summary>
+      <returns>Deadline для прекращения задания.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.BlockBase.ShouldSerializeCreatedInTaskGuid">
+      <summary>Проверить, нужно ли сериализовать свойство CreatedInTaskGuid.</summary>
+      <returns>True, если нужно сериализовать свойство.</returns>
+    </member>
+    <member name="M:Sungero.Workflow.EventHandlersNaming.GetRouteEventHandlerName(System.String,System.String)">
+      <summary>Получить имя обработчика события блока по шаблону имени и ИД блока.</summary>
+      <param name="blockId">ИД блока.</param>
+      <param name="eventHandlerNameTemplate">Шаблон имени обработчика события.</param>
+      <returns>Имя обработчика события.</returns>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBaseBlock.SidsOfPerformers">
+      <summary>Идентификаторы исполнителей.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.AbsoluteDeadline">
+      <summary>Срок выполнения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.AbsoluteStopAssignmentsDeadline">
+      <summary>Срок прекращения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.HasStopDeadline">
+      <summary>Признак того, что задан срок прекращения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.IsParallel">
+      <summary>Признак того, что задания по блоку будут создаваться одновременно или друг за другом.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.IsStopped">
+      <summary>Признак того, что выполнение блока остановлено.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.NoPerformersResult">
+      <summary>Результат выполнения в случае, если по блоку не было создано ни одного задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeDeadline">
+      <summary>Срок выполнения задания относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeDeadlineDays">
+      <summary>Срок выполнения задания в днях относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeDeadlineHours">
+      <summary>Срок выполнения задания в часах относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeDeadlineTimeBase">
+      <summary>Время, от которого рассчитывается срок выполнения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeStopAssignmentsDeadline">
+      <summary>Срок прекращения задания относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeStopDeadlineDays">
+      <summary>Срок прекращения задания в днях относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.RelativeStopDeadlineHours">
+      <summary>Срок прекращения задания в часах относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.AssignmentBlock.StopResult">
+      <summary>Результат выполнения, при котором прекращается выполнение блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockBase.CreatedInTaskGuid">
+      <summary>ИД метаданных задачи, в рамках которых создан блок.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockBase.Id">
+      <summary>Идентификатор блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockBase.Title">
+      <summary>Заголовок блока.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockRouteStep.AbsoluteDeadline">
+      <summary>Срок выполнения задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockRouteStep.AssignmentType">
+      <summary>Тип задания.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockRouteStep.Performer">
+      <summary>Идентификатор исполнителя этапа маршрута.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockRouteStep.RelativeDeadline">
+      <summary>Срок выполнения задания относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockRouteStep.RelativeDeadlineDays">
+      <summary>Срок выполнения задания в днях относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.BlockRouteStep.RelativeDeadlineHours">
+      <summary>Срок выполнения задания в часах относительно текущей даты и времени.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.CustomTypeCollectionProperty.Collection">
+      <summary>Значения свойств для свойства типа "Коллекция".</summary>
+      <remarks>Заполняются в блоках схемы.</remarks>
+    </member>
+    <member name="P:Sungero.Workflow.CustomTypeProperty.Name">
+      <summary>Имя свойства.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.CustomTypeProperty.Value">
+      <summary>Значение свойства.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Edge.Id">
+      <summary>Идентификатор перехода.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Edge.Source">
+      <summary>Идентификатор блока, откуда осуществляется переход.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Edge.Target">
+      <summary>Идентификатор блока, в который осуществляется переход.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.Edge.Value">
+      <summary>Значение перехода.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.GroupAttachmentsRights.AttachmentsRights">
+      <summary>Способ выдачи прав на вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.GroupAttachmentsRights.AttachmentsRightsType">
+      <summary>Тип прав на вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.GroupAttachmentsRights.AttachmentsRightsTypeString">
+      <summary>Тип прав на вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.GroupAttachmentsRights.GroupId">
+      <summary>Идентификатор группы.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.MonitoringBlock.AbsoluteDeadline">
+      <summary>Срок принудительного завершения мониторинга.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.MonitoringBlock.Period">
+      <summary>Интервал времени, через который выполняется мониторинг.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.MonitoringBlock.RelativeDeadline">
+      <summary>Срок принудительного завершения мониторинга относительно даты и времени старта.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.RouteScheme.Blocks">
+      <summary>Блоки маршрута.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.RouteScheme.Edges">
+      <summary>Связи маршрута.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.RouteScheme.HandlerClassName">
+      <summary>Имя класса обработчика событий.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.RouteScheme.Id">
+      <summary>Номер схемы в параллельном блоке.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.SimpleTaskBlock.RouteSteps">
+      <summary>Этапы маршрута.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.SimpleTaskBlock.RouteType">
+      <summary>Тип маршрута.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.TaskBlockBase.Author">
+      <summary>Автор задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.TaskBlockBase.Importance">
+      <summary>Важность задачи.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.TaskBlockBase.IsSubtask">
+      <summary>Признак того, что должна создаваться подзадача.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.TaskBlockBase.NeedsReview">
+      <summary>Признак того, что для задачи нужно создать задание на приемку.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.CreatedEntitiesIds">
+      <summary>Список идентификаторов созданных сущностей.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.CustomTypeProperties">
+      <summary>Свойства выбранного типа.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.GroupsAttachmentsRights">
+      <summary>Права на вложения.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.ModuleServerAssemblyName">
+      <summary>Имя серверной сборки.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.Subject">
+      <summary>Тема.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.Text">
+      <summary>Текст.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.TypeGuid">
+      <summary>Идентификатор типа задачи или задания, которые могут создаваться в блоке.</summary>
+    </member>
+    <member name="P:Sungero.Workflow.WorkflowEntityBlock.TypeName">
+      <summary>Имя типа задачи или задания.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AndBlock">
+      <summary>Блок "И".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AssignRights">
+      <summary>Тип выдачи прав на вложения.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AssignmentBaseBlock">
+      <summary>Базовый блок для блоков заданий.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.AssignmentBlock">
+      <summary>Блок "Задание".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.BlockAssignmentType">
+      <summary>Тип задания для этапа маршрута блока свободная задача.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.BlockBase">
+      <summary>Блок схемы.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.BlockRouteStep">
+      <summary>Этап маршрута блока "Простая задача".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.BlockRouteType">
+      <summary>Тип маршрута для блока свободная задача.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.CustomTypeCollectionProperty">
+      <summary>Значения свойств для свойства типа "Коллекция".</summary>
+      <remarks>Заполняются в блоках схемы.</remarks>
+    </member>
+    <member name="T:Sungero.Workflow.CustomTypeProperty">
+      <summary>Значение свойства задачи или задания.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.DecisionBlock">
+      <summary>Блок "Условие".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.Edge">
+      <summary>Переход в схеме.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.EventHandlersNaming">
+      <summary>Хэлпер для работы с именами событий.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.FinishBlock">
+      <summary>Блок "Конец процесса".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.GroupAttachmentsRights">
+      <summary>Права доступа на вложения группы.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.MonitoringBlock">
+      <summary>Блок "Мониторинг".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.NoticeBlock">
+      <summary>Блок "Уведомление".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.OrBlock">
+      <summary>Блок "ИЛИ".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.RouteEventHandlerNameTemplates">
+      <summary>Константы c шаблонами имён обработчиков событий маршрута.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.RouteEventNames">
+      <summary>Константы c именами событий маршрута.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.RouteScheme">
+      <summary>Схема маршрута.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.ScriptBlock">
+      <summary>Блок "Скрипт".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.SimpleTaskBlock">
+      <summary>Блок "Простая задача".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.StartBlock">
+      <summary>Блок "Начало процесса".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.TaskBlock">
+      <summary>Блок "Создание задачи".</summary>
+    </member>
+    <member name="T:Sungero.Workflow.TaskBlockBase">
+      <summary>Базовый блок для создания задач.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.TaskImportance">
+      <summary>Важность задачи.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.WorkflowEntityBlock">
+      <summary>Базовый блок для создания объектов Workflow.</summary>
+    </member>
+    <member name="T:Sungero.Workflow.WorkflowEntityNames">
+      <summary>Константы c именами workflow-сущностей.</summary>
+    </member>
+  </members>
+</doc>

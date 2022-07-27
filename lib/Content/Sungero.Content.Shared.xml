@@ -1,0 +1,1432 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Content.Shared</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Content.ElectronicDocumentOperations.Approve">
+      <summary>Утверждение сущности.
+        Позволяет подписывать сущность утверждающей подписью.</summary>
+    </member>
+    <member name="F:Sungero.Content.ElectronicDocumentOperations.CreateVersion">
+      <summary>Создание версии.</summary>
+    </member>
+    <member name="F:Sungero.Content.ElectronicDocumentOperations.DeleteVersion">
+      <summary>Удаление версии.</summary>
+    </member>
+    <member name="F:Sungero.Content.ElectronicDocumentOperations.ReadBody">
+      <summary>Просмотр тела документа.</summary>
+    </member>
+    <member name="F:Sungero.Content.ElectronicDocumentOperations.UpdateBody">
+      <summary>Изменение тела документа.</summary>
+    </member>
+    <member name="F:Sungero.Content.ModuleConstants.BrandName">
+      <summary>Название системы, которое будет отображаться в штрихкоде.</summary>
+    </member>
+    <member name="F:Sungero.Core.DocumentBodySource.Original">
+      <summary>Cодержимое документа.</summary>
+      <remarks>Открывается содержимое документа.</remarks>
+    </member>
+    <member name="F:Sungero.Core.DocumentBodySource.Public">
+      <summary>Отображаемое представление для документа.</summary>
+      <remarks>Открывается отображаемое представление для документа, если его нет, то открывается содержимое документа.</remarks>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Action_SearchDocumentsDescriptionFormat(System.Object[])">
+      <summary>Format value "Search for documents by the specified criteria.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Action_SearchDocumentsFormat(System.Object[])">
+      <summary>Format value "Documents".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Action_SearchDocumentsHintFormat(System.Object[])">
+      <summary>Format value "Search for documents".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.AddFormat(System.Object[])">
+      <summary>Format value "Add".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.AssociatedApplicationNotFoundForExtensionExceptionDescriptionFormat(System.Object[])">
+      <summary>Format value "Contact your system administrator to associate file type with an application.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.BackToListCommandHintFormat(System.Object[])">
+      <summary>Format value "Back to list".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.BackToListCommandTextFormat(System.Object[])">
+      <summary>Format value "List".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CannotImportFileTitleFormat(System.Object[])">
+      <summary>Format value "Cannot import file".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CannotOpenDocumentForEditTitleFormat(System.Object[])">
+      <summary>Format value "Cannot open for editing".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CannotOpenForEditBecauseNoRightsFormat(System.Object[])">
+      <summary>Format value "You are not authorized to edit version {0} of document "{1}".".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CapitalizeFormat(System.Object[])">
+      <summary>Format value "Capitalize".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ChangingDateHeaderFormat(System.Object[])">
+      <summary>Format value "Modified: ".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CloseEditingDocumentBeforeSignDialogDescriptionFormat(System.Object[])">
+      <summary>Format value "Close the document before signing it.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ConfirmReasonSignedEDocumentVersionOpenReadFormat(System.Object[])">
+      <summary>Format value "Cannot edit signed version of document "{0}".".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentCommandNameFormat(System.Object[])">
+      <summary>Format value "New document".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentDialogTitleFormat(System.Object[])">
+      <summary>Format value "Create document".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromFileCommandHintFormat(System.Object[])">
+      <summary>Format value "Create new electronic document from file".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromFileCommandTextFormat(System.Object[])">
+      <summary>Format value "File".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromScannerCommandHintFormat(System.Object[])">
+      <summary>Format value "Create new electronic document from scanner".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromScannerCommandTextFormat(System.Object[])">
+      <summary>Format value "Scanner".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromTemplateCommandHintFormat(System.Object[])">
+      <summary>Format value "Create new electronic document from selected template".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromTemplateCommandTextFormat(System.Object[])">
+      <summary>Format value "Create".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateFromFileCommandNameFormat(System.Object[])">
+      <summary>Format value "Create from file".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateFromTemplateCommandNameFormat(System.Object[])">
+      <summary>Format value "Create from template".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateGroupHeaderFormat(System.Object[])">
+      <summary>Format value "Create document:".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DefaultFileNameFormat(System.Object[])">
+      <summary>Format value "New exported document".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DefaultVersionNoteFormat(System.Object[])">
+      <summary>Format value "Version {0}".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteFileWhenSaveSuccessfullyFormat(System.Object[])">
+      <summary>Format value "Delete file if saved successfully".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteLocalCopyConfirmationDescriptionFormat(System.Object[])">
+      <summary>Format value "All unsaved changes will be lost.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteLocalCopyConfirmationFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to undo the changes?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteLocalCopyRecommendationFormat(System.Object[])">
+      <summary>Format value "It is recommended that you undo the changes as the document in the system is more relevant.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteVersionConfirmationDescriptionFormat(System.Object[])">
+      <summary>Format value "Deleting version cannot be undone.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteVersionConfirmationMessageFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to delete version {0}?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteVersionConfirmationTitleFormat(System.Object[])">
+      <summary>Format value "Delete version".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotDeleteVersionTitleFormat(System.Object[])">
+      <summary>Format value "Do not delete".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotImportTitleFormat(System.Object[])">
+      <summary>Format value "Do not import".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotOpenTitleFormat(System.Object[])">
+      <summary>Format value "Do not open".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotSignButtonTitleFormat(System.Object[])">
+      <summary>Format value "Do not sign".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoStoredChangesDescriptionFormat(System.Object[])">
+      <summary>Format value "Document was modified by {0} {1}.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoStoredChangesTitleFormat(System.Object[])">
+      <summary>Format value "Save changes?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentCreationTitleFormat(System.Object[])">
+      <summary>Format value "Create document from template".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentHasNoVersionsFormat(System.Object[])">
+      <summary>Format value "Choose one of the options to create document.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentIsEditingFormat(System.Object[])">
+      <summary>Format value "Document is being edited".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentIsSavingFormat(System.Object[])">
+      <summary>Format value "Saving document…".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentVersionIsAlreadyBeingEditedMessageFormat(System.Object[])">
+      <summary>Format value "Version {0} of document "{1}" is being edited by {2}. Editing started at: {3}.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.EditContinueFormat(System.Object[])">
+      <summary>Format value "Continue editing".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ElectronicDocumentCreationFormat(System.Object[])">
+      <summary>Format value "Create document".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ElectronicDocumentTypeSelectionFormat(System.Object[])">
+      <summary>Format value "Select document type".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportCorruptedSignedVersionDialogDescriptionFormat(System.Object[])">
+      <summary>Format value "This document version has invalid signatures.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportCorruptedSignedVersionDialogTextFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to export this version?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportDocumentsQueryContentFormat(System.Object[])">
+      <summary>Format value "Exporting a large number of documents may take some time.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportDocumentsQueryFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to export {0} documents?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExtractIconExceptionFormat(System.Object[])">
+      <summary>Format value "Cannot extract an icon.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.FirstFormat(System.Object[])">
+      <summary>Format value "First symbol".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.GoBackHintFormat(System.Object[])">
+      <summary>Format value "Go back".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.GoForwardHintFormat(System.Object[])">
+      <summary>Format value "Go forward".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.InitialVersionNoteFormat(System.Object[])">
+      <summary>Format value "Initial version".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.LockManagementExceptionMessageFormat(System.Object[])">
+      <summary>Format value "Cannot lock or release lock. An unexpected exception is thrown.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.NoRightsToChangeDocumentBodyFormat(System.Object[])">
+      <summary>Format value "You are not authorized to edit document "{0}".".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenCorruptedSignedDocumentDialogTextFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to open this version?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentAfterCreateFormat(System.Object[])">
+      <summary>Format value "Open after creating".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentAfterImportFormat(System.Object[])">
+      <summary>Format value "Open after importing".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsQueryContentFormat(System.Object[])">
+      <summary>Format value "Opening a large number of documents may take some time.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsQueryFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to open {0} documents?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsRelationsQueryContentFormat(System.Object[])">
+      <summary>Format value "Opening a large number of trees for related documents may take some time.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsRelationsQueryFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to open relations for {0} documents?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsVersionsContentFormat(System.Object[])">
+      <summary>Format value "Opening a large number of document versions may take some time.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsVersionsQueryFormat(System.Object[])">
+      <summary>Format value "Are you sure you want to open version lists for {0} documents?".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenForViewTitleFormat(System.Object[])">
+      <summary>Format value "Open as read-only".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OrConditionFormat(System.Object[])">
+      <summary>Format value "or".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.PasteLinkToRelationGroupFormat(System.Object[])">
+      <summary>Format value "Paste link".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveAsButtonTitleFormat(System.Object[])">
+      <summary>Format value "Save as".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveCopyFormat(System.Object[])">
+      <summary>Format value "Save copy".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveLocalCopyDialogTitleFormat(System.Object[])">
+      <summary>Format value "Save file".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveLocalCopyRecommendationFormat(System.Object[])">
+      <summary>Format value "It is recommended that you save the changes as they are more relevant.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SearchTemplatesTextFormat(System.Object[])">
+      <summary>Format value "Search for template by name...".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SearchTypesTextFormat(System.Object[])">
+      <summary>Format value "Search for type by name...".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SelectTextFormat(System.Object[])">
+      <summary>Format value "Select".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowMyDocumentsCommandNameFormat(System.Object[])">
+      <summary>Format value "My documents".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowParentRelatedDocumentFormat(System.Object[])">
+      <summary>Format value "Show parent documents".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowTypesCommandHintFormat(System.Object[])">
+      <summary>Format value "Select document type".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowTypesCommandTextFormat(System.Object[])">
+      <summary>Format value "Document types".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SignaturesListTitleFormat(System.Object[])">
+      <summary>Format value "Signatures of "{0}"".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.TemplatesGroupHeaderFormat(System.Object[])">
+      <summary>Format value "Create document from template:".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ToLowerCaseFormat(System.Object[])">
+      <summary>Format value "To lower case".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ToUpperCaseFormat(System.Object[])">
+      <summary>Format value "To upper case".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.TypesGroupHeaderFormat(System.Object[])">
+      <summary>Format value "Document types".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToDeleteVersionTitleFormat(System.Object[])">
+      <summary>Format value "Cannot delete document version.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSigningVersionDialogDescriptionFormat(System.Object[])">
+      <summary>Format value "Close document version before signing.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSigningVersionDialogTextFormat(System.Object[])">
+      <summary>Format value "Version "{0}" of document "{1}" is being edited by "{2}". ".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSingleDocumentDialogDescriptionFormat(System.Object[])">
+      <summary>Format value "Close the document before signing it.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSingleDocumentDialogTextFormat(System.Object[])">
+      <summary>Format value "Document "{0}" is being edited by "{1}".".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToSaveDocumentFormat(System.Object[])">
+      <summary>Format value "Cannot save document in the system.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnsavedDocumentsTitleFormat(System.Object[])">
+      <summary>Format value "Unsaved local changes".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionCreatedSuccessfullyFormat(System.Object[])">
+      <summary>Format value "The version has been created successfully.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionFileNameFormat(System.Object[])">
+      <summary>Format value "{0} (version {1})".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionHeaderFormat(System.Object[])">
+      <summary>Format value "Version ".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionSignaturesListTitleFormat(System.Object[])">
+      <summary>Format value "Signatures for version {0} of document "{1}"".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ViewDocumentChangesRecommendationFormat(System.Object[])">
+      <summary>Format value "Document in the system was modified. It is recommended that you view these changes.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.YouAlreadyEditDocumentVersionMessageFormat(System.Object[])">
+      <summary>Format value "You are already editing version {0} of document "{1}". Editing started at: {2}.".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.YouAlreadyEditingDocumentDialogTextFormat(System.Object[])">
+      <summary>Format value "You are already editing document "{0}".".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocumentTemplate.IElectronicDocumentTemplateResources.LoadPreviewExceptionFormat(System.Object[])">
+      <summary>Format value "Error while loading image from file".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.ElectronicDocumentTemplate.IElectronicDocumentTemplateResources.LoadPreviewFilterFormat(System.Object[])">
+      <summary>Format value "Images ({0})|{0}|All files ({1})|{1}".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.FilesType.IFilesTypeResources.AllFilesTypeNameFormat(System.Object[])">
+      <summary>Format value "All files".</summary>
+      <param name="args">Parameters to string format.</param>
+      <returns>Instance of CommonLibrary.LocalizedString</returns>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.CreateVersion">
+      <summary>Создать версию документа.</summary>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.CreateVersionFrom(System.IO.Stream,System.String)">
+      <summary>Создать версию документа из потока.</summary>
+      <param name="stream">Поток.</param>
+      <param name="fileExtension">Расширение файла.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.CreateVersionFrom(System.String)">
+      <summary>Создать версию документа из файла.</summary>
+      <param name="path">Имя файла.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.DeleteVersion(Sungero.Content.IElectronicDocumentVersions)">
+      <summary>Удалить версию документа.</summary>
+      <param name="version">Версия документа.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Edit">
+      <summary>Редактировать документ.</summary>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Export">
+      <summary>Экспортировать документ в файл.</summary>
+      <returns>Признак того, что экспорт прошел успешно.</returns>
+      <remarks>Путь до файла будет запрошен у пользователя.</remarks>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Export(System.String)">
+      <summary>Экспортировать документ в файл.</summary>
+      <param name="path">Имя файла или папки для экспорта документа.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Import">
+      <summary>Импортировать файл в последнюю версию документа.</summary>
+      <returns>Признак того, что импорт прошел успешно.</returns>
+      <remarks>Путь до файла будет запрошен у пользователя.</remarks>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Import(CommonLibrary.IBinaryObject)">
+      <summary>Импортировать содержимое бинарного объекта в последнюю версию документа.</summary>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Import(System.String)">
+      <summary>Импортировать файл в последнюю версию документа.</summary>
+      <param name="path">Имя файла.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Open">
+      <summary>Открыть документ.</summary>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocument.Open(Sungero.Core.DocumentBodySource)">
+      <summary>Открыть документ, указав источник.</summary>
+      <param name="bodySource">Источник содержимого документа.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Edit">
+      <summary>Редактировать версию документа.</summary>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Export">
+      <summary>Экспортировать версию документа в файл.</summary>
+      <returns>True - если экспорт завершен успешно, False - если пользователь отказался от экспорта.</returns>
+      <remarks>Путь до файла будет запрошен у пользователя.</remarks>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Export(System.String)">
+      <summary>Экспортировать версию документа в файл.</summary>
+      <param name="path">Имя файла или папки для экспорта.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Import">
+      <summary>Импортировать файл в версию документа.</summary>
+      <returns>True - если импорт завершен успешно, False - если пользователь отказался от импорта.</returns>
+      <remarks>Путь до файла будет запрошен у пользователя.</remarks>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Import(CommonLibrary.IBinaryObject)">
+      <summary>Импортировать содержимое бинарного объекта.</summary>
+      <param name="binaryObject">Бинарный объект.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Import(System.String)">
+      <summary>Импортировать файл в версию документа.</summary>
+      <param name="path">Имя файла.</param>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Open">
+      <summary>Открыть версию документа.</summary>
+    </member>
+    <member name="M:Sungero.Content.IElectronicDocumentVersions.Open(Sungero.Core.DocumentBodySource)">
+      <summary>Открыть версию документа, указав источник.</summary>
+      <param name="bodySource">Источник содержимого документа.</param>
+    </member>
+    <member name="M:Sungero.Content.Shared.ElectronicDocumentRepository`1.CreateDocumentWithCreationDialog">
+      <summary>Создать документ с выбором типа документа.</summary>
+      <returns>Документ.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.ElectronicDocumentRepository`1.CreateDocumentWithCreationDialog(Sungero.Content.IElectronicDocumentInfo[])">
+      <summary>Создать документ с выбором типа документа.</summary>
+      <param name="documentTypes">Список типов документов, которые можно выбрать при создании документа.</param>
+      <returns>Документ.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.ElectronicDocumentRepository`1.CreateFrom(Sungero.Content.IElectronicDocumentTemplate)">
+      <summary>Создать документ из шаблона.</summary>
+      <param name="sourceTemplate">Шаблон документа.</param>
+      <returns>Документ.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.ElectronicDocumentRepository`1.CreateFrom(System.String)">
+      <summary>Создать документ из файла.</summary>
+      <param name="fileName">Имя файла.</param>
+      <returns>Документ.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IDocumentHistories.GetAll">
+      <summary>Получить историю работы с документом.</summary>
+      <returns>История работы с документом.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IDocumentHistories.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String)">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью.
+        В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции.
+        В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции.
+        В истории работы с сущностью отображается как нелокализованная часть комментария.
+        Расположение  в комментарии зависит от настроек параметра OperationDetailed.
+        Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+    </member>
+    <member name="M:Sungero.Content.Shared.IDocumentHistories.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String,System.Nullable{System.Boolean})">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью.
+        В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции.
+        В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции.
+        В истории работы с сущностью отображается как нелокализованная часть комментария.
+        Расположение  в комментарии зависит от настроек параметра OperationDetailed.
+        Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+      <param name="isSubstitute">По замещению.</param>
+    </member>
+    <member name="M:Sungero.Content.Shared.IDocumentHistories.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String,System.Nullable{System.Int32})">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью.
+        В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции.
+        В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции.
+        В истории работы с сущностью отображается как нелокализованная часть комментария.
+        Расположение  в комментарии зависит от настроек параметра OperationDetailed.
+        Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+      <param name="versionNumber">Номер версии.</param>
+    </member>
+    <member name="M:Sungero.Content.Shared.IDocumentHistories.Write(System.Nullable{Sungero.Core.Enumeration},System.Nullable{Sungero.Core.Enumeration},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+      <summary>Записать историю.</summary>
+      <param name="operation">Логическая операция в предметной области, выполняющаяся над сущностью.
+        В истории работы с сущностью отображается в колонке "Действие". Например, "экспорт" документа.</param>
+      <param name="operationDetailed">Детальная информация о логической операции.
+        В истории работы с сущностью отображается как локализованное значение в колонке "Комментарий". Например, "Экспорт в файл".</param>
+      <param name="comment">Комментарий к операции.
+        В истории работы с сущностью отображается как нелокализованная часть комментария.
+        Расположение  в комментарии зависит от настроек параметра OperationDetailed.
+        Например, при экспорте документа в файл указывается имя файла в комментарии.</param>
+      <param name="versionNumber">Номер версии.</param>
+      <param name="isSubstitute">По замещению.</param>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.Add(System.String,Sungero.Content.IElectronicDocument)">
+      <summary>Добавить новую связь.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="relatedDocument">Связываемый документ.</param>
+      <returns>Признак успешности добавления связи.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.Add(System.String,Sungero.Content.IElectronicDocument,System.String)">
+      <summary>Добавить новую связь.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="relatedDocument">Связываемый документ.</param>
+      <param name="comment">Примечание к связи.</param>
+      <returns>Признак успешности добавления связи.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.AddFrom(System.String,Sungero.Content.IElectronicDocument)">
+      <summary>Добавить связь в направлении от указанного документа к текущему.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="relatedDocument">Связываемый документ.</param>
+      <returns>Признак успешности добавления связи.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.AddFrom(System.String,Sungero.Content.IElectronicDocument,System.String)">
+      <summary>Добавить связь в направлении от указанного документа к текущему.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="relatedDocument">Связываемый документ.</param>
+      <param name="comment">Примечание к связи.</param>
+      <returns>Признак успешности добавления связи.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.AddFromOrUpdate(System.String,Sungero.Content.IElectronicDocument,Sungero.Content.IElectronicDocument)">
+      <summary>Добавить или обновить связь в направлении от указанного документа к текущему.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="oldRelatedDocument">Документ, связь с которым будет удалена.</param>
+      <param name="newRelatedDocument">Документ, связь с которым будет добавлена.</param>
+      <returns>Признак того, что связь установлена.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.AddOrUpdate(System.String,Sungero.Content.IElectronicDocument,Sungero.Content.IElectronicDocument)">
+      <summary>Добавить или обновить связь.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="oldRelatedDocument">Документ, связь с которым будет удалена.</param>
+      <param name="newRelatedDocument">Документ, связь с которым будет добавлена.</param>
+      <returns>Признак того, что связь установлена.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.GetRelated">
+      <summary>Получить список связанных документов.</summary>
+      <returns>Список связанных документов.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.GetRelated(System.String)">
+      <summary>Получить список связанных документов.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <returns>Список связанных документов.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.GetRelatedFrom">
+      <summary>Получить список документов, связанных с текущим в направлении от связанного документа к текущему.</summary>
+      <returns>Список связанных документов.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.GetRelatedFrom(System.String)">
+      <summary>Получить список документов, связанных с текущим в направлении от связанного документа к текущему.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <returns>Список связанных документов.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.Remove(System.String,Sungero.Content.IElectronicDocument)">
+      <summary>Удалить связь с указанным документом.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="relatedDocument">Связанный документ.</param>
+      <returns>Признак успешности удаления связи.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.RemoveFrom(System.String,Sungero.Content.IElectronicDocument)">
+      <summary>Удалить связь в направлении от указанного документа к текущему.</summary>
+      <param name="relationTypeName">Имя типа связи.</param>
+      <param name="relatedDocument">Связанный документ.</param>
+      <returns>Признак успешности удаления связи.</returns>
+    </member>
+    <member name="M:Sungero.Content.Shared.IRelations.Save">
+      <summary>Сохранить связи.</summary>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Action_SearchDocuments">
+      <summary>Get value "Documents".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Action_SearchDocumentsDescription">
+      <summary>Get value "Search for documents by the specified criteria.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Action_SearchDocumentsHint">
+      <summary>Get value "Search for documents".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Add">
+      <summary>Get value "Add".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.AssociatedApplicationNotFoundForExtensionExceptionDescription">
+      <summary>Get value "Contact your system administrator to associate file type with an application.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.BackToListCommandHint">
+      <summary>Get value "Back to list".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.BackToListCommandText">
+      <summary>Get value "List".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CannotImportFileTitle">
+      <summary>Get value "Cannot import file".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CannotOpenDocumentForEditTitle">
+      <summary>Get value "Cannot open for editing".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CannotOpenForEditBecauseNoRights">
+      <summary>Get value "You are not authorized to edit version {0} of document "{1}".".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.Capitalize">
+      <summary>Get value "Capitalize".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ChangingDateHeader">
+      <summary>Get value "Modified: ".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CloseEditingDocumentBeforeSignDialogDescription">
+      <summary>Get value "Close the document before signing it.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ConfirmReasonSignedEDocumentVersionOpenRead">
+      <summary>Get value "Cannot edit signed version of document "{0}".".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentCommandName">
+      <summary>Get value "New document".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentDialogTitle">
+      <summary>Get value "Create document".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromFileCommandHint">
+      <summary>Get value "Create new electronic document from file".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromFileCommandText">
+      <summary>Get value "File".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromScannerCommandHint">
+      <summary>Get value "Create new electronic document from scanner".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromScannerCommandText">
+      <summary>Get value "Scanner".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromTemplateCommandHint">
+      <summary>Get value "Create new electronic document from selected template".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateDocumentFromTemplateCommandText">
+      <summary>Get value "Create".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateFromFileCommandName">
+      <summary>Get value "Create from file".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateFromTemplateCommandName">
+      <summary>Get value "Create from template".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.CreateGroupHeader">
+      <summary>Get value "Create document:".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DefaultFileName">
+      <summary>Get value "New exported document".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DefaultVersionNote">
+      <summary>Get value "Version {0}".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteFileWhenSaveSuccessfully">
+      <summary>Get value "Delete file if saved successfully".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteLocalCopyConfirmation">
+      <summary>Get value "Are you sure you want to undo the changes?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteLocalCopyConfirmationDescription">
+      <summary>Get value "All unsaved changes will be lost.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteLocalCopyRecommendation">
+      <summary>Get value "It is recommended that you undo the changes as the document in the system is more relevant.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteVersionConfirmationDescription">
+      <summary>Get value "Deleting version cannot be undone.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteVersionConfirmationMessage">
+      <summary>Get value "Are you sure you want to delete version {0}?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DeleteVersionConfirmationTitle">
+      <summary>Get value "Delete version".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotDeleteVersionTitle">
+      <summary>Get value "Do not delete".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotImportTitle">
+      <summary>Get value "Do not import".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotOpenTitle">
+      <summary>Get value "Do not open".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoNotSignButtonTitle">
+      <summary>Get value "Do not sign".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoStoredChangesDescription">
+      <summary>Get value "Document was modified by {0} {1}.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DoStoredChangesTitle">
+      <summary>Get value "Save changes?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentCreationTitle">
+      <summary>Get value "Create document from template".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentHasNoVersions">
+      <summary>Get value "Choose one of the options to create document.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentIsEditing">
+      <summary>Get value "Document is being edited".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentIsSaving">
+      <summary>Get value "Saving document…".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.DocumentVersionIsAlreadyBeingEditedMessage">
+      <summary>Get value "Version {0} of document "{1}" is being edited by {2}. Editing started at: {3}.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.EditContinue">
+      <summary>Get value "Continue editing".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ElectronicDocumentCreation">
+      <summary>Get value "Create document".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ElectronicDocumentTypeSelection">
+      <summary>Get value "Select document type".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportCorruptedSignedVersionDialogDescription">
+      <summary>Get value "This document version has invalid signatures.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportCorruptedSignedVersionDialogText">
+      <summary>Get value "Are you sure you want to export this version?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportDocumentsQuery">
+      <summary>Get value "Are you sure you want to export {0} documents?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExportDocumentsQueryContent">
+      <summary>Get value "Exporting a large number of documents may take some time.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ExtractIconException">
+      <summary>Get value "Cannot extract an icon.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.First">
+      <summary>Get value "First symbol".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.GoBackHint">
+      <summary>Get value "Go back".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.GoForwardHint">
+      <summary>Get value "Go forward".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.InitialVersionNote">
+      <summary>Get value "Initial version".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.LockManagementExceptionMessage">
+      <summary>Get value "Cannot lock or release lock. An unexpected exception is thrown.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.NoRightsToChangeDocumentBody">
+      <summary>Get value "You are not authorized to edit document "{0}".".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenCorruptedSignedDocumentDialogText">
+      <summary>Get value "Are you sure you want to open this version?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentAfterCreate">
+      <summary>Get value "Open after creating".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentAfterImport">
+      <summary>Get value "Open after importing".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsQuery">
+      <summary>Get value "Are you sure you want to open {0} documents?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsQueryContent">
+      <summary>Get value "Opening a large number of documents may take some time.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsRelationsQuery">
+      <summary>Get value "Are you sure you want to open relations for {0} documents?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsRelationsQueryContent">
+      <summary>Get value "Opening a large number of trees for related documents may take some time.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsVersionsContent">
+      <summary>Get value "Opening a large number of document versions may take some time.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenDocumentsVersionsQuery">
+      <summary>Get value "Are you sure you want to open version lists for {0} documents?".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OpenForViewTitle">
+      <summary>Get value "Open as read-only".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.OrCondition">
+      <summary>Get value "or".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.PasteLinkToRelationGroup">
+      <summary>Get value "Paste link".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveAsButtonTitle">
+      <summary>Get value "Save as".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveCopy">
+      <summary>Get value "Save copy".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveLocalCopyDialogTitle">
+      <summary>Get value "Save file".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SaveLocalCopyRecommendation">
+      <summary>Get value "It is recommended that you save the changes as they are more relevant.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SearchTemplatesText">
+      <summary>Get value "Search for template by name...".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SearchTypesText">
+      <summary>Get value "Search for type by name...".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SelectText">
+      <summary>Get value "Select".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowMyDocumentsCommandName">
+      <summary>Get value "My documents".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowParentRelatedDocument">
+      <summary>Get value "Show parent documents".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowTypesCommandHint">
+      <summary>Get value "Select document type".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ShowTypesCommandText">
+      <summary>Get value "Document types".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.SignaturesListTitle">
+      <summary>Get value "Signatures of "{0}"".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.TemplatesGroupHeader">
+      <summary>Get value "Create document from template:".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ToLowerCase">
+      <summary>Get value "To lower case".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ToUpperCase">
+      <summary>Get value "To upper case".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.TypesGroupHeader">
+      <summary>Get value "Document types".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToDeleteVersionTitle">
+      <summary>Get value "Cannot delete document version.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSigningVersionDialogDescription">
+      <summary>Get value "Close document version before signing.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSigningVersionDialogText">
+      <summary>Get value "Version "{0}" of document "{1}" is being edited by "{2}". ".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSingleDocumentDialogDescription">
+      <summary>Get value "Close the document before signing it.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToLockSingleDocumentDialogText">
+      <summary>Get value "Document "{0}" is being edited by "{1}".".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnableToSaveDocument">
+      <summary>Get value "Cannot save document in the system.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.UnsavedDocumentsTitle">
+      <summary>Get value "Unsaved local changes".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionCreatedSuccessfully">
+      <summary>Get value "The version has been created successfully.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionFileName">
+      <summary>Get value "{0} (version {1})".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionHeader">
+      <summary>Get value "Version ".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.VersionSignaturesListTitle">
+      <summary>Get value "Signatures for version {0} of document "{1}"".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.ViewDocumentChangesRecommendation">
+      <summary>Get value "Document in the system was modified. It is recommended that you view these changes.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.YouAlreadyEditDocumentVersionMessage">
+      <summary>Get value "You are already editing version {0} of document "{1}". Editing started at: {2}.".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocument.IElectronicDocumentResources.YouAlreadyEditingDocumentDialogText">
+      <summary>Get value "You are already editing document "{0}".".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocumentTemplate.IElectronicDocumentTemplateResources.LoadPreviewException">
+      <summary>Get value "Error while loading image from file".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.ElectronicDocumentTemplate.IElectronicDocumentTemplateResources.LoadPreviewFilter">
+      <summary>Get value "Images ({0})|{0}|All files ({1})|{1}".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.FilesType.IFilesTypeResources.AllFilesTypeName">
+      <summary>Get value "All files".</summary>
+      <returns>Instance of CommonLibrary.LocalizedString.</returns>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.AssociatedApplication">
+      <summary>Приложение-обработчик.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Author">
+      <summary>Автор документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Created">
+      <summary>Дата создания документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.HasPublicBody">
+      <summary>Признак того, что для последней версии документа есть отображаемое представление.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.HasRelations">
+      <summary>Признак того, что у документа есть связи.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.HasVersions">
+      <summary>Признак того, что у документа есть хотя бы одна версия.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.History">
+      <summary>История работы с документом.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Info">
+      <summary>Информация о типе сущности "Электронный документ".</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.LastVersion">
+      <summary>Последняя версия документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.LastVersionApproved">
+      <summary>Признак того, что последняя версия документа подписана с результатом "Утвердить".</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.LastVersionSignatureType">
+      <summary>Тип подписи последней версии документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Modified">
+      <summary>Дата изменения содержимого документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Name">
+      <summary>Имя документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Parameters">
+      <summary>Параметры для автозаполнения шаблона.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Relations">
+      <summary>Связи с документами.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.State">
+      <summary>Состояние документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.Versions">
+      <summary>Список версий документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocument.VersionsLocked">
+      <summary>Признак того, что все версии документа заблокированы.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentInfo.Actions">
+      <summary>Информация о действиях сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentInfo.Properties">
+      <summary>Информация о свойствах сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentState.IsBinaryDataTransferring">
+      <summary>Признак того, что бинарные данные находятся в процессе переноса в другое хранилище.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplate.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplate.Description">
+      <summary>Описание шаблона документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplate.DocumentType">
+      <summary>Тип документа, который создается из шаблона.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplate.Info">
+      <summary>Информация о типе сущности "Шаблон электронного документа".</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplate.PreviewTemplate">
+      <summary>Предпросмотр шаблона.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplate.State">
+      <summary>Состояние шаблона документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplatePropertiesInfo.Versions">
+      <summary>Информация о свойствах версий шаблонов документов.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplatePropertyStates.Versions">
+      <summary>Состояние свойств версий шаблонов документов.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateState.Controls">
+      <summary>Состояние контролей сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateState.Pages">
+      <summary>Состояние вкладок на форме сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersions.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersions.State">
+      <summary>Состояние версий шаблона документа.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersionsCollectionPropertyState`1.Properties">
+      <summary>Состояние сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersionsInfo.Properties">
+      <summary>Информация о свойствах сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersionsPropertiesInfo.ElectronicDocument">
+      <summary>Электронный документ.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersionsPropertyStates.ElectronicDocument">
+      <summary>Электронный документ.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentTemplateVersionsState.Properties">
+      <summary>Состояние свойств сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.AssociatedApplication">
+      <summary>Приложение-обработчик.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Author">
+      <summary>Автор версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Body">
+      <summary>Содержимое версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.BodyAssociatedApplication">
+      <summary>Приложение-обработчик, с помощью которого открывается содержимое версии до преобразования.</summary>
+      <remarks>Используется для определения приложения-обработчика при копировании версии, для которой задано отображаемое представление.</remarks>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Created">
+      <summary>Дата и время создания версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.ElectronicDocument">
+      <summary>Электронный документ.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Modified">
+      <summary>Дата и время изменения версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.ModifiedBy">
+      <summary>Пользователь, который последним изменял версию.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Note">
+      <summary>Примечание к версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.Number">
+      <summary>Номер версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.PublicBody">
+      <summary>Отображаемое представление для версии.</summary>
+    </member>
+    <member name="P:Sungero.Content.IElectronicDocumentVersions.State">
+      <summary>Состояние.</summary>
+    </member>
+    <member name="P:Sungero.Content.Shared.ElectronicDocumentRepository`1.AccessRights">
+      <summary>Права доступа.</summary>
+    </member>
+    <member name="P:Sungero.Content.Shared.ElectronicDocumentRepository`1.Info">
+      <summary>Информация о типе сущности.</summary>
+    </member>
+    <member name="P:Sungero.Content.Shared.ElectronicDocumentRepository`1.Resources">
+      <summary>Ресурсы.</summary>
+    </member>
+    <member name="P:Sungero.Content.SpecialFolders.RecentDocuments">
+      <summary>Папка "Недавние документы".</summary>
+    </member>
+    <member name="T:Sungero.Content.AssociatedApplication.IAssociatedApplicationResources">
+      <summary>Represents Interface of AssociatedApplication resources.</summary>
+    </member>
+    <member name="T:Sungero.Content.AssociatedApplications">
+      <summary>Репозиторий типа сущности "Приложение-обработчик".</summary>
+    </member>
+    <member name="T:Sungero.Content.DocumentHistory.IDocumentHistoryResources">
+      <summary>Represents interface of DocumentHistory resources.</summary>
+    </member>
+    <member name="T:Sungero.Content.ElectronicDocument.IElectronicDocumentResources">
+      <summary>Represents Interface of ElectronicDocument resources.</summary>
+    </member>
+    <member name="T:Sungero.Content.ElectronicDocumentOperations">
+      <summary>Базовые операции для электронного документа.</summary>
+    </member>
+    <member name="T:Sungero.Content.ElectronicDocumentTemplate.IElectronicDocumentTemplateResources">
+      <summary>Represents Interface of ElectronicDocumentTemplate resources.</summary>
+    </member>
+    <member name="T:Sungero.Content.ElectronicDocumentTemplates">
+      <summary>Репозиторий типа сущности "Шаблон электронного документа".</summary>
+    </member>
+    <member name="T:Sungero.Content.ElectronicDocuments">
+      <summary>Репозиторий типа сущности "Электронный документ".</summary>
+    </member>
+    <member name="T:Sungero.Content.FilesType.IFilesTypeResources">
+      <summary>Represents Interface of FilesType resources.</summary>
+    </member>
+    <member name="T:Sungero.Content.FilesTypes">
+      <summary>Репозиторий типа сущности "Шаблон электронного документа".</summary>
+    </member>
+    <member name="T:Sungero.Content.IElectronicDocument">
+      <summary>Электронный документ.</summary>
+    </member>
+    <member name="T:Sungero.Content.IElectronicDocumentAccessRights">
+      <summary>Права доступа электронного документа.</summary>
+    </member>
+    <member name="T:Sungero.Content.ModuleConstants">
+      <summary>Константы модуля.</summary>
+    </member>
+    <member name="T:Sungero.Content.Relation.IRelationResources">
+      <summary>Represents Interface of Relation resources.</summary>
+    </member>
+    <member name="T:Sungero.Content.Shared.AssociatedApplicationRepository`1">
+      <summary>Репозиторий сущностей "Приложение-обработчик".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Content.Shared.ElectronicDocumentRepository`1">
+      <summary>Репозиторий сущностей "Электронный документ".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Content.Shared.ElectronicDocumentTemplateRepository`1">
+      <summary>Репозиторий сущностей "Шаблон электронного документа".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Content.Shared.FilesTypeRepository`1">
+      <summary>Репозиторий сущностей "Тип файлов".</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Content.Shared.IDocumentHistories">
+      <summary>Интерфейс точки доступа истории документа.</summary>
+    </member>
+    <member name="T:Sungero.Content.Shared.IRelations">
+      <summary>Связи документа.</summary>
+    </member>
+    <member name="T:Sungero.Content.SpecialFolders">
+      <summary>Работа со специальными папками.</summary>
+    </member>
+    <member name="T:Sungero.Core.DocumentBodySource">
+      <summary>Источник содержимого документа.</summary>
+    </member>
+  </members>
+</doc>

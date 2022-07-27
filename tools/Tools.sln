@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationHelper", "LocalizationHelper\LocalizationHelper.csproj", "{3B6864C6-0227-4C78-97EA-DEBD83BD7D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataVersionComparer", "MetadataVersionComparer\MetadataVersionComparer.csproj", "{CCAF6067-C802-473C-8D74-0E772E9164A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResolveReferences", "ResolveReferences\ResolveReferences.csproj", "{1E0E4945-C65A-466B-869F-D4EE5FAF4C92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{081944E0-0167-4897-B084-C43145F54EDF}"
+	ProjectSection(SolutionItems) = preProject
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataDescription", "MetadataDescription\MetadataDescription.csproj", "{FEB2B0E3-D7AE-453D-97DE-86986BACEC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataParser", "MetadataParser\MetadataParser.csproj", "{85991C54-0F33-4C74-8D8F-2B05DF65A511}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B6864C6-0227-4C78-97EA-DEBD83BD7D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6864C6-0227-4C78-97EA-DEBD83BD7D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6864C6-0227-4C78-97EA-DEBD83BD7D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6864C6-0227-4C78-97EA-DEBD83BD7D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCAF6067-C802-473C-8D74-0E772E9164A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCAF6067-C802-473C-8D74-0E772E9164A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCAF6067-C802-473C-8D74-0E772E9164A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCAF6067-C802-473C-8D74-0E772E9164A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0E4945-C65A-466B-869F-D4EE5FAF4C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0E4945-C65A-466B-869F-D4EE5FAF4C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0E4945-C65A-466B-869F-D4EE5FAF4C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0E4945-C65A-466B-869F-D4EE5FAF4C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB2B0E3-D7AE-453D-97DE-86986BACEC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB2B0E3-D7AE-453D-97DE-86986BACEC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB2B0E3-D7AE-453D-97DE-86986BACEC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB2B0E3-D7AE-453D-97DE-86986BACEC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85991C54-0F33-4C74-8D8F-2B05DF65A511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85991C54-0F33-4C74-8D8F-2B05DF65A511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85991C54-0F33-4C74-8D8F-2B05DF65A511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85991C54-0F33-4C74-8D8F-2B05DF65A511}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FD00A33-FECB-45E3-AC08-4F20A6E4CECD}
+	EndGlobalSection
+EndGlobal

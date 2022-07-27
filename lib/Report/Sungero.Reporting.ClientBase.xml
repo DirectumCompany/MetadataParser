@@ -1,0 +1,56 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Reporting.ClientBase</name>
+  </assembly>
+  <members>
+    <member name="M:Sungero.Core.IReportExtensions.ExportToFile(Sungero.Reporting.IReport,System.String)">
+      <summary>Сохранить отчет в файл.</summary>
+      <param name="report">Отчет.</param>
+      <param name="fileName">Имя файла.</param>
+      <returns>Имя файла, в который сохранился отчет.</returns>
+      <remarks>Имя файла для записи может отличаться от имени файла, в который сохранился отчет.
+    Может измениться расширение файла в зависимости от формата экспорта.</remarks>
+    </member>
+    <member name="M:Sungero.Core.IReportExtensions.Open(Sungero.Reporting.IReport)">
+      <summary>Открыть отчет.</summary>
+      <param name="report">Отчет.</param>
+    </member>
+    <member name="M:Sungero.Core.IReportExtensions.Show(System.Collections.Generic.IEnumerable{Sungero.Reporting.IReport},System.String)">
+      <summary>Показать список отчетов.</summary>
+      <param name="reports">Список отчетов.</param>
+      <param name="title">Заголовок списка отчетов.</param>
+    </member>
+    <member name="M:Sungero.Core.ReportExtensions.ExportToFile(Sungero.Reporting.IReport,System.String)">
+      <summary>Сохранить отчет в файл.</summary>
+      <param name="report">Отчет.</param>
+      <param name="fileName">Имя файла.</param>
+      <returns>Имя файла, в который сохранился отчет.</returns>
+      <remarks>Имя файла для записи может отличаться от имени файла, в который сохранился отчет.
+    Может измениться расширение файла в зависимости от формата экспорта.</remarks>
+    </member>
+    <member name="M:Sungero.Core.ReportExtensions.Open(Sungero.Reporting.IReport)">
+      <summary>Открыть отчет.</summary>
+      <param name="report">Отчет.</param>
+    </member>
+    <member name="M:Sungero.Core.ReportExtensions.Show(System.Collections.Generic.IEnumerable{Sungero.Reporting.IReport},System.String)">
+      <summary>Показать список отчетов.</summary>
+      <param name="reports">Список отчетов.</param>
+      <param name="title">Заголовок списка отчетов.</param>
+    </member>
+    <member name="P:Sungero.Reporting.Client.BeforeExecuteEventArgs.Cancel">
+      <summary>Признак того, что генерация отчета прекращена.</summary>
+    </member>
+    <member name="T:Sungero.Core.IReportExtensions">
+      <summary>Методы расширения для списка отчетов.</summary>
+    </member>
+    <member name="T:Sungero.Core.ReportExtensions">
+      <summary>Методы расширения для списка отчетов.</summary>
+    </member>
+    <member name="T:Sungero.Reporting.Client.BeforeExecuteEventArgs">
+      <summary>Аргументы события "До выполнения".</summary>
+    </member>
+    <member name="T:Sungero.Reporting.ReportClientHandlers">
+      <summary>Базовый класс прикладных обработчиков клиентских событий.</summary>
+    </member>
+  </members>
+</doc>

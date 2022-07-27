@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "85991c54-0f33-4c74-8d8f-2b05df65a511": {
+      "ProjectGuid": "85991c54-0f33-4c74-8d8f-2b05df65a511",
+      "DisplayName": "MetadataParser",
+      "ColorIndex": 0
+    },
+    "3b6864c6-0227-4c78-97ea-debd83bd7d89": {
+      "ProjectGuid": "3b6864c6-0227-4c78-97ea-debd83bd7d89",
+      "DisplayName": "LocalizationHelper",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "feb2b0e3-d7ae-453d-97de-86986bacec01": {
+      "ProjectGuid": "feb2b0e3-d7ae-453d-97de-86986bacec01",
+      "DisplayName": "MetadataDescription",
+      "ColorIndex": 2
+    },
+    "ccaf6067-c802-473c-8d74-0e772e9164a5": {
+      "ProjectGuid": "ccaf6067-c802-473c-8d74-0e772e9164a5",
+      "DisplayName": "MetadataVersionComparer",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

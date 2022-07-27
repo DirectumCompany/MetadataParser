@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CCAF6067-C802-473C-8D74-0E772E9164A5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetadataVersionComparer</RootNamespace>
+    <AssemblyName>MetadataVersionComparer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\ResolveReferences\lib\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonLibrary">
+      <HintPath>..\..\lib\CommonLibrary\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonLibrary.Reflection">
+      <HintPath>..\..\lib\CommonLibrary\CommonLibrary.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\ResolveReferences\lib\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Nuget\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\lib\Nuget\packages\NLog.4.5.9\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Content.Shared">
+      <HintPath>..\..\lib\Content\Sungero.Content.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.CoreEntities.Client">
+      <HintPath>..\..\lib\Kernel\Sungero.CoreEntities.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.CoreEntities.Shared">
+      <HintPath>..\..\lib\Kernel\Sungero.CoreEntities.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Domain.Client">
+      <HintPath>..\..\lib\Kernel\Sungero.Domain.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Domain.Shared, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SungeroCommon\Sungero.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Metadata">
+      <HintPath>..\..\lib\Kernel\Sungero.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Reporting.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Report\Sungero.Reporting.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Services">
+      <HintPath>..\..\lib\Kernel\Sungero.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Services.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.Services.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Workflow.Shared">
+      <HintPath>..\..\lib\Workflow\Sungero.Workflow.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\..\lib\Nuget\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>..\..\lib\Nuget\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\..\lib\Nuget\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions">
+      <HintPath>..\..\lib\Nuget\packages\Unity.Abstractions.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration">
+      <HintPath>..\..\lib\Nuget\packages\Unity.Configuration.5.11.1\lib\net47\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container">
+      <HintPath>..\..\lib\Nuget\packages\Unity.Container.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ResolveReferences\Moqs\DatabookHistoryInfo.cs">
+      <Link>Core\Moqs\DatabookHistoryInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ResolveReferences\Moqs\FolderInfo.cs">
+      <Link>Core\Moqs\FolderInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ResolveReferences\Moqs\TenantInfo.cs">
+      <Link>Core\Moqs\TenantInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ResolveReferences\Moqs\UsersInfo.cs">
+      <Link>Core\Moqs\UsersInfo.cs</Link>
+    </Compile>
+    <Compile Include="Core\Diff.cs" />
+    <Compile Include="Core\MetadataExtension.cs" />
+    <Compile Include="Option.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetadataParser\MetadataParser.csproj">
+      <Project>{85991c54-0f33-4c74-8d8f-2b05df65a511}</Project>
+      <Name>MetadataParser</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

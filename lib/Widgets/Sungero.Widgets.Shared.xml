@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.Widgets.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.Services.Shared.WidgetChartSeriesDto">
+            <summary>
+            Серия графика.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartSeriesDto.Id">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartSeriesDto.Label">
+            <summary>
+            Подпись для серии.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartSeriesDto.DisplayValueFormat">
+            <summary>
+            Формат отображения значений серии.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartSeriesDto.Color">
+            <summary>
+            Цвет серии.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartSeriesDto.Values">
+            <summary>
+            Значения серии.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Shared.WidgetChartValueDto">
+            <summary>
+            Значение серии графика.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartValueDto.Color">
+            <summary>
+            Цвет.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartValueDto.ValueId">
+            <summary>
+            Идентификатор значения графика.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartValueDto.Label">
+            <summary>
+            Подпись.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartValueDto.Value">
+            <summary>
+            Значение.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartValueDto.Argument">
+            <summary>
+            Аргумент.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Shared.Widgets.WidgetInfo">
+            <summary>
+            Информация о виджете.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.UserId">
+            <summary>
+            Получить идентификатор пользователя, к которому относится виджет.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.WidgetId">
+            <summary>
+            Получить идентификатор виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.WidgetType">
+            <summary>
+            Получить тип виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.Title">
+            <summary>
+            Заголовок виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.Column">
+            <summary>
+            Номер колонки.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.Row">
+            <summary>
+            Номер строки.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.Parameters">
+            <summary>
+            Получить параметры виджеты.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.HasDefaultParameters">
+            <summary>
+            Признак использования параметров по-умолчанию.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.HasDefaultTitle">
+            <summary>
+            Признак использования заголовка по-умолчанию.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.Widgets.WidgetInfo.IsAvailable">
+            <summary>
+            Получить признак доступности виджета.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Shared.Widgets.WidgetInfo.AsUnavailable">
+            <summary>
+            Получить информацию о виджете, который не доступен.
+            </summary>
+            <returns>Информация о виджете.</returns>
+        </member>
+        <member name="M:Sungero.Services.Shared.Widgets.WidgetInfo.UpdateParameters(System.Collections.Generic.Dictionary{System.Guid,System.Object})">
+            <summary>
+            Обновить параметры виджета.
+            </summary>
+            <param name="parameters">Параметры виджета.</param>
+            <returns>Информация о виджете.</returns>
+        </member>
+        <member name="M:Sungero.Services.Shared.Widgets.WidgetInfo.UpdatePosition(System.Int32,System.Int32)">
+            <summary>
+            Обновить положение виджета.
+            </summary>
+            <param name="x">Положение по оси X.</param>
+            <param name="y">Положение по оси Y.</param>
+            <returns>Информация о виджете.</returns>
+        </member>
+        <member name="M:Sungero.Services.Shared.Widgets.WidgetInfo.UpdateTitle(System.String)">
+            <summary>
+            Обновить заголовок.
+            </summary>
+            <param name="title">Заголовок.</param>
+            <returns>Информация о виджете.</returns>
+        </member>
+        <member name="T:Sungero.Services.Shared.WidgetItemDto">
+            <summary>
+            DTO действия виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetItemDto.WidgetId">
+            <summary>
+            Идентификатор виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetItemDto.ItemType">
+            <summary>
+            Тип действия.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Shared.WidgetActionDto">
+            <summary>
+            DTO действия виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetActionDto.Value">
+            <summary>
+            Значение метки действия.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Shared.WidgetChartDto">
+            <summary>
+            DTO графика виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartDto.IsEmpty">
+            <summary>
+            Пустое значение.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartDto.IsError">
+            <summary>
+            Ошибка.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartDto.IsLegendVisible">
+            <summary>
+            Видима ли легенда.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetChartDto.Series">
+            <summary>
+            Серии графика.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Shared.WidgetPlotChartDto">
+            <summary>
+            DTO графика виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetPlotChartDto.XAxisType">
+            <summary>
+            Тип оси X графика.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetPlotChartDto.XAxisTitle">
+            <summary>
+            Заголовок оси X.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetPlotChartDto.YAxisTitle">
+            <summary>
+            Заголовок оси Y.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetPlotChartDto.YAxisMinValue">
+            <summary>
+            Минимальное значение по оси Y.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetPlotChartDto.YAxisMaxValue">
+            <summary>
+            Максимальное значение по оси Y.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Shared.WidgetBarChartDto">
+            <summary>
+            DTO графика виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetBarChartDto.AxisTitle">
+            <summary>
+            Заголовок оси данных.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Shared.WidgetBarChartDto.IsValuesVisible">
+            <summary>
+            Признак видимости значений графика.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidgetDefaultParametersGetter">
+            <summary>
+            Получатель параметров по умолчанию виджета.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetDefaultParametersGetter.GetDefaultParameters(System.Guid)">
+            <summary>
+            Получить параметры по умолчанию.
+            </summary>
+            <param name="widgetType">Тип виджета.</param>
+            <returns>Параметры.</returns>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidget">
+            <summary>
+            Виджет.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.GetInfo">
+            <summary>
+            Получить информацию о виджете.
+            </summary>
+            <returns>Информация о виджете.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.GetCurrentData">
+            <summary>
+            Получить данные для виджета.
+            </summary>
+            <returns>Коллекция данных элементов виджета.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.Refresh">
+            <summary>
+            Обновить данные виджета.
+            </summary>
+            <returns>Задача выполнения обновления.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.UpdateTitle(System.String)">
+            <summary>
+            Обновить заголовок виджета.
+            </summary>
+            <param name="title">Новые настройки виджета.</param>
+            <returns>Задача обновления заголовка.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.UpdatePosition(System.Int32,System.Int32)">
+            <summary>
+            Обновить позицию виджета.
+            </summary>
+            <param name="row">Строка.</param>
+            <param name="column">Колонка.</param>
+            <returns>Задача обновления позиции.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.UpdateParameters(System.Collections.Generic.Dictionary{System.Guid,System.Object})">
+            <summary>
+            Обновить параметры.
+            </summary>
+            <param name="parameters">Новые параметры.</param>
+            <returns>Задача обновления параметра.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidget.GetWidgetState">
+            <summary>
+            Получить состояние виджета.
+            </summary>
+            <returns>Задача на получение состояние виджета.</returns>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.WidgetState">
+            <summary>
+            Состояние виджета.
+            </summary>
+        </member>
+        <member name="F:Sungero.Services.Data.Widgets.WidgetState.Updating">
+            <summary>
+            Идет обновление данных виджета.
+            </summary>
+        </member>
+        <member name="F:Sungero.Services.Data.Widgets.WidgetState.Ready">
+            <summary>
+            Данные виджеты готовы для получения.
+            </summary>
+        </member>
+        <member name="F:Sungero.Services.Data.Widgets.WidgetState.Unknown">
+            <summary>
+            Состояние данных виджета не известно.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidgetDataQueryObject">
+            <summary>
+            Запрос на получение сущностей виджета.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Data.Widgets.IWidgetDataQueryObject.EntityType">
+            <summary>
+            Тип сущностей в списке.
+            </summary>
+        </member>
+        <member name="P:Sungero.Services.Data.Widgets.IWidgetDataQueryObject.Title">
+            <summary>
+            Заголовок списка сущностей.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetDataQueryObject.CreateQuery">
+            <summary>
+            Создать запрос.
+            </summary>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidgetFactory">
+            <summary>
+            Фабрика для получения объектов виджетов (Наборы и виджеты).
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetFactory.CreateWidget(System.Guid,System.Int32)">
+            <summary>
+            Создать виджет для пользовтеля.
+            </summary>
+            <param name="widgetTypeId">Идентификатор типа виджета.</param>
+            <param name="userId">Идентификатор пользователя.</param>
+            <returns>Задача на создание виджета.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetFactory.CreateWidget(System.Guid,System.Guid,System.Int32,System.String,System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Guid,System.Object})">
+            <summary>
+            Создать виджет для пользовтеля.
+            </summary>
+            <param name="widgetId">Идентификатор виджета.</param>
+            <param name="widgetTypeId">Идентификатор типа виджета.</param>
+            <param name="userId">Идентификатор пользователя.</param>
+            <param name="title">Заголовок виджета.</param>
+            <param name="row">Положение в строке сетки.</param>
+            <param name="column">Положение в колонке сетки.</param>
+            <param name="parameters">Параметры виджета.</param>
+            <returns>Задача на создание виджета.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetFactory.GetWidget(System.Guid)">
+            <summary>
+            Получить виджет.
+            </summary>
+            <param name="widgetId">Идентификатор виджета.</param>
+            <returns>Задача на получение виджета.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetFactory.GetWidgetSet(System.Int32)">
+            <summary>
+            Получить набор виджетов.
+            </summary>
+            <param name="userId">Идентификатор пользователя.</param>
+            <returns>Задача на получение набора виджетов.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetFactory.CreateWidgetSet(System.Int32,System.Guid)">
+            <summary>
+            Создать набор виджетов для пользователя.
+            </summary>
+            <param name="userId">ИД пользователя.</param>
+            <param name="widgetSetId">Идентификатор набора виджетов.</param>
+            <returns>Задача на создание набора виджетов.</returns>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidgetService">
+            <summary>
+            Сервис работы с виджетами.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.ListAvailableWidgetSetForCurrentUser">
+            <summary>
+            Получить идентификаторы доступных для применения наборов виджетов для текущего пользователя. 
+            </summary>
+            <returns>Задача на получение идентификаторов наборов виджетов.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.ApplyWidgetSet(System.Int32,System.Guid)">
+            <summary>
+            Применить набор виджетов для пользователя.
+            </summary>
+            <param name="userId">Идентификатор пользователя.</param>
+            <param name="widgetSetId">Идентификатор набора виджетов.</param>
+            <returns>Задача на применение набора виджетов, в результате которой будет получен примененный набор виджетов.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.ApplyDefaultWidgetSetForCurrentUser">
+            <summary>
+            Применить набор виджетов по умолчанию для текущего пользователя.
+            </summary>
+            <returns>Задача на применение набора виджетов, в результате которой будет получен примененный набор виджетов.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.GetWidgetSetByUser(System.Int32)">
+            <summary>
+            Получить набор виджетов для пользователя.
+            </summary>
+            <param name="userId">Идентификатор пользователя.</param>
+            <returns>Задача на получение набора виджетов.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.GetWidget(System.Guid)">
+            <summary>
+            Получить виджет.
+            </summary>
+            <param name="widgetId">Идентификатор виджета.</param>
+            <returns>Задача на получения виджета.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.GetChartEntitiesQuery(System.Guid,System.Guid,System.String,System.String)">
+            <summary>
+            Получить запрос списка сущностей, содержащихся в элементе диаграммы.
+            </summary>
+            <param name="widgetId">ИД виджета.</param>
+            <param name="chartId">ИД элемента виджета с диаграммой.</param>
+            <param name="valueId">ИД значения в диаграмме.</param>
+            <param name="seriesId">ИД серии диаграммы.</param>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetService.GetActionEntitiesQuery(System.Guid,System.Guid)">
+            <summary>
+            Получить запрос списка сущностей, содержащихся в элементе-действии виджета.
+            </summary>
+            <param name="widgetId">ИД виджета.</param>
+            <param name="actionId">ИД элемента-действия виджета.</param>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidgetSet">
+            <summary>
+            Набор виджетов пользователя.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSet.Add(Sungero.Services.Data.Widgets.IWidget)">
+            <summary>
+            Добавить виджет к набору.
+            </summary>
+            <param name="widget">Виджет.</param>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSet.Add(System.Guid)">
+            <summary>
+            Добавить виджет к набору.
+            </summary>
+            <param name="widgetTypeId">Идентификатор типа виджета.</param>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSet.ListWidgets">
+            <summary>
+            Получить список всех виджетов набора.
+            </summary>
+            <returns>Коллекция виджетов пользователя.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSet.Remove(System.Guid)">
+            <summary>
+            Удалить виджет из набора.
+            </summary>
+            <param name="widgetId">Идентификатор виджета.</param>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSet.Refresh">
+            <summary>
+            Обновить все виджеты набора.
+            </summary>
+            <returns>Задача на обновление виджетов набора.</returns>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSet.RemoveAll">
+            <summary>
+            Удалить все виджеты набора.
+            </summary>
+            <returns>Задача на удаление всех виджетов набора.</returns>
+        </member>
+        <member name="T:Sungero.Services.Data.Widgets.IWidgetSetLoader">
+            <summary>
+            Загрузчик виджетов из набора виджета.
+            </summary>
+        </member>
+        <member name="M:Sungero.Services.Data.Widgets.IWidgetSetLoader.LoadWidgets(System.Guid,System.Int32,Sungero.Services.Data.Widgets.IWidgetFactory)">
+            <summary>
+            Загрузить виджеты.
+            </summary>
+            <param name="widgetSetId">ИД набора виджетов.</param>
+            <param name="userId">ИД пользователя.</param>
+            <param name="widgetFactory">Фабрика виджетов.</param>
+            <returns>Задача на получение виджетов.</returns>
+        </member>
+        <member name="T:Sungero.Widgets.Shared.WidgetDefaultParametersGetter">
+            <summary>
+            Получатель параметров по умолчанию виджета.
+            </summary>
+        </member>
+        <member name="T:Sungero.Widgets.Shared.WidgetsResourceLoader">
+            <summary>
+            Загрузчик набора виджетов из ресурсов сборки.
+            </summary>
+        </member>
+        <member name="M:Sungero.Widgets.Shared.WidgetsResourceLoader.LoadWidgets(Sungero.Metadata.DesktopViewMetadata,System.Int32,Sungero.Services.Data.Widgets.IWidgetFactory)">
+            <summary>
+            Загрузить виджеты.
+            </summary>
+            <param name="widgetSetMetadata">Метаданные вида рабочего стола.</param>
+            <param name="userId">ИД пользователя.</param>
+            <param name="widgetFactory">Фабрика виджетов.</param>
+            <returns>Виджеты.</returns>
+        </member>
+        <member name="M:Sungero.Widgets.Shared.WidgetsResourceLoader.LoadWidgets(System.IO.Stream,System.Int32,Sungero.Services.Data.Widgets.IWidgetFactory)">
+            <summary>
+            Загрузить виджеты.
+            </summary>
+            <param name="stream">Поток.</param>
+            <param name="userId">ИД пользователя.</param>
+            <param name="widgetFactory">Фабрика виджетов.</param>
+            <returns>Виджеты.</returns>
+        </member>
+        <member name="M:Sungero.Widgets.Shared.WidgetsResourceLoader.LoadWidget(System.Xml.Linq.XElement,System.Int32,Sungero.Services.Data.Widgets.IWidgetFactory)">
+            <summary>
+            Загрузить виджет.
+            </summary>
+            <param name="element">DOM элемент.</param>
+            <param name="userId">ИД пользователя.</param>
+            <param name="widgetFactory">Хранилище виджетов.</param>
+            <returns>Виджет.</returns>
+        </member>
+        <member name="M:Sungero.Widgets.Shared.WidgetsResourceLoader.LoadLocalizedTitle(System.Xml.Linq.XElement)">
+            <summary>
+            Загрузить локализованный заголовок виджета.
+            </summary>
+            <param name="element">DOM элемент.</param>
+            <returns>Заголовок виджета.</returns>
+        </member>
+        <member name="M:Sungero.Widgets.Shared.WidgetsResourceLoader.LoadParameters(System.Xml.Linq.XElement)">
+            <summary>
+            Загрузить параметры.
+            </summary>
+            <param name="element">DOM элемент.</param>
+            <returns>Параметры.</returns>
+        </member>
+        <member name="M:Sungero.Widgets.Shared.WidgetsResourceLoader.#ctor(Sungero.Services.Data.Widgets.IWidgetDefaultParametersGetter)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="defaultParametersGetter">Получатель параметров по умолчанию.</param>
+        </member>
+    </members>
+</doc>

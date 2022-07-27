@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E0E4945-C65A-466B-869F-D4EE5FAF4C92}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ResolveReferences</RootNamespace>
+    <AssemblyName>Client.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>lib\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CommandLine">
+      <HintPath>lib\CommandLine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\lib\Nuget\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\..\lib\Nuget\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonLibrary">
+      <HintPath>..\..\lib\CommonLibrary\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonLibrary.Reflection">
+      <HintPath>..\..\lib\CommonLibrary\CommonLibrary.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigSettings">
+      <HintPath>..\..\lib\ConfigSettings\ConfigSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2">
+      <HintPath>..\..\lib\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>lib\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Nuget\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Content.Shared">
+      <HintPath>..\..\lib\Content\Sungero.Content.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.CoreEntities.Client">
+      <HintPath>..\..\lib\Kernel\Sungero.CoreEntities.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.CoreEntities.Shared">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.CoreEntities.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Domain">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Domain.Client">
+      <HintPath>..\..\lib\Kernel\Sungero.Domain.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Domain.Shared">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.IDE.Server">
+      <HintPath>..\..\lib\Kernel\Sungero.IDE.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Metadata">
+      <HintPath>..\..\lib\Kernel\Sungero.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Reporting.Shared">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Report\Sungero.Reporting.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Services">
+      <HintPath>..\..\lib\Kernel\Sungero.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Services.Shared">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Kernel\Sungero.Services.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Sungero.Workflow.Shared">
+      <HintPath>..\..\lib\Workflow\Sungero.Workflow.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\..\lib\Nuget\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>..\..\lib\Nuget\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\..\lib\Nuget\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions">
+      <HintPath>..\..\lib\Nuget\packages\Unity.5.11.1\lib\net46\Unity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Unity.Configuration">
+      <HintPath>..\..\lib\Nuget\packages\Unity.Configuration.5.11.1\lib\net46\Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Unity.Container">
+      <HintPath>..\..\lib\Nuget\packages\Unity.5.11.1\lib\net46\Unity.Container.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MetadataService.cs" />
+    <Compile Include="Moqs\DatabookHistoryInfo.cs" />
+    <Compile Include="Moqs\FolderInfo.cs" />
+    <Compile Include="Moqs\TenantInfo.cs" />
+    <Compile Include="Moqs\UsersInfo.cs" />
+    <Compile Include="Option.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

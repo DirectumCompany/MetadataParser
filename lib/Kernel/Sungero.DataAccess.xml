@@ -1,0 +1,3275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.DataAccess</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.DataAccess.ComponentPropertyAccessor">
+            <summary>
+            NHibernate-аксессор для свойств-компонент.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.ComponentPropertySetter">
+            <summary>
+            NHibernate-сеттер для свойств-комонентов.
+            </summary>
+            <remarks>Инициализация (присвоение значения свойству) NHibernate-ом выполняется через метод InitИмяСвойства().</remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.ComponentPropertySetter.#ctor(System.Type,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="theClass">Тип.</param>
+            <param name="propertyName">Имя свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.DataAccessException">
+            <summary>
+            Исключение доступа к данным.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.DataAccessException.#ctor(System.Boolean)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.DataAccessException.#ctor(System.Boolean,CommonLibrary.LocalizedString)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+            <param name="message">Сообщение.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.DataAccessException.#ctor(System.Boolean,CommonLibrary.LocalizedString,System.Exception)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+            <param name="message">Сообщение.</param>
+            <param name="exception">Внутреннее исключение.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.DataAccessException.#ctor(System.Boolean,CommonLibrary.LocalizedString,CommonLibrary.LocalizedString,System.Exception)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+            <param name="message">Сообщение.</param>
+            <param name="description">Описание.</param>
+            <param name="innerException">Внутреннее исключение.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.DataAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="info">Сериализованные данные об исключении.</param>
+            <param name="context">Информация о контексте.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.DatabaseEngineRegister">
+            <summary>
+            Регистратор "движков" БД.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.DatabaseEngineRegister.SetEngine(System.String)">
+            <summary>
+            Установить "движок" БД.
+            </summary>
+            <param name="engineName">Имя "движка".</param>
+        </member>
+        <member name="T:Sungero.DataAccess.DatabaseEngineAdapter">
+            <summary>
+            Адаптер "движка" БД.
+            </summary>
+            <remarks>
+            Используется для LockManager'a, который использует IDatabaseEngine из Sungero.Common.
+            Эта обертка транслирует вызовы из Sungero.Common.IDatabaseEngine в Sungero.Domain.DatabaseEngine.
+            Удалить когда все будут использовать один IDatabaseEngine.
+            </remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.EnumerableDataReader`1">
+            <summary>
+            Реализация IDataReader для произвольной коллекции.
+            </summary>
+            <remarks>
+            По мотивам https://groups.google.com/forum/?hl=en#!msg/microsoft.public.dotnet.languages.csharp/hNCN2XeO_Xc/reLeTFAL17EJ .
+            и http://blog.developers.ba/bulk-insert-generic-list-sql-server-minimum-lines-code/ .
+            </remarks>
+            <typeparam name="T">Тип элементов коллекции.</typeparam>
+        </member>
+        <member name="P:Sungero.DataAccess.EnumerableDataReader`1.ColumnNames">
+            <summary>
+            Имена колонок.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSqlBulkCopy">
+            <summary>
+            Реализация пакетной передачи данных для Sql Server.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSqlEngine">
+            <summary>
+            Движок для Sql Server.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.MSSqlEngine.IsolationLevelSetterCommandText">
+            <summary>
+            Текст команды установки уровня изоляции транзакции.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSqlExceptionWrapper">
+            <summary>
+            Класс-обертка для исключений MS SQL Server.
+            </summary>
+            <remarks>
+            SELECT * FROM master.dbo.sysmessages
+            Посмотреть полный список.
+            </remarks>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.CannotObtainLockResource">
+            <summary>
+            Ошибка получения ресурсов для блокировки.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.CommandTimeoutExpired">
+            <summary>
+            Таймаут выполнения команды.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.CommitWithoutBegin">
+            <summary>
+            Исключение при вызове COMMIT TRANSACTION без сответствующего BEGIN TRANSACTION.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.Deadlock">
+            <summary>
+            Дедлок.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.EstablishingConnectionError">
+            <summary>
+            Не удалось установить соединение со SQL сервером.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.FirstUserDefinedMessageId">
+            <summary>
+            Минимальный идентификатор пользовательского сообщения SQL-сервера.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.ForeignKeyViolation">
+            <summary>
+            Нарушение ForeignKey.
+            К примеру, при удалении записи, которая используется.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.MissingDataSqlException">
+            <summary>
+            Код ошибки SQL Server при попытке чтения перемещенных данных.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.TimeoutExpired">
+            <summary>
+            Таймаут подключения к серверу.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlExceptionWrapper.UniqueConstraintViolation">
+            <summary>
+            Нарушение UniqueConstraint.
+            К примеру, при вставке записи с дублирующимся ключом.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSqlHqlEngine">
+            <summary>
+            Sql Server-ный движок для работы с HQL-выражениями.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlHqlEngine.MsSqlWordCharacterRangeResourceName">
+            <summary>
+            Имя ресурса для получения локализованного диапазона букв алфавита.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlHqlEngine.stringContainsMethod">
+            <summary>
+            Информация о методе string.Contains.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlHqlEngine.stringStartsWithMethod">
+            <summary>
+            Информация о методе string.StartsWith.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlHqlEngine.defaultWordDelimiterSqlPattern">
+            <summary>
+            Sql-шаблон по-умолчанию для разделителей слов (для использования в операторе like).
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSqlHqlEngine.msSqlLikeMatches">
+            <summary>
+            Конфигурация паттернов Like оператора.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.MSSqlHqlEngine.WordDelimiterSqlPattern">
+            <summary>
+            Получить паттерн разделителя слов для Like операции в запросе SQL.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSqlHqlEngine.GetContainsFromWordStartPatternExpression(System.Linq.Expressions.Expression,System.String)">
+            <summary>
+            Получить выражение для поиска шаблона с начала слова.
+            </summary>
+            <param name="expression">Выражение, в котором нужно провести поиск.</param>
+            <param name="pattern">Шаблон.</param>
+            <returns>Результирующее выражение.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSqlHqlEngine.BuildWordDelimiterSqlPattern">
+            <summary>
+            Построить паттерн Sql запроса для операции like на основе указанных диапазонов буквенных символов в ресурсах локализации.
+            </summary>
+            <returns>Sql-шаблон разделителей слов (для использования в операторе like).</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.MsSqlLikeMatchesConfiguration">
+            <summary>
+            Настройка конфигурации шаблонов запросов для Like оператора MS Sql.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MsSqlLikeMatchesConfiguration.WordDelimiterSqlPatternConfigName">
+            <summary>
+            Имя настройки для паттерна разделителя слов для определения начала слова в операторе LIKE в SQL.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MsSqlLikeMatchesConfiguration.getter">
+            <summary>
+            Класс для работы с файлом конфигурации.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.MsSqlLikeMatchesConfiguration.WordDelimiterSqlPattern">
+            <summary>
+            Получить паттерн Like оператора MS Sql для определения разделителя слов.
+            Паттерн задает условие оператора Like в SQL для определения разделителя слов при поиске в выпадающих списках.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MsSqlLikeMatchesConfiguration.#ctor">
+            <summary>
+            Создает экземпляр настройки.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSqlSqlStatementBuilder">
+            <summary>
+            Построитель конструкций для MSSQL sql-запросов.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.PostgresBulkCopy">
+            <summary>
+            Реализация пакетной передачи данных для Postgres.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.PostgresEngine">
+            <summary>
+            Движок для PostgreSQL.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresEngine.CitextTypeName">
+            <summary>
+            Имя типа citext.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PostgresEngine.HasTransactionWithStatus(System.Data.IDbConnection,System.Byte)">
+            <summary>
+            Проверяет признак наличия транзакции с указанным статусом.
+            </summary>
+            <param name="connection">Соединение.</param>
+            <param name="status">Искомый статус.</param>
+            <returns>True, если состояние транзакции равно статусу.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.PostgresExceptionWrapper">
+            <summary>
+            Класс-обертка для исключений PostgreSQL.
+            </summary>
+            <remarks>
+            PostgreSQL Error Codes:
+            https://www.postgresql.org/docs/current/static/errcodes-appendix.html
+            Ссылка на текущий список ошибок.
+            </remarks>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresExceptionWrapper.CannotObtainLockResource">
+            <summary>
+            Ошибка получения ресурсов для блокировки (lock_not_available).
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresExceptionWrapper.Deadlock">
+            <summary>
+            Дедлок (deadlock_detected).
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresExceptionWrapper.SerializationFailure">
+            <summary>
+            Не удалось сериализовать доступ из-за зависимостей чтения/записи между транзакциями.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresExceptionWrapper.EstablishingConnectionError">
+            <summary>
+            Не удалось установить соединение со SQL сервером.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresExceptionWrapper.ForeignKeyViolation">
+            <summary>
+            Нарушение ForeignKey.
+            К примеру, при удалении записи, которая используется.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresExceptionWrapper.UniqueConstraintViolation">
+            <summary>
+            Нарушение UniqueConstraint.
+            К примеру, при вставке записи с дублирующимся ключом.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PostgresExceptionWrapper.#ctor(System.Data.Common.DbException)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="ex">Исходное исключение.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.PostgresHqlEngine">
+            <summary>
+            PostgeSQL-ный движок для работы с HQL-выражениями.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PostgresHqlEngine.regexIsMatchMethod">
+            <summary>
+            Информация о методе Regex.IsMatch.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.PostgresSqlStatementBuilder">
+            <summary>
+            Построитель конструкций для Postgres sql-запросов.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.DescendantClassCollectionPropertyAccessor">
+            <summary>
+            Кастомный Accessor к свойствам-коллекциям наследованных классов для маппинга NHibernate.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassCollectionPropertyAccessor.GetGetter(System.Type,System.String)">
+            <summary>
+            Получить геттер свойства.
+            </summary>
+            <param name="type">Тип.</param>
+            <param name="propertyName">Имя свойства.</param>
+            <returns>Геттер свойства.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassCollectionPropertyAccessor.GetSetter(System.Type,System.String)">
+            <summary>
+            Получить сеттер свойства.
+            </summary>
+            <param name="type">Тип.</param>
+            <param name="propertyName">Имя свойства.</param>
+            <returns>Сеттер свойства.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.DescendantClassFieldNamingStrategy">
+            <summary>
+            Стратегия доступа к полям свойств наследованных типов для маппинга NHibernate.
+            </summary>
+            <remarks>
+            Если у двух типов сущностей данные располагаются в одной таблице, то при наличии в этих типах свойств с одинаковыми именами NHibernate перестает их различать.
+            Поэтому необходимо переименовывать маппинги свойств и определять стратегию для получения имени поля объекта, в которое будут записываться данные.
+            Данная стратегия аналогична стратегии nosetter-pascal-underscore.
+            </remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassFieldNamingStrategy.GetActualPropertyName(System.String)">
+            <summary>
+            Получить оригинальное наименование свойства.
+            </summary>
+            <param name="mappingPropertyName">Имя свойства в маппинге NHibernate.</param>
+            <returns>Наименование свойства.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.DescendantClassPropertyAccessor">
+            <summary>
+            Кастомный Accessor к свойствам наследованных классов для маппинга NHibernate.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.DescendantClassPropertyAccessor.strategy">
+            <summary>
+            Стратегия для получения имени поля.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassPropertyAccessor.GetGetter(System.Type,System.String)">
+            <summary>
+            Получить геттер свойства.
+            </summary>
+            <param name="theClass">Тип.</param>
+            <param name="propertyName">Имя свойства.</param>
+            <returns>Геттер свойства.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassPropertyAccessor.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.EntityFactory">
+            <summary>
+            Фабрика сущностей, возвращает прокси, в котором реализована инфраструктурная логика.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.TypeNameILogin">
+            <summary>
+            Полное имя интерфейса ILogin.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.TypeNameLogin">
+            <summary>
+            Полное имя класса Login.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.UnitySectionName">
+            <summary>
+            Название секции настроек Unity.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.ServerEntitiesContainerName">
+            <summary>
+            Наименование контейнера с сущностями.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.RepositoryContainerName">
+            <summary>
+            Наименование контейнера с конфигурацией репозиториев.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.ResourceContainerName">
+            <summary>
+            Наименование контейнера с конфигурацией ресурсов.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.allContainerNames">
+            <summary>
+            Имена всех контейнеров.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.EntityFactory.Container">
+            <summary>
+            Контейнер.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.allConfigSections">
+            <summary>
+            Список всех зареганных секций конфигов.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityFactory.typeByInterfaceResolver">
+            <summary>
+            Расширение для Unity.
+            </summary>
+            <remarks>
+            Используется для получения доступа к контейнеру типов в unity,
+            чтобы можно было получить тип по интерфейсу при этом, не создавая экземпляра.
+            </remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.ResolveType(System.Type)">
+            <summary>
+            Определить тип, реализующий интерфейс.
+            </summary>
+            <param name="entityInterface">Тип интерфейса.</param>
+            <returns>Тип.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.TryResolveType(System.Type,System.Type@)">
+            <summary>
+            Попытаться определить тип, реализующий интерфейс.
+            </summary>
+            <param name="entityInterface">Тип интерфейса сущности.</param>
+            <param name="entityType">Тип класса сущности.</param>
+            <returns>True, если тип найден, иначе - false.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.TryResolveInterface(System.Type,System.Type@)">
+            <summary>
+            Определить интерфейс, который реализуюет тип.
+            </summary>
+            <param name="entityType">Тип сущности.</param>
+            <param name="entityInterface">Тип интерфейса.</param>
+            <returns>
+            True - если удалось найти интерфейс для сущности, иначе False.
+            </returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.ResolveInterface(System.Type)">
+            <summary>
+            Зазрезолвить интерфейс по типу сущности.
+            </summary>
+            <param name="entityType">Тип сущности.</param>
+            <returns>Тип интерфейса.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.TryResolveInterfaceByName(System.String,System.Type@)">
+            <summary>
+            Попытаться разрезолвить интерфейс по имени.
+            </summary>
+            <param name="name">Имя.</param>
+            <param name="entityInterface">Найденный тип интерфейса.</param>
+            <returns>True - если тип интерфейса найден, иначе False.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.FindUnityTypeElement(System.Func{Microsoft.Practices.Unity.Configuration.RegisterElement,System.Int32,System.Boolean})">
+            <summary>
+            Найти запись в конфиге Unity по заданному условию.
+            </summary>
+            <param name="predicate">Предикат с условием поиска.</param>
+            <returns>Найденные записи.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.CreateEntity(System.Type)">
+            <summary>
+            Создать сущность.
+            </summary>
+            <param name="type">Класс сущности.</param>
+            <returns>Сущность.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.CreateEntity(System.Type,System.Int32)">
+            <summary>
+            Создать сущность.
+            </summary>
+            <param name="type">Класс сущности.</param>
+            <param name="id">Идентификатор сущности.</param>
+            <returns>Сущность.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.Create(System.Type)">
+            <summary>
+            Создать сущность.
+            </summary>
+            <param name="type">Класс сущности.</param>
+            <returns>Сущность.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.Create``1">
+            <summary>
+            Создать сущность.
+            </summary>
+            <typeparam name="T">Класс сущности.</typeparam>
+            <returns>Сущность.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.ConfigureUnityContainer">
+            <summary>
+            Метод-заглушка для конфигурирования Unity-контейнера.
+            </summary>
+            <remarks>
+            На самом деле конфигурирование Unity-контейнера происходит в статическом конструкторе.
+            Но при обращении к статическому методу сначала выполняется статический конструктор (причем всегда только один раз).
+            И если даже этот метод не будет явно вызван, конфигурирование всё равно произойдет при обращению к другим статическим членам класса или при создании экземпляра класса.
+            </remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.TryRegisterTypesFromConfig(System.String)">
+            <summary>
+            Зарегистрировать типы из конфига с настройками контейнеров.
+            </summary>
+            <param name="filePath">Путь к файлу.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityFactory.#cctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.AddDaysHqlGenerator">
+            <summary>
+            Linq->Hql генератор DateTime.AddDays.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Hql.CollectionContainsHqlGenerator">
+            <summary>
+            Hql-генератор вызовов методов-заглушек Contains для коллекций.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Hql.CollectionContainsHqlGenerator.ContainsIntMethodAlias">
+            <summary>
+            Заглушка для вызова Contains для типа int. В названии зашивается число элементов в списке.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Hql.CollectionContainsHqlGenerator.ContainsGuidMethodAlias">
+            <summary>
+            Заглушка для вызова Contains для типа Guid. В названии зашивается число элементов в списке.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsHqlGenerator.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Hql.CollectionContainsVisitor">
+            <summary>
+            Визитор для обработки вызовов метода Contains для простых коллекций.
+            Нужен для подмены вызова Contains на заглушку с одним xml-параметром, чтобы все значения коллекции
+            передались в итоговый sql-запрос в одном единственном параметре.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsVisitor.XmlQueryContainsInt(System.Xml.Linq.XDocument,System.Int32,System.Int32)">
+            <summary>
+            Заглушка для вызова Contains для int.
+            </summary>
+            <param name="xml">Xml с содержимым коллекции.</param>
+            <param name="itemsCount">Количество элементов в коллекции.</param>
+            <param name="value">Значение-аргумент оригинального Contains.</param>
+            <returns>Признак того, что коллекция содержит значение.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsVisitor.XmlQueryContainsGuid(System.Xml.Linq.XDocument,System.Int32,System.Guid)">
+            <summary>
+            Заглушка для вызова Contains для Guid.
+            </summary>
+            <param name="xml">Xml с содержимым коллекции.</param>
+            <param name="itemsCount">Количество элементов в коллекции.</param>
+            <param name="value">Значение-аргумент оригинального Contains.</param>
+            <returns>Признак того, что коллекция содержит значение.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsVisitor.TryCreateFakeMethodCall(System.Object,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression@)">
+            <summary>
+            Создать вызов метода-заглушки.
+            </summary>
+            <param name="sourceObject">Объект, у которого вызывали Contains.</param>
+            <param name="itemExpression">Expression для аргумент оригинального Contains.</param>
+            <param name="resultExpression">Expression для вызова метода-заглушки.</param>
+            <returns>E<c>True</c> если удалось создать вызов метода заглушки, <c>False</c> иначе.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsVisitor.TryCreateFakeMethodCall``1(System.String,System.Object,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression@)">
+            <summary>
+            Создать вызов метода-заглушки для указанного типа.
+            </summary>
+            <typeparam name="T">Тип элементов коллекции.</typeparam>
+            <param name="methodName">Имя метода-заглушки.</param>
+            <param name="sourceObject">Объект, у которого вызывали Contains.</param>
+            <param name="itemExpression">Expression для аргумента оригинального Contains.</param>
+            <param name="resultExpression">Expression для вызова метода-заглушки.</param>
+            <returns><c>True</c> если удалось создать вызов метода заглушки, <c>False</c> иначе.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsVisitor.CreateValuesXmlExpression``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Создать Expression для xml-аргумента со значениями коллекции для передачи в метод-заглушку.
+            </summary>
+            <typeparam name="T">Тип значений.</typeparam>
+            <param name="values">Набор значений коллекции.</param>
+            <returns>Expression для XML-аргумента метода-заглушки.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.CollectionContainsVisitor.GetSourceObject(System.Linq.Expressions.Expression)">
+            <summary>
+            Получить объект, у которого выполняется вызов Contains.
+            </summary>
+            <param name="expression">Выражение.</param>
+            <returns>Объект.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.Hql.ContainsWordStartsWithHqlGenerator">
+            <summary>
+            Hql-генератор для метода ContainsWordStartsWith для поиска по началу слова.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Hql.ContainsWordStartsWithHqlGenerator.ContainsWordStartsWithMethodAlias">
+            <summary>
+            Имя для метода, который будет транслирован в корректный SQL-запрос.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Hql.ContainsWordStartsWithHqlGenerator.ContainsWordStartsWithMethodAliasTemplate">
+            <summary>
+            Шаблон имени для метода, который будет транслирован в корректный SQL-запрос.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.ContainsWordStartsWithHqlGenerator.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Hql.ExcludeTaggedHqlGenerator">
+            <summary>
+            Hql-генератор для метода ExcludeTagged исключающего тегированые сущности.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Hql.ExcludeTaggedHqlGenerator.MethodAlias">
+            <summary>
+            Заглушка для метода ExcludeTagged, которая будет транслирована в корректный SQL-запрос.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.ExcludeTaggedHqlGenerator.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Hql.IsTypeHqlGenerator">
+            <summary>
+            Hql-генератор для метода IsExact.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Hql.IsTypeHqlGenerator.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Hql.RegexIsMatchHqlGenerator">
+            <summary>
+            Hql-генератор для метода Regex.IsMatch(string, string) для поиска по шаблону-регулярке.
+            </summary>
+            <remarks>
+            Релевантно для PostgreSQL.
+            </remarks>
+        </member>
+        <member name="F:Sungero.DataAccess.Hql.RegexIsMatchHqlGenerator.RegexIsMatchMethodAlias">
+            <summary>
+            Заглушка для метода, которая будет транслирована в корректный SQL-запрос.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.DescendantClassPropertiesLinqToHqlGenerator">
+            <summary>
+            Кастомный Linq-Hql генератор для свойств наследованных классов.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassPropertiesLinqToHqlGenerator.GetPropertiesWithQualifiedMappingName">
+            <summary>
+            Получить свойства сущностей, у который используется квалифицированное имя мапинга.
+            </summary>
+            <returns>Свойства.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.DescendantClassPropertiesLinqToHqlGenerator.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.HqlGeneratorForNavigationOnNotPersistentEntityType">
+            <summary>
+            Linq->Hql генератор для метода поиска свойств-ссылок на абстрактные типы сущностей.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.HqlGeneratorForNavigationOnNotPersistentEntityType.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.NHLinqToHqlGeneratorsRegistry">
+            <summary>
+            Класс-регистратор генераторов Linq->Hql.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHLinqToHqlGeneratorsRegistry.MergeWithRegisteredGenerators">
+            <summary>
+            Добавить зарегистрированные через контейнер Hql-генераторы.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHLinqToHqlGeneratorsRegistry.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Logging.NHibernateLogger">
+            <summary>
+            Обертка для логгирования nhibernate.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.Logging.NHibernateLogger.Logger">
+            <summary>
+            Реальный логгер.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Logging.NHibernateDebugLogger">
+            <summary>
+            Обертка для логгирования nhibernate для отладки и тестов.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Logging.NHibernateLoggerFactory">
+            <summary>
+            Фабрика nhibernate-логгеров.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Logging.NHibernateDebugLoggerFactory">
+            <summary>
+            Фабрика nhibernate-логгеров для отладки и тестов.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MappingGenerator.AppliedMappingGenerator">
+            <summary>
+            Генератор маппинга для прикладных модулей.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MappingGenerator.AppliedMappingGenerator.EntityInheritanceComparer">
+            <summary>
+            Класс компаратора для сравнения сущностей по иерархии наследования.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MappingGenerator.AppliedMappingGenerator.EntityInheritanceComparer.Compare(Sungero.Metadata.EntityMetadata,Sungero.Metadata.EntityMetadata)">
+            <summary>
+            Метод сравнения.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MappingGenerator.AppliedMappingGenerator.Generate(NHibernate.Cfg.Configuration)">
+            <summary>
+            Сгенерировать маппинги.
+            </summary>
+            <param name="configuration">Конфигурация.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.MappingGenerator.AppliedMappingGenerator.Generate(Sungero.DataAccess.IMetadataMappingGenerator,NHibernate.Cfg.Configuration)">
+            <summary>
+            Сгенерировать маппинги.
+            </summary>
+            <param name="generator">Генератор.</param>
+            <param name="configuration">Конфигурация.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.BlobPropertyGenerator">
+            <summary>
+            Генератор маппинга для BLOB-свойств.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.BlobPropertyGenerator.PropertyTypeName">
+            <summary>
+            Имя типа данных свойства.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.BlobPropertyGenerator.#ctor(Sungero.Metadata.BlobPropertyMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.CollectionPropertyMappingGenerator">
+            <summary>
+            Генератор маппинга для свойства-коллекции.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.CollectionPropertyMappingGenerator.CollectionTypeNameTemplate">
+            <summary>
+            Шаблон имени типа коллекции.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CollectionPropertyMappingGenerator.#ctor(Sungero.Metadata.CollectionPropertyMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.ComponentPropertyMappingGenerator">
+            <summary>
+            Генератор маппинга для компонентного свойства.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.ComponentPropertyMappingGenerator.GenerateSimpleSubPropertyMapping(System.Xml.XmlWriter,Sungero.Metadata.ComponentSubProperty)">
+            <summary>
+            Сгенерировать маппинг для простого подсвойства.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+            <param name="subProperty">Подсвойство.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ComponentPropertyMappingGenerator.GenerateNavigationSubPropertyMapping(System.Xml.XmlWriter,Sungero.Metadata.ComponentNavigationSubProperty)">
+            <summary>
+            Сгенерировать маппинг для подсвойства типа ссылка.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+            <param name="subProperty">Подсвойство.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ComponentPropertyMappingGenerator.#ctor(Sungero.Metadata.ComponentPropertyMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.EntityMappingGenerator">
+            <summary>
+            Генератор маппинга для типа сущности.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityMappingGenerator.simplePropertyTypes">
+            <summary>
+            Простые типы свойств.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.EntityMappingGenerator.originalMetadata">
+            <summary>
+            Исходные метаданные типа сущности.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GetPropertiesToMap">
+            <summary>
+            Получить метаданные свойств, для которых необходимо сгенерировать маппинг.
+            </summary>
+            <returns>Метаданные свойств.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GenerateIdColumnMapping(System.Xml.XmlWriter)">
+            <summary>
+            Сгенерировать маппинг для идентификатора типа сущности.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GenerateSecureObjectMapping(System.Xml.XmlWriter)">
+            <summary>
+            Сгенерировать маппинг для объекта безопасности.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GenerateStatusPropertyMapping(System.Xml.XmlWriter)">
+            <summary>
+            Сгенерировать маппинг для свойства Status.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GenerateDiscriminatorMapping(System.Xml.XmlWriter)">
+            <summary>
+            Сгенерировать маппинг для дискриминатора.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GetPropertyMappingGenerator(Sungero.Metadata.PropertyMetadata)">
+            <summary>
+            Получить генератор маппинга для свойства.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+            <returns>Генератор маппинга или null.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.GetBaseClassEntity">
+            <summary>
+            Получить метаданные сущности, ассоциированные с базовым NHibernate-классом.
+            </summary>
+            <returns>Метаданные сущности.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.EntityMappingGenerator.#ctor(Sungero.Metadata.EntityMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="entity">Метаданные типа сущности.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.IMetadataMappingGenerator">
+            <summary>
+            Интерфейс генератора маппинга.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.IMetadataMappingGenerator.Generate(System.Xml.XmlWriter)">
+            <summary>
+            Сгенерировать маппинг.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.MetadataMappingGeneratorBase`1">
+            <summary>
+            Базовый генератор маппинга по метаданным.
+            </summary>
+            <typeparam name="T">Тип метаданных.</typeparam>
+        </member>
+        <member name="P:Sungero.DataAccess.MetadataMappingGeneratorBase`1.Metadata">
+            <summary>
+            Метаданные.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MetadataMappingGeneratorBase`1.#ctor(`0)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="metadata">Метаданные.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.ModuleMappingGenerator">
+            <summary>
+            Генератор маппинга для модуля.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.ModuleMappingGenerator.#ctor(Sungero.Metadata.ModuleMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="module">Метаданные модуля.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NavigationPropertyMappingGenerator">
+            <summary>
+            Генератор маппинга для свойства-ссылки.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NavigationPropertyMappingGenerator.#ctor(Sungero.Metadata.NavigationPropertyMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.PropertyMappingGeneratorBase`1">
+            <summary>
+            Базовый генератор маппинга для свойства типа сущности.
+            </summary>
+            <typeparam name="T">Тип метаданных свойства.</typeparam>
+        </member>
+        <member name="F:Sungero.DataAccess.PropertyMappingGeneratorBase`1.PropertyAccessTypeName">
+            <summary>
+            Название типа доступа к данным через свойство.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.PropertyMappingGeneratorBase`1.FieldAccessTypeName">
+            <summary>
+            Название типа доступа к данным через поле.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.PropertyMappingGeneratorBase`1.ElementName">
+            <summary>
+            Имя корневого элемента маппинга.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.PropertyMappingGeneratorBase`1.PropertyAccess">
+            <summary>
+            Имя типа доступа к данным.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PropertyMappingGeneratorBase`1.InternalGenerate(System.Xml.XmlWriter)">
+            <summary>
+            Сгенерировать внутреннее содержимое узла маппинга.
+            </summary>
+            <param name="writer">Модуль записи.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.PropertyMappingGeneratorBase`1.#ctor(`0)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.SimplePropertyMappingGenerator">
+            <summary>
+            Генератор маппинга для простых свойств.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.SimplePropertyMappingGenerator.#ctor(Sungero.Metadata.PropertyMetadata)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="property">Метаданные свойства.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.MappingNameCorrector">
+            <summary>
+            Класс для коррекции имен маппингов.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MappingNameCorrector.PropertyGetterMappings">
+            <summary>
+            Кэш маппигов доступный по getter-у свойства.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MappingNameCorrector.PropertyMappings">
+            <summary>
+            Кэш маппигов доступный по самому свойству.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MappingNameCorrector.GetPropertyMappingName(System.Reflection.MethodInfo)">
+            <summary>
+            Получить имя маппинга для свойства.
+            </summary>
+            <param name="propertyGetter">Getter у свойства.</param>
+            <returns>Имя маппинга.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.MappingNameCorrector.GetPropertyMappingName(System.Reflection.MemberInfo)">
+            <summary>
+            Получить имя маппинга для свойства.
+            </summary>
+            <param name="property">Информация о свойства.</param>
+            <returns>Имя маппинга.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.MappingNameCorrector.GetPropertyMappingName(System.String,System.Type)">
+            <summary>
+            Получить имя маппинга для свойства.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+            <param name="entityType">Тип сущности.</param>
+            <returns>Имя маппинга.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.NHConfiguration">
+            <summary>
+            Конфигурация хибера.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHConfiguration.QuoteObjectNames(NHibernate.Cfg.MappingSchema.HbmMapping)">
+            <summary>
+            Конвертировать названия объектов в обратные апострофы (`).
+            </summary>
+            <param name="document">Маппинг NHibernate.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHConfiguration.GetQuotedColumnName(System.String,System.String)">
+            <summary>
+            Получить название колонки в обратных апострофах (`).
+            </summary>
+            <param name="column">Колонка.</param>
+            <param name="fallbackName">Имя по умолчанию.</param>
+            <returns>Название в обратных апострофах.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHConfiguration.GetQuotedName(System.String)">
+            <summary>
+            Получить строку в обратных апострофах (`).
+            </summary>
+            <param name="name">Строка.</param>
+            <returns>Строка в обратных апострофах.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.NHDriverConnectionProvider">
+            <summary>
+            Провайдер соединений.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.PostCUDEventListenerBase">
+            <summary>
+            Базовый класс для пост-слушателей событий Insert, Update, Delete.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PostCUDEventListenerBase.FixCollectionErrorWasNotProcessedByFlush(System.Collections.Generic.IEnumerable{NHibernate.Engine.CollectionEntry})">
+            <summary>
+            Грязный хак для обхода ошибки collection ... was not processed by flush().
+            </summary>
+            <param name="collectionEntries">Перечисление коллекций.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.PostDeleteEventListener">
+            <summary>
+            Слушатель "после удаления".
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PostDeleteEventListener.OnDeleteForChangeTracking(Sungero.Domain.Shared.IChangeTracking)">
+            <summary>
+            Вызвать обработчик OnDelete для ChangeTracker.
+            </summary>
+            <param name="changeTracking">Объект отслеживающий изменения.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.PostInsertEventListener">
+            <summary>
+            Слушатель "после вставки".
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.PostLoadEventListener">
+            <summary>
+            Реализация интерфейса для обработки события после загрузки свойств сущности.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PostLoadEventListener.OnPostLoad(NHibernate.Event.PostLoadEvent)">
+            <summary>
+            Обработчик события, отрабатывающего после загрузки свойств сущности.
+            </summary>
+            <param name="event">Событие.</param>
+            <remarks> Инициализирует механизм отслеживания изменений свойств.</remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.PostUpdateEventListener">
+            <summary>
+            Слушатель "после изменения".
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.PreInsertEventListener">
+            <summary>
+            Слушатель "до вставки".
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.PreInsertEventListener.CheckPhantom(System.Object)">
+            <summary>
+            Проверить фантомная ли сущности, и выкинуть исключение, если фантомная.
+            </summary>
+            <param name="entity">Сущность.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHExpandProvider">
+            <summary>
+            Реализация жадной загрузки свойств сущностей при выполнении запросов.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHExpandProvider.Fetch``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Добавить в запрос выражение для жадной загрузки свойства. Метод является оберткой над одноименным методом расширения NHibernate.
+            Вызов непосредственно метода расширения NHibernate невозможен, т.к. информация о типах не известна на момент компиляции,
+            поэтому используется обертка, вызываемая через Reflection.
+            </summary>
+            <typeparam name="TOriginating">Тип объекта, возвращаемого запросом.</typeparam>
+            <typeparam name="TRelated">Тип объекта, которому принадлежит жадно загружаемое свойство.</typeparam>
+            <param name="query">Модифицируемый запрос.</param>
+            <param name="body">Тело лямбда-выражения для жадно загружаемого свойства.</param>
+            <param name="parameter">Параметр лямбда-выражения для жадно загружаемого свойства.</param>
+            <returns>Модифицированный запрос.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHExpandProvider.FetchMany``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Добавить в запрос выражение для жадной загрузки свойства. Метод является оберткой над одноименным методом расширения NHibernate.
+            Вызов непосредственно метода расширения NHibernate невозможен, т.к. информация о типах не известна на момент компиляции,
+            поэтому используется обертка, вызываемая через Reflection.
+            </summary>
+            <typeparam name="TOriginating">Тип объекта, возвращаемого запросом.</typeparam>
+            <typeparam name="TRelated">Тип объекта, которому принадлежит жадно загружаемое свойство.</typeparam>
+            <param name="query">Модифицируемый запрос.</param>
+            <param name="body">Тело лямбда-выражения для жадно загружаемого свойства.</param>
+            <param name="parameter">Параметр лямбда-выражения для жадно загружаемого свойства.</param>
+            <returns>Модифицированный запрос.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHExpandProvider.ThenFetch``3(NHibernate.Linq.INhFetchRequest{``0,``1},System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Добавить в запрос выражение для жадной загрузки свойства. Метод является оберткой над одноименным методом расширения NHibernate.
+            Вызов непосредственно метода расширения NHibernate невозможен, т.к. информация о типах не известна на момент компиляции,
+            поэтому используется обертка, вызываемая через Reflection.
+            </summary>
+            <typeparam name="TQueried">Тип объекта, возвращаемого запросом.</typeparam>
+            <typeparam name="TFetch">Тип объекта, которому принадлежит жадно загружаемое свойство, предшествующее данному свойству в цепочке обращений.</typeparam>
+            <typeparam name="TRelated">Тип объекта, которому принадлежит жадно загружаемое свойство.</typeparam>
+            <param name="query">Модифицируемый запрос.</param>
+            <param name="body">Тело лямбда-выражения для жадно загружаемого свойства.</param>
+            <param name="parameter">Параметр лямбда-выражения для жадно загружаемого свойства.</param>
+            <returns>Модифицированный запрос.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHExpandProvider.GetFetchMethodInfo``1(System.Type)">
+            <summary>
+            Получить Fetch метод по типу свойства для модификации запроса.
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+            <param name="relatedType">Тип свойства.</param>
+            <returns>Fetch метод.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.NHInterceptor">
+            <summary>
+            Интерсептор для NHibernate.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHInterceptor.Session">
+            <summary>
+            Сессия.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHInterceptor.#ctor(Sungero.DataAccess.NHSession)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="session">Сессия.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHPostgresDialect">
+            <summary>
+            Диалект хибера для PostgreSQL.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.NHLazyFieldInterceptor">
+            <summary>
+            Интерсептор "ленивого" свойства.
+            </summary>
+            <remarks>Реализован на основе стандартного с добавлением при отсутствии сессии явного приаттачивания к новой сесии.</remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.NHLazyFieldInterceptor.InterceptInternal(NHibernate.Proxy.DynamicProxy.InvocationInfo)">
+            <summary>
+            Внутренний метод обращения к полю/методу.
+            </summary>
+            <param name="info">Информация о вызове.</param>
+            <returns>Результат выполнения метода.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHLazyFieldInterceptor.WrapInNewSessionIfNeed(NHibernate.Proxy.DynamicProxy.InvocationInfo,System.String,System.Action)">
+            <summary>
+            Обернуть переданное действие в новую сессию при необходимости.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="fieldName">Имя замапленного свойства.</param>
+            <param name="action">Действие.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHLazyInitializer">
+            <summary>
+            Интерсептор для прокси-объектов.
+            </summary>
+            <remarks>
+            Если сессии к моменту выполнения запроса уже не будет (например, сессия была закрыта), то NHibernate генерирует исключение.
+            Ниже делается "прозрачное" для программиста-пользователя создание новой "внешней" сессии (а затем её закрытие) при необходимости.
+            При этом используется существующая "внутренняя" сессия, чтобы избежать необходимости распределенной транзакции (например, при вызове серверной remote-функции).
+            </remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.NHProxyFactory">
+            <summary>
+            Фабрика прокси-объектов и прокси для "ленивых" свойств.
+            </summary>
+            <remarks>Реализован на основе стандартного с заменой прокси-объектов и прокси для "ленивых" свойств на наши.</remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.NHProxyFactoryFactory">
+            <summary>
+            Фабрика для создания фабрика прокси-объектов и прокси для "ленивых" свойств.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.NHReattachQueryProvider">
+            <summary>
+            QueryProvider, который при необходимости создаёт новую сессию.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHReattachQueryProvider.CreateCustomVisitors">
+            <summary>
+            Создать дополнительные expression-трансляторы.
+            </summary>
+            <returns>Трансляторы.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHReattachQueryProvider.WrapInNewSessionIfNeed``1(System.Func{``0})">
+            <summary>
+            Обернуть выражение в новую сессию при необходимости.
+            </summary>
+            <param name="function">Выражение.</param>
+            <returns>Результат выражения.</returns>
+            <remarks>
+            Если сессии к моменту выполнения запроса уже не будет (например, сессия была закрыта), то NHibernate генерирует исключение.
+            Ниже делается "прозрачное" для программиста-пользователя создание новой "внешней" сессии (а затем её закрытие) при необходимости.
+            При этом используется существующая "внутренняя" сессия, чтобы избежать необходимости распределенной транзакции (например, при вызове серверной remote-функции).
+            </remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSession">
+            <summary>
+            Реализация IDomainContext на платформе NHibernate.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSession.NHibernateSession">
+            <summary>
+            Сессия NHibernate.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSession.Snapshots">
+            <summary>
+            Набор снимков состояния сессии.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSession.session">
+            <summary>
+            Сессия NHibernate.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSession.transactionWrapper">
+            <summary>
+            Враппер транзакций.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSession.NHTransaction">
+            <summary>
+            Транзакция текущей NHibernate сессии.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSession.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.SaveCopy(System.Object)">
+            <summary>
+            Сохранить сущность.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <remarks>
+            Copy the state of the given object onto the persistent object with the
+            same identifier. If there is no persistent instance currently
+            associated with the session, it will be loaded. Return the persistent
+            instance. If the given instance is unsaved or does not exist in the
+            database, save it and return it as a newly persistent instance.
+            Otherwise, the given instance does not become associated with the
+            session.
+            </remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.Initialize">
+            <summary>
+            Инициализировать.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.RemoveCreatedChildEntities(System.Object)">
+            <summary>
+            Удалить созданные дочерние сущности.
+            </summary>
+            <param name="rootEntity">Главная сущность.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.HandleGenericADOException(NHibernate.Exceptions.GenericADOException)">
+            <summary>
+            Обработать исключение GenericADOException. Создать новое исключение при нарушении целостности.
+            </summary>
+            <param name="ex">Исключение.</param>
+            <exception cref="T:Sungero.Domain.Shared.Exceptions.SessionException">Исключение нарушения целостности.</exception>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.InitializeQueryParameters(NHibernate.IQuery,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Задать параметры запроса.
+            </summary>
+            <param name="query">Запрос.</param>
+            <param name="parametersQuery">Ключ-значения параметров запроса.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSession.Dispose(System.Boolean)">
+            <summary>
+            Dispose.
+            </summary>
+            <param name="disposing">Disposing.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionCacheStore">
+            <summary>
+            Временное хранилище кеша сесиии.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionCacheStore.sessionSnapshot">
+            <summary>
+            Снимок кеша сесиии.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionFactoryImplements">
+            <summary>
+            Реализация фабрики сессий.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionFactory">
+            <summary>
+            Фабрика сессий.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionFactory.Instance">
+            <summary>
+            Одиночка фабрики сессий.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionFactory.Configuration">
+            <summary>
+            Одиночка конфигурации фабрики сессий.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionFactory.SystemId">
+            <summary>
+            ИД системы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionFactory.ConnectionString">
+            <summary>
+            Строка подключения.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.syncLock">
+            <summary>
+            Объект синхронизации для инициализации одиночки.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.formulaExpression">
+            <summary>
+            Регулярка, определяющая тот факт, что строка является "формулой", задаваемой в hbm-маппинге.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionFactory.DiscriminatorService">
+            <summary>
+            Сервис по работе с дискриминаторами.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.sessionFactory">
+            <summary>
+            Фабрика сессий.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.configuration">
+            <summary>
+            Конфигурация фабрики сессий.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.systemId">
+            <summary>
+            ИД системы.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.connectionString">
+            <summary>
+            Строка подключения.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHSessionFactory.isInitialized">
+            <summary>
+            Признак, что инициализация выполнена.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.ComputeSystemId(System.String)">
+            <summary>
+            Вычислить SystemID.
+            </summary>
+            <param name="connectionString">Строка подключения.</param>
+            <returns>ИД системы.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.Initialize">
+            <summary>
+            Инициализировать фабрику сессий.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.ConfigureLogging">
+            <summary>
+            Сконфигурировать логгер.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.GenerateAppliedMappingsIfNeed(NHibernate.Cfg.Configuration)">
+            <summary>
+            Сгенерировать маппинги для прикладных модулей, если это необходимо.
+            </summary>
+            <param name="config">Конфигурация.</param>
+            <returns>Конфигурация.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.ConfigureDatabaseEngine(NHibernate.Cfg.Configuration)">
+            <summary>
+            Задать настройки БД (подключение, диалект, уровень изоляции, схема и т.д.).
+            </summary>
+            <param name="config">Конфигурация NHibernate.</param>
+            <returns>Конфигурация NHibernate.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.EnableProfiler">
+            <summary>
+            Подключить профилировщик NHibernate.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.AssignEventListeners(NHibernate.Cfg.Configuration)">
+            <summary>
+            Присоединить прослушивателей событий.
+            </summary>
+            <param name="config">Конфигурация.</param>
+            <returns>Конфигурация.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.LoadDomainMappings(NHibernate.Cfg.Configuration)">
+            <summary>
+            Загрузить информацию о системных и предметных маппингах.
+            </summary>
+            <param name="config">Конфигурация.</param>
+            <returns>Конфигурация.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.FixMappingForDescendantPropertiesWithNonUniqueNames(NHibernate.Cfg.Configuration)">
+            <summary>
+            Исправить маппинги для свойств типов сущностей c неуникальными именами.
+            Для всех свойств прикладных типов, для которых данные располагаются не в отдельной таблице, исправляем маппинги так,
+            чтобы NHibernate мог различать свойства с одинаковыми именами от разных типов сущностей, унаследованных от одного предка.
+            </summary>
+            <param name="config">Конфигурация NHibernate.</param>
+            <returns>Конфигурация NHibernate.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.FixFormulas(NHibernate.Cfg.Configuration)">
+            <summary>
+            Заменить в формулах ключи ресурсов на запроосы.
+            </summary>
+            <param name="config">Конфигурация NHibernate.</param>
+            <returns>Конфигурация NHibernate.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.FixFormula(NHibernate.Mapping.Formula,NHibernate.Mapping.PersistentClass)">
+            <summary>
+            Заменить в формуле ключ ресурса на запроос.
+            </summary>
+            <param name="formula">Формула.</param>
+            <param name="persistentClass">Информация о классе.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.AppendDiscriminatorFormula(NHibernate.Cfg.Configuration)">
+            <summary>
+            Добавить "вычислимое" свойство для возможности получения дискриминатора через linq.
+            </summary>
+            <param name="config">Конфигурация NHibernate.</param>
+            <returns>Конфигурация NHibernate.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.ConfigureBatchSize(NHibernate.Cfg.Configuration)">
+            <summary>
+            Сконфигурировать свойство BatchSize у классов маппинга.
+            </summary>
+            <param name="config">Конфигурация NHibernate.</param>
+            <returns>Конфигурация NHibernate.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionFactory.ConfigureForcedDiscriminators(NHibernate.Cfg.Configuration)">
+            <summary>
+            Сконфигурировать свойство IsForceDiscriminator у классов маппинга.
+            </summary>
+            <param name="configuration">Конфигурация NHibernate.</param>
+            <returns>Конфигурация NHibernate.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionSnapshots">
+            <summary>
+            Набор снимков состояний сессии.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionSnapshots.Session">
+            <summary>
+            Сессия.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionSnapshots.Items">
+            <summary>
+            Снимки состояний сессии.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.Push">
+            <summary>
+            Сохранить снимок текущего состояния сессии.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.Pop">
+            <summary>
+            Восстановить снимок состояния сессии.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.GetEntitySnapshot(System.String,System.Object)">
+            <summary>
+            Получить снимок состояния сущности.
+            </summary>
+            <param name="entityName">Имя типа сущности.</param>
+            <param name="id">Идентификатор.</param>
+            <returns>Найденный снимок состояния сущности.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.GetEntitySnapshot(System.Object)">
+            <summary>
+            Получить снимок состояния сущности.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <returns>Найденный снимок состояния сущности.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.GetCollectionSnapshots(System.String,System.Object)">
+            <summary>
+            Получить снимки состояний коллекций для объекта-владельца.
+            </summary>
+            <param name="ownerEntityName">Имя типа сущности - владельца коллекции.</param>
+            <param name="ownerId">Идентификатор сущности - владельца коллекции.</param>
+            <returns>Снимки состояний коллекций.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.RefreshEntitySnapshots(System.Object,NHibernate.Engine.EntityEntry)">
+            <summary>
+            Обновить снимки состояния сущности.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <param name="entityEntry">Объект EntityEntry.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.RemoveEntitySnapshot(Sungero.Domain.Shared.IEntity)">
+            <summary>
+            Удалить снимки состояния сущности и связанных с ней объектов.
+            </summary>
+            <param name="ownerEntity">Сущность.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.Clear">
+            <summary>
+            Очистить все снимки состояний сессии.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.GetBaseRootEntityTypeName(System.String)">
+            <summary>
+            Получить серверное имя базового типа сущности (если переданное имя типа является именем типа сущности).
+            </summary>
+            <param name="entityTypeName">Квалифицированное имя типа сущности (без сборки).</param>
+            <returns>Серверное имя базового типа сущности (если не сущность, то тоже самое).</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.#ctor(Sungero.Domain.ISession)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="session">Сессия.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshots.#ctor(Sungero.Domain.ISession,System.Collections.Generic.Stack{Sungero.DataAccess.NHSessionSnapshot})">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="session">Сессиия.</param>
+            <param name="items">Набор снимков, снятых заранее.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionSnapshot">
+            <summary>
+            Снимок состояния сессии.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionSnapshot.Proxies">
+            <summary>
+            Хиберовские проксики объектов.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionSnapshot.EntitySnapshots">
+            <summary>
+            Набор снимков состояний сущностей.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionSnapshot.CreatedEntities">
+            <summary>
+            Набор созданных сущностей.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionSnapshot.CollectionSnapshots">
+            <summary>
+            Набор снимков состояний коллекций.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.GetEntitySnapshot(System.String,System.Object)">
+            <summary>
+            Получить снимок состояния сущности.
+            </summary>
+            <param name="entityName">Имя типа сущности.</param>
+            <param name="id">Идентификатор сущности.</param>
+            <returns>Найденный снимок состояния сущности.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.GetEntitySnapshot(System.Object)">
+            <summary>
+            Получить снимок состояния сущности.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <returns>Найденный снимок состояния сущности.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.GetCollectionSnapshots(System.String,System.Object)">
+            <summary>
+            Получить снимки состояний коллекций для объекта-владельца.
+            </summary>
+            <param name="ownerEntityName">Имя типа сущности - владельца коллекции.</param>
+            <param name="ownerId">Идентификатор сущности - владельца коллекции.</param>
+            <returns>Снимки состояний коллекций.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.AddEntitySnapshot(System.Object,NHibernate.Engine.EntityEntry)">
+            <summary>
+            Добавить снимок состояния сущности.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <param name="entry">Объект EntityEntry.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.AddCreatedEntity(System.Object)">
+            <summary>
+            Добавить созданную сущность.
+            </summary>
+            <param name="createdEntity">Созданная сущность.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.AddCollectionSnapshot(NHibernate.Collection.IPersistentCollection,NHibernate.Engine.CollectionEntry,System.String,System.Object)">
+            <summary>
+            Добавить снимок состояния коллекции.
+            </summary>
+            <param name="collection">Коллекция.</param>
+            <param name="entry">Объект CollectionEntry.</param>
+            <param name="ownerEntityName">Имя типа сущности - владельца коллекции.</param>
+            <param name="ownerId">Идентификатор сущности - владельца коллекции.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.AddActionQueue(NHibernate.Engine.ActionQueue)">
+            <summary>
+            Добавить в снимок ActionQueue сессии.
+            </summary>
+            <param name="actionQueue">ActionQueue сессии NHibernate.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.RestoreActionQueue(NHibernate.Engine.ActionQueue)">
+            <summary>
+            Восстановить ActionQueue из списка.
+            </summary>
+            <param name="actionQueue">ActionQueue сессии NHibernate.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.RefreshEntitySnapshot(System.Object,NHibernate.Engine.EntityEntry)">
+            <summary>
+            Обновить снимки состояния сущности.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <param name="entry">Объект EntityEntry.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.RemoveEntitySnapshot(System.Object)">
+            <summary>
+            Удаляет снимки состояния сущности и связанных с ней объектов.
+            </summary>
+            <param name="entity">Сущность.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionSnapshot.RemoveCollectionSnapshots(System.Object)">
+            <summary>
+            Удаляет снапшоты коллекций и их элементов, принадлежащих указанному владельцу.
+            </summary>
+            <param name="owner">Владелец коллекций.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionEntitySnapshot">
+            <summary>
+            Снимок состояния сущности.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionEntitySnapshot.Entity">
+            <summary>
+            Сущность.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionEntitySnapshot.Entry">
+            <summary>
+            Объект EntityEntry.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionEntitySnapshot.MergeToSessionCache(Sungero.Domain.ISession)">
+            <summary>
+            Слить с кэшем сессии.
+            </summary>
+            <param name="session">Сессия.</param>
+            <returns>Слитая сущность (null - если слияние не нужно).</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionEntitySnapshot.#ctor(System.Object,NHibernate.Engine.EntityEntry)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="entity">Сущность.</param>
+            <param name="entry">Объект EntityEntry.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSessionCollectionSnapshot">
+            <summary>
+            Снимок состояния коллекции.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionCollectionSnapshot.Collection">
+            <summary>
+            Сущность.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionCollectionSnapshot.Entry">
+            <summary>
+            Объект CollectionEntry.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionCollectionSnapshot.OwnerEntityName">
+            <summary>
+            Имя типа сущности - владельца коллекции.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.NHSessionCollectionSnapshot.OwnerId">
+            <summary>
+            ИД сущности - владельца коллекции.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionCollectionSnapshot.MergeToSessionCache(Sungero.Domain.ISession)">
+            <summary>
+            Слить с кэшем сессии.
+            </summary>
+            <param name="session">Сессия.</param>
+            <returns>Слитая сущность (null - если слияние не нужно).</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSessionCollectionSnapshot.#ctor(NHibernate.Collection.IPersistentCollection,NHibernate.Engine.CollectionEntry,System.String,System.Object)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="collection">Коллекция.</param>
+            <param name="entry">Объект CollectionEntry.</param>
+            <param name="ownerEntityName">Имя типа сущности - владельца коллекции.</param>
+            <param name="ownerId">Идентификатор сущности - владельца коллекции.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHSqlClientDriver">
+            <summary>
+            Класс для получения соединения к БД системы с установкой опций соединения.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSqlClientDriver.CreateCommand">
+            <summary>
+            Creates an System.Data.IDbCommand object for the SqlClientDriver.
+            </summary>
+            <returns>System.Data.IDbCommand object for the SqlClientDriver.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHSqlClientDriver.CreateConnection">
+            <summary>
+            Создать соединение.
+            </summary>
+            <returns>Соединение с SQL-сервером.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.NHTransactionException">
+            <summary>
+            Ошибка транзакционности.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionException.#ctor(System.Boolean)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionException.#ctor(System.Boolean,CommonLibrary.LocalizedString)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+            <param name="message">Сообщение.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionException.#ctor(System.Boolean,CommonLibrary.LocalizedString,System.Exception)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="isInternal">Признак, что исключение является внутренним.</param>
+            <param name="message">Сообщение.</param>
+            <param name="innerException">Внутреннее исключение.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="info">Сериализованные данные об исключении.</param>
+            <param name="context">Информация о контексте.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHTransactionWrapper">
+            <summary>
+            Обвертка над транзакцией NHibernate, поддерживающая вложенные вызовы.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHTransactionWrapper.session">
+            <summary>
+            Сессия NHibernate.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.IsCurrentNHibernateTransactionZombiedOrFailed">
+            <summary>
+            Проверяет, не является ли текущая NHibernate-транзакция уже неактуальной ("зомби"), или ошибочной.
+            </summary>
+            <returns>Результат проверки.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.IsCurrentNHibernateTransactionZombied(System.Data.IDbConnection@)">
+            <summary>
+            Проверяет, не является ли текущая NHibernate-транзакция уже неактуальной ("зомби").
+            </summary>
+            <param name="transactionConnection">Соединение, используемое транзакцией. Для зомби возвращает null.</param>
+            <returns>Результат проверки.</returns>
+            <ramarks>Логика проверки на зомби взята из <seealso cref="T:NHibernate.Transaction.AdoTransaction"/>.</ramarks>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.UpdateZombiedStatus">
+            <summary>
+            Обновить признак зомби-транзакции.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.DoAfterCommit">
+            <summary>
+            Вызвает событие AfterCommit.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.DoAfterRollback">
+            <summary>
+            Вызвает событие AfterRollback.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHTransactionWrapper.Dispose(System.Boolean)">
+            <summary>
+            Dispose.
+            </summary>
+            <param name="disposing">Disposing.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NHUsingTransaction">
+            <summary>
+            Имплементор ITransaction для использования в ISession.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHUsingTransaction.transactionWrapper">
+            <summary>
+            Обвертка транзакций NHibernate.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.NHUsingTransaction.resourceTransactionScope">
+            <summary>
+            Scope, который держит транзакции связанные с ресурсами.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHUsingTransaction.CompleteResourceScope">
+            <summary>
+            Завершить транзакции, связанные с ресурсами.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHUsingTransaction.DisposeResourceScope">
+            <summary>
+            Освободить ресурсы.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHUsingTransaction.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.NHUsingTransaction.Dispose(System.Boolean)">
+            <summary>
+            Dispose.
+            </summary>
+            <param name="disposing">Disposing.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.NpgsqlPostgresDriver">
+            <summary>
+            Драйвер хибера для Npgsql.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.DBObjectName">
+            <summary>
+            Имя объекта БД.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.DBObjectName.UnquotedName">
+            <summary>
+            Имя "без кавычек".
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.DBObjectName.QuotedName">
+            <summary>
+            Имя "в кавычках".
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.DBTableName">
+            <summary>
+            Имя таблицы БД.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.DBTableName.QuotedScheme">
+            <summary>
+            Схема "в кавычках".
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.DBTableName.QuotedSchemedName">
+            <summary>
+            Имя со схемой "в кавычках".
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.DBColumnName">
+            <summary>
+            Имя колонки БД.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition">
+            <summary>
+            Определения параметров поля таблицы.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.CustomFieldDefinition.Blank">
+            <summary>
+            Пробел.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomDefinitionStrategy">
+            <summary>
+            Стратегия отображения определения.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomDefinitionStrategy.GetScript(Sungero.DataAccess.CustomFieldDefinition)">
+            <summary>
+            Получить скрипт определения поля.
+            </summary>
+            <param name="fieldDefinition">Определение поля.</param>
+            <returns>Скрипт.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomDefinitionStrategy.GetFullFieldDescription(Sungero.DataAccess.CustomFieldDefinition)">
+            <summary>
+            Получить полное строковое определение поля.
+            </summary>
+            <param name="fieldDefinition">Определение поля.</param>
+            <returns>Строковое представление.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomCreateStrategy.GetAddColumnCommand(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBColumnName,System.String)">
+            <summary>
+            Получить команду вставки поля.
+            </summary>
+            <param name="tableName">Имя таблицы.</param>
+            <param name="name">Имя поля.</param>
+            <param name="fieldDescription">Строковое описание свойств поля.</param>
+            <returns>Строка с командой.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomAlterStrategy">
+            <summary>
+            Стратегия отображения определения для изменения объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomAlterStrategy.GetAlterColumnCommand(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBColumnName,System.String)">
+            <summary>
+            Получить команду изменения типа поля.
+            </summary>
+            <param name="tableName">Имя таблицы.</param>
+            <param name="name">Имя поля.</param>
+            <param name="typeName">Имя нового типа.</param>
+            <returns>Строка с командой.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomDropStrategy">
+            <summary>
+            Стратегия отображения определения для удаления объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomDropStrategy.GetDropColumnCommand(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Получить команду удаления поля.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+            <returns>Строка с командой.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomDropFKStrategy">
+            <summary>
+            Стратегия удаления внешнего ключа.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomDropFKStrategy.GetDropFKColumnCommand(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Получить команду удаления внешнего ключа.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+            <returns>Строка с командой.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomRenameStrategy">
+            <summary>
+            Стратегия отображения определения для переименования объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomRenameStrategy.GetRenameColumnCommand(Sungero.DataAccess.FieldInfo,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Получить команду удаления поля.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+            <param name="previousName">Предыдущее имя поля.</param>
+            <returns>Строка с командой.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomFieldDefinition.CustomChangeUniqueStrategy">
+            <summary>
+            Стратегия отображения определения для изменения констраинта уникальности значений поля.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.CustomChangeUniqueStrategy.GetChangeUniqueCommand(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Получить команду удаления поля.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+            <returns>Строка с командой.</returns>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomFieldDefinition.IsDependent">
+            <summary>
+            Признак зависимости поля от объекта таблицы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomFieldDefinition.ScriptStrategy">
+            <summary>
+            Стратегия отображения.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomFieldDefinition.Operation">
+            <summary>
+            Тип операции.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomFieldDefinition.FieldInfo">
+            <summary>
+            Информация о поле.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.CustomFieldDefinition.previousName">
+            <summary>
+            Предыдущее имя поля.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.GetIdentifierItem">
+            <summary>
+            Получить элемент определения уникального идентификатора.
+            </summary>
+            <returns>Элемент определения уникального идентификатора.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.AddForeignKey">
+            <summary>
+            Добавить определение внешнего ключа.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.GetSqlTypeNameItem">
+            <summary>
+            Получить имя sql типа.
+            </summary>
+            <returns>Имя sql типа.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.GetNullableItem">
+            <summary>
+            Получить элемент определения возможности хранения пустых значений.
+            </summary>
+            <returns>Элемент определения возможности хранения пустых значений.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.GetUniqueItem">
+            <summary>
+            Получить элемент определения ограничения уникальности значений.
+            </summary>
+            <returns>Элемент определения ограничения уникальности значений.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание поля.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomFieldDefinition.#ctor(Sungero.DataAccess.FieldInfo,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Создать описание поля.
+            </summary>
+            <param name="fieldInfo">Информация о переименованном поле.</param>
+            <param name="previousName">Предыдущее имя поля.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.FieldInfo">
+            <summary>
+            Информация о поле БД.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.TableName">
+            <summary>
+            Имя таблицы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.Name">
+            <summary>
+            Имя поля.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.Length">
+            <summary>
+            Длина значения типа.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.PropertyType">
+            <summary>
+            Тип соответствующего свойства.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.IsNullable">
+            <summary>
+            Признак поля, допускающего хранения пустых значений.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.IsUnique">
+            <summary>
+            Признак наличия ограничения уникальности на значения поля.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.IsIdentifier">
+            <summary>
+            Признак поля уникального идентификатора записей таблицы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.IsForeignKey">
+            <summary>
+            Признак поля, являющего внешним ключом.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.ForeignKeyTableName">
+            <summary>
+            Имя таблицы внешнего ключа.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.FieldInfo.ForeignKeyFieldName">
+            <summary>
+            Имя поля внешнего ключа.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.FieldInfo.#ctor(Sungero.DataAccess.ITableDefinition,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="tableDefinition">Определение таблицы.</param>
+            <param name="name">Имя поля.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.FieldInfo.#ctor(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="tableName">Имя таблицы.</param>
+            <param name="name">Имя поля.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomForeignKeyDefinition">
+            <summary>
+            Определения параметров констраинта внешнего ключа.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomForeignKeyDefinition.CustomDefinitionStrategy">
+            <summary>
+            Стратегия отображения определения.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomForeignKeyDefinition.CustomDefinitionStrategy.GetScript(Sungero.DataAccess.CustomForeignKeyDefinition)">
+            <summary>
+            Получить скрипт определения.
+            </summary>
+            <param name="fkDefinition">Определение ключа.</param>
+            <returns>Скрипт.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomForeignKeyDefinition.CustomCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomForeignKeyDefinition.CustomCreateStrategy.GetAddForeignKeyCommand(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Получить команду для создания внешнего ключа.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+            <returns>Запрос.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomForeignKeyDefinition.CustomCreateStrategy.GetAddForeignKeyString(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Получить строку для создания внешнего ключа.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+            <returns>Строка для создания внешнего ключа.</returns>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomForeignKeyDefinition.ScriptStrategy">
+            <summary>
+            Стратегия отображения.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomForeignKeyDefinition.Operation">
+            <summary>
+            Тип операции.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomForeignKeyDefinition.FieldInfo">
+            <summary>
+            Информация о поле.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomForeignKeyDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание внешнего ключа.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле, для которого создается внешний ключ.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomIndexDefinition">
+            <summary>
+            Определения параметров индекса.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomIndexDefinition.CustomDefinitionStrategy">
+            <summary>
+            Стратегия отображения определения.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomIndexDefinition.CustomDefinitionStrategy.GetScript(Sungero.DataAccess.CustomIndexDefinition)">
+            <summary>
+            Получить скрипт определения.
+            </summary>
+            <param name="indexDefinition">Определение индекса.</param>
+            <returns>Скрипт.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomIndexDefinition.CustomCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomIndexDefinition.CustomCreateStrategy.GetAddIndexCommand(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Получить команду для создания индекса.
+            </summary>
+            <param name="tableName">Имя таблицы.</param>
+            <param name="fieldName">Имя поля индекса.</param>
+            <returns>Запрос.</returns>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomIndexDefinition.ScriptStrategy">
+            <summary>
+            Стратегия отображения.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomIndexDefinition.Operation">
+            <summary>
+            Тип операции.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomIndexDefinition.FieldInfo">
+            <summary>
+            Информация о поле.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomIndexDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание индекса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.ITableScripts">
+            <summary>
+            Скрипты для определения таблиц.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddCreatedTableDefinition(Sungero.DataAccess.DBTableName)">
+            <summary>
+            Добавить определение структуры новой таблицы.
+            </summary>
+            <param name="name">Имя таблицы.</param>
+            <returns>Определение структуры таблицы.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddDroppedTableDefinition(Sungero.DataAccess.DBTableName,System.Collections.Generic.IList{Sungero.DataAccess.DBTableName})">
+            <summary>
+            Добавить определение структуры удаляемой таблицы.
+            </summary>
+            <param name="name">Имя таблицы.</param>
+            <param name="tableNamesReferringToDroppedTables">Имена таблиц ссылающихся на удаляемые таблицы.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddRenamedTableDefinition(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Добавить определение структуры переименованной таблицы.
+            </summary>
+            <param name="name">Имя таблицы.</param>
+            <param name="previousName">Предыдущее имя таблицы.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddCreatedFieldDefinition(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение для создаваемого поля.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddAlteredFieldDefinition(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение для обновления поля.
+            </summary>
+            <param name="fieldInfo">Информация об обновленном поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddChangeUniqueFieldDefinition(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение для изменения уникальности поля.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddDroppedFieldDefinition(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение для удаления поля.
+            </summary>
+            <param name="fieldInfo">Информация об удаляемом поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddDroppedFKFieldDefinition(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение для удаления внешнего ключа поля.
+            </summary>
+            <param name="fieldInfo">Информация об поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddRenamedFieldDefinition(Sungero.DataAccess.FieldInfo,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Добавить определение для переименования поля.
+            </summary>
+            <param name="fieldInfo">Информация о переименованном поле.</param>
+            <param name="previousName">Предыдущее имя поля.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddIndex(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение индекса на поле.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.AddCustomScript(System.String)">
+            <summary>
+            Добавить явный sql-скрипт.
+            </summary>
+            <param name="script">Скрипт.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.GetPrimaryObjectsScript">
+            <summary>
+            Получить скрипт модификации независимых элементов БД.
+            </summary>
+            <returns>Скрипт.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableScripts.GetDependentObjectsScript">
+            <summary>
+            Получить скрипт модификации зависимых элементов БД.
+            </summary>
+            <returns>Скрипт.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomMassForeignKeyRemover">
+            <summary>
+            Класс для реализации массового удаления внешних ключей.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomMassForeignKeyRemover.GetScriptForDeletingTable(Sungero.DataAccess.DBTableName,System.Collections.Generic.IEnumerable{Sungero.DataAccess.DBTableName})">
+            <summary>
+            Получить скрипт для удаления внешних ключей при удалении таблицы.
+            </summary>
+            <param name="deletingTable">Имя удаляемой таблицы.</param>
+            <param name="dependentTables">Имена таблиц, которые зависят от удаляемой таблицы.</param>
+            <returns>SQL-скрипт.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition">
+            <summary>
+            Определения параметров поля таблицы для MSSql.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.CreateUniqueConstraintTemplate">
+            <summary>
+            Шаблон команды на создание unique констраинта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.UniqueConstraintTablesTemplate">
+            <summary>
+            Шаблон на связь таблиц для проверки наличия констраинта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.DeleteUniqueConstraintCommandTemplate">
+            <summary>
+            Шаблон на удаление констраинта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.DeleteIndexCommandTemplate">
+            <summary>
+            Шаблон на удаление констраинта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.DeleteForeignKeyCommandTemplate">
+            <summary>
+            Шаблон для удаления внешних ключей.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.uniqueConstraintExistenceQueryTemplate">
+            <summary>
+            Шаблон на проверку существования unique констраинта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.MSSQLCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.MSSQLAlterStrategy">
+            <summary>
+            Стратегия отображения определения для изменения объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.MSSQLDropStrategy">
+            <summary>
+            Стратегия отображения определения для удаления объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.MSSQLRenameStrategy">
+            <summary>
+            Стратегия отображения определения для переименования объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.MSSQLChangeUniqueStrategy">
+            <summary>
+            Стратегия отображения определения для изменения констраинта уникальности значений поля.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.MssqlDropFkStrategy">
+            <summary>
+            Стратегия удаления внешнего ключа.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLFieldDefinition.#ctor(Sungero.DataAccess.FieldInfo,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Создать описание поля.
+            </summary>
+            <param name="fieldInfo">Информация о переименованном поле.</param>
+            <param name="previousName">Предыдущее имя поля.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLForeignKeyDefinition">
+            <summary>
+            Определения параметров констраинта внешнего ключа MSSQL.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLForeignKeyDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLForeignKeyDefinition.MSSQLCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLForeignKeyDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLForeignKeyDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание внешнего ключа.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле, для которого создается внешний ключ.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLIndexDefinition">
+            <summary>
+            Определения параметров констраинта индекса MSSQL.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLIndexDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLIndexDefinition.MSSQLCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLIndexDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLIndexDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание индекса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLMassForeignKeyRemover">
+            <summary>
+            Класс для реализации массового удаления внешних ключей MSSQL.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLMassForeignKeyRemover.RemoveForeignKeysQueryTemplate">
+            <summary>
+            Шаблон команды массового удаления внешних ключей.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLTableDefinition">
+            <summary>
+            Определения параметров таблицы Microsoft SQL.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.MSSQLCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.MSSQLDropStrategy">
+            <summary>
+            Стратегия отображения определения для удаления объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.MSSQLRenameStrategy">
+            <summary>
+            Стратегия отображения определения для переименования объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="name">Имя таблицы.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.DBTableName,System.Collections.Generic.IList{Sungero.DataAccess.DBTableName})">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="name">Имя таблицы.</param>
+            <param name="relatedTableNames">Связанные имена таблиц.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.MSSQL.MSSQLTableDefinition.#ctor(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="name">Имя таблицы.</param>
+            <param name="previousName">Предыдущее имя таблицы.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.MSSQL.MSSQLTableScripts">
+            <summary>
+            Скрипты для определения таблиц в формате Microsoft SQL.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.OperationType">
+            <summary>
+            Тип операции над объектом базы данных.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.OperationType.Add">
+            <summary>
+            Добавить.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.OperationType.Alter">
+            <summary>
+            Изменить.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.OperationType.Drop">
+            <summary>
+            Удалить.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.OperationType.Rename">
+            <summary>
+            Переименовать.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.OperationType.ChangeUnique">
+            <summary>
+            Поменять ограничение уникальности.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.OperationType.DropFk">
+            <summary>
+            Удалить FK.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition">
+            <summary>
+            Определения параметров поля таблицы для Postgres.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Postgres.PostgresFieldDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Postgres.PostgresFieldDefinition.CheckConstraintExistanceTemplate">
+            <summary>
+            Шаблон для проверки существования констраинта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Postgres.PostgresFieldDefinition.DeleteConstraintCommandTemplate">
+            <summary>
+            Шаблон для удаления констраинтов.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition.PostgresCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition.PostgresAlterStrategy">
+            <summary>
+            Стратегия отображения определения для изменения объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition.PostgresDropStrategy">
+            <summary>
+            Стратегия отображения определения для удаления объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition.PostgresDropFkStrategy">
+            <summary>
+            Стратегия удаления внешнего ключа.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition.PostgresRenameStrategy">
+            <summary>
+            Стратегия отображения определения для переименования объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresFieldDefinition.PostgresChangeUniqueStrategy">
+            <summary>
+            Стратегия отображения определения для изменения констраинта уникальности значений поля.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresFieldDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresFieldDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresFieldDefinition.#ctor(Sungero.DataAccess.FieldInfo,Sungero.DataAccess.DBColumnName)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="fieldInfo">Информация о переименованном поле.</param>
+            <param name="previousName">Предыдущее имя поля.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresForeignKeyDefinition">
+            <summary>
+            Определения параметров констраинта внешнего ключа Postgres.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Postgres.PostgresForeignKeyDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresForeignKeyDefinition.PostgresCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresForeignKeyDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresForeignKeyDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание внешнего ключа.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле, для которого создается внешний ключ.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresIndexDefinition">
+            <summary>
+            Определения параметров индекса Postgres.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Postgres.PostgresIndexDefinition.ObjectExistenceQueryTemplate">
+            <summary>
+            Шаблон запроса на существование объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresIndexDefinition.PostgresCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresIndexDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresIndexDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Создать описание индекса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresTableDefinition">
+            <summary>
+            Определения параметров таблицы Postgres.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresTableDefinition.PostgresCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresTableDefinition.PostgresDropStrategy">
+            <summary>
+            Стратегия отображения определения для удаления объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresTableDefinition.PostgresRenameStrategy">
+            <summary>
+            Стратегия отображения определения для переименования объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresTableDefinition.CreateStrategy">
+            <summary>
+            Создать стратегию скрипта.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresTableDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="name">Имя таблицы.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresTableDefinition.#ctor(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="name">Имя таблицы.</param>
+            <param name="previousName">Предыдущее имя таблицы.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.Postgres.PostgresTableScripts">
+            <summary>
+            Скрипты для определения таблиц в формате Postgres.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Postgres.PostgresTableScripts.#ctor">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.IScriptableObject">
+            <summary>
+            Интерфейс объекта, создаваемого при помощи скрипта.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.IScriptableObject.DependentObjects">
+            <summary>
+            Список зависимых объектов.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.IScriptableObject.ToString">
+            <summary>
+            Строковое представление объекта в виде скрипта.
+            </summary>
+            <returns>Скрипт.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.ScriptableObject">
+            <summary>
+            Базовый класс объетов, для которых может быть создан скрипт.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptableObject.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomScriptDefinition">
+            <summary>
+            Определение для явного sql-скрипта.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.CustomScriptDefinition.script">
+            <summary>
+            Скрипт.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomScriptDefinition.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="script">Скрипт.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.ScriptGenerator">
+            <summary>
+            Генерация SQL скриптов для создания модификации таблиц.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.ScriptGenerator.ObjectScripts">
+            <summary>
+            Скрипты генерации объектов.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.GetDBTableName(System.String)">
+            <summary>
+            Получить имя таблицы.
+            </summary>
+            <param name="unquotedTableName">Строковое имя таблицы "без кавычек".</param>
+            <returns>Имя таблицы.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.GetDBColumnName(System.String)">
+            <summary>
+            Получить имя колонки.
+            </summary>
+            <param name="unquotedColumnName">Строковое имя колонки "без кавычек".</param>
+            <returns>Имя колонки.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.BuildStatement(System.String,System.String)">
+            <summary>
+            Добавить обертку для выполнения команды.
+            </summary>
+            <param name="command">Команда.</param>
+            <param name="variables">Переменные.</param>
+            <returns>Команда.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.BuildIfThenStatement(System.String,System.String)">
+            <summary>
+             Добавить обертку для выполнения блока if-then.
+            </summary>
+            <param name="condition">Условие.</param>
+            <param name="command">Команда.</param>
+            <returns>Команда.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.FormatVariableName(System.String)">
+            <summary>
+            Получить отформатированное имя переменной.
+            </summary>
+            <param name="variableName">Имя переменной.</param>
+            <returns>Имя переменной.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.GetVariablesDeclaration(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Получить секцию с объявлением локальных переменных.
+            </summary>
+            <param name="variables">Переменные.</param>
+            <returns>Строка с объявлением переменных.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.GetBoolValue(System.Boolean)">
+            <summary>
+            Получить значение логической переменной.
+            </summary>
+            <param name="value">Значение.</param>
+            <returns>Значение.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.GetUniqueName(System.String)">
+            <summary>
+            Получить уникальное имя.
+            </summary>
+            <param name="namePrefix">Префикс в имени.</param>
+            <returns>Уникальное имя.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.ScriptGenerator.InitializeObjectScripts">
+            <summary>
+            Инициализировать объект для создание DDL скриптов.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.ITableDefinition">
+            <summary>
+            Интерфейс структуры новой таблицы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.ITableDefinition.Name">
+            <summary>
+            Имя таблицы.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.ITableDefinition.AddCreatedFieldDefinition(Sungero.DataAccess.FieldInfo)">
+            <summary>
+            Добавить определение создаваемого поля.
+            </summary>
+            <param name="fieldInfo">Информация о поле.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomTableDefinition">
+            <summary>
+            Определения параметров таблицы.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomTableDefinition.CustomDefinitionStrategy">
+            <summary>
+            Стратегия отображения определения.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomTableDefinition.CustomDefinitionStrategy.GetFieldDefinitions(Sungero.DataAccess.CustomTableDefinition)">
+            <summary>
+            Получить строковые описания полей.
+            </summary>
+            <param name="tableDefinition">Определение таблицы.</param>
+            <returns>Строковые описания.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomTableDefinition.CustomDefinitionStrategy.GetOperationCommand">
+            <summary>
+            Получить имя команды для операции.
+            </summary>
+            <returns>Строковое имя команды.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomTableDefinition.CustomDefinitionStrategy.GetCompletedCommand(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBTableName,Sungero.DataAccess.CustomTableDefinition)">
+            <summary>
+            Получить полную строку команды.
+            </summary>
+            <param name="name">Имя объекта.</param>
+            <param name="previousName">Предыдущее имя объекта.</param>
+            <param name="tableDefinition">Определение таблицы.</param>
+            <returns>Команда.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomTableDefinition.CustomCreateStrategy">
+            <summary>
+            Стратегия отображения определения для создания объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomTableDefinition.CustomDropStrategy">
+            <summary>
+            Стратегия отображения определения для удаления объекта.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomTableDefinition.CustomRenameStrategy">
+            <summary>
+            Стратегия отображения определения для переименования объекта.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableDefinition.Operation">
+            <summary>
+            Тип операции.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableDefinition.Name">
+            <summary>
+            Имя таблицы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableDefinition.RelatedTableNames">
+            <summary>
+            Связанные имена таблиц.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableDefinition.ScriptStrategy">
+            <summary>
+            Стратегия отображения.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.CustomTableDefinition.previousName">
+            <summary>
+            Предыдущее имя таблицы.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableDefinition.Fields">
+            <summary>
+            Определения полей.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomTableDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="name">Имя таблицы.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomTableDefinition.#ctor(Sungero.DataAccess.OperationType,Sungero.DataAccess.DBTableName,System.Collections.Generic.IList{Sungero.DataAccess.DBTableName})">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="operation">Тип операции.</param>
+            <param name="name">Имя таблицы.</param>
+            <param name="relatedTableNames">Связанные имена таблиц.</param>
+        </member>
+        <member name="M:Sungero.DataAccess.CustomTableDefinition.#ctor(Sungero.DataAccess.DBTableName,Sungero.DataAccess.DBTableName)">
+            <summary>
+            Создать экземпляр класса.
+            </summary>
+            <param name="name">Имя таблицы.</param>
+            <param name="previousName">Предыдущее имя таблицы.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.CustomTableScripts">
+            <summary>
+            Скрипты для определения таблиц.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableScripts.Objects">
+            <summary>
+            Определения объектов.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.CustomTableScripts.MassForeignKeyRemover">
+            <summary>
+            Объект для массового удаления внешних ключей.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Translators.BaseRegexReplaceTranslator`1">
+            <summary>
+            Базовый класс SQL-транслятора использующего Regex.Replace.
+            </summary>
+            <typeparam name="T">Тип SQL-транслятора.</typeparam>
+        </member>
+        <member name="P:Sungero.DataAccess.Translators.BaseRegexReplaceTranslator`1.Instance">
+            <summary>
+            Одиночка.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.Translators.BaseRegexReplaceTranslator`1.RepalaceRegex">
+            <summary>
+            Регулярное выражение для выполнения замены.
+            </summary>
+        </member>
+        <member name="P:Sungero.DataAccess.Translators.BaseRegexReplaceTranslator`1.RepalaceSearchPattern">
+            <summary>
+            Шаблон поиска для замены.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Translators.BaseRegexReplaceTranslator`1.Translate(System.String)">
+            <summary>
+            Транслировать SQL-запрос.
+            </summary>
+            <param name="sqlText">SQL-запрос.</param>
+            <returns>Транслированный SQL-запрос.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Translators.BaseRegexReplaceTranslator`1.MatchReplace(System.Text.RegularExpressions.Match,System.String)">
+            <summary>
+            Заменить обнаруженную заглушку метода на запрос.
+            </summary>
+            <param name="match">Обнаруженная заглушка.</param>
+            <param name="sqlText">SQL-запрос.</param>
+            <returns>Текст запроса.</returns>
+        </member>
+        <member name="T:Sungero.DataAccess.Translators.CollectionContainsMsSqlTranslator">
+            <summary>
+            Транслятор для MSSSQL, который ищет заглушки для вызовов метода Contains для коллекций и
+            подставляет вместо него выборку из временной таблицы (Contains(x.Id) -> x.Id in (select 1 from #ct_0)).
+            Создание временных таблиц транслятор размещает в начале запроса, удаление - в конце.
+            Транслятор нужен для обхода проблемы с большим количеством параметров в операторе in (в MS SQL
+            есть ограничение на количество параметров в запросе - 2100).
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.CollectionContainsMsSqlTranslator.containsAliasSearchRegex">
+            <summary>
+            Регулярное выражение для поиска заглушек вызовов методов Contains для коллекций.
+            Пример заглушки для поиска: "$CONTAINS_INT$160(?, _users.[Id])". Здесь 160 - количество элементов в исходной коллекции.
+            </summary>
+        </member>
+        <member name="M:Sungero.DataAccess.Translators.CollectionContainsMsSqlTranslator.Translate(System.String,NHibernate.SqlCommand.SqlString,System.Int32[])">
+            <summary>
+            Выполнить трансляцию для SQL-запроса.
+            </summary>
+            <param name="sqlText">Исходный текст SQL.</param>
+            <param name="sql">SqlString от NHibernate.</param>
+            <param name="parametersOrder">Исходный порядок параметров в запросе. Может быть изменён при трансляции.</param>
+            <returns>Преобразованный текст запроса.</returns>
+        </member>
+        <member name="M:Sungero.DataAccess.Translators.CollectionContainsMsSqlTranslator.ReorderParameters(System.Int32[],System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Изменить порядок параметров в запросе.
+            </summary>
+            <param name="parametersOrder">Исходный порядок параметров.</param>
+            <param name="movedUpParameters">Параметры, которые были перенесены в начало запроса.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.Translators.ContainsWordStartsWithSqlTranslator">
+            <summary>
+            SQL-транслятор, подменяющий заглушку вызова метода ContainsWordStartsWith на запрос.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.ContainsWordStartsWithSqlTranslator.FieldGroupAlias">
+            <summary>
+            Имя группы для поиска обращения к полю данных.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.ContainsWordStartsWithSqlTranslator.ValuesTableGroupAlias">
+            <summary>
+            Имя группы для поиска обращения к имени таблицы значений.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.ContainsWordStartsWithSqlTranslator.TextGroupAlias">
+            <summary>
+            Имя группы для поиска обращения к строке поиска.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Translators.ExcludeTaggedSqlTranslator">
+            <summary>
+            SQL-транслятор, подменяющий заглушку вызова метода ExcludeTagged на запрос.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.ExcludeTaggedSqlTranslator.QueryTemplate">
+            <summary>
+            Шаблон запроса.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.Translators.RegexIsMatchSqlTranslator">
+            <summary>
+            SQL-транслятор, подменяющий заглушку вызова метода Regex.IsMatch на результирующее sql-выражение.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.RegexIsMatchSqlTranslator.InputGroupAlias">
+            <summary>
+            Имя группы для поиска обращения к полю данных.
+            </summary>
+        </member>
+        <member name="F:Sungero.DataAccess.Translators.RegexIsMatchSqlTranslator.PatternGroupAlias">
+            <summary>
+            Имя группы для поиска обращения к параметру полнотекстового поиска.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.UserTypes.ChildEntityCollectionWrapperFactory`1">
+            <summary>
+            Фабрика для создания коллекций дочерних сущностей для NHibernate.
+            </summary>
+            <typeparam name="T">Тип элементов.</typeparam>
+            <remarks>С помощью этой фабрики подменяем NHibernate-коллекции нашими.</remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.UserTypes.CollectionWrapperFactory`1">
+            <summary>
+            Фабрика для создания коллекций для NHibernate.
+            </summary>
+            <typeparam name="T">Тип элементов.</typeparam>
+            <remarks>С помощью этой фабрики подменяем NHibernate-коллекции нашими.</remarks>
+        </member>
+        <member name="T:Sungero.DataAccess.UserTypes.EnumerationType">
+            <summary>
+            Тип данных NHibernate для хранения Enumeration?.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.UserTypes.PersistentChildEntityCollection`1">
+            <summary>
+            Коллекция дочерних сущностей для NHibernate.
+            </summary>
+            <typeparam name="T">Тип элементов.</typeparam>
+            <remarks>В этой коллекции генерятся события добавления и удаления.</remarks>
+        </member>
+        <member name="P:Sungero.DataAccess.UserTypes.PersistentChildEntityCollection`1.InternalCollection">
+            <summary>
+            Внутренняя коллекция.
+            </summary>
+        </member>
+        <member name="T:Sungero.DataAccess.UserTypes.PersistentCollection`1">
+            <summary>
+            Коллекция для NHibernate.
+            </summary>
+            <typeparam name="T">Тип элементов.</typeparam>
+            <remarks>В этой коллекции создается новая сессия при необходимости.</remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.UserTypes.PersistentCollection`1.WrapInNewSessionIfNeed``1(System.Func{``0})">
+            <summary>
+            Обернуть выражение в новую сессию при необходимости.
+            </summary>
+            <typeparam name="TReturn">Тип выражения.</typeparam>
+            <param name="expression">Выражение.</param>
+            <returns>Результат выражения.</returns>
+            <remarks>
+            Если сессии к моменту обращения к лениво-загружаемой коллекции уже не будет (например, сессия была закрыта), то NHibernate генерирует исключение.
+            Ниже делается "прозрачное" для программиста-пользователя создание новой "внешней" сессии (а затем её закрытие) при необходимости.
+            При этом используется существующая "внутренняя" сессия, чтобы избежать необходимости распределенной транзакции (например, при вызове серверной remote-функции).
+            </remarks>
+        </member>
+        <member name="M:Sungero.DataAccess.UserTypes.PersistentCollection`1.WrapInNewSessionIfNeed(System.Action)">
+            <summary>
+            Обернуть действие в новую сессию при необходимости.
+            </summary>
+            <param name="action">Действие.</param>
+        </member>
+        <member name="T:Sungero.DataAccess.UserTypes.UriType">
+            <summary>
+            Тип данных NHibernate для хранения Uri.
+            </summary>
+        </member>
+        <member name="T:Sungero.Compatibility.SaveOrUpdateEventListener">
+            <summary>
+            Класс, реализующий логику при сохранении и при update сущности к сессии.
+            </summary>
+        </member>
+        <member name="M:Sungero.Compatibility.SaveOrUpdateEventListener.MarkConvertedEntityAsPersisted(Sungero.Domain.Shared.IEntity)">
+            <summary>
+            Пометить сконвертированную сущность как персистентную.
+            </summary>
+            <param name="convertedEntity">Сконвертированная сущность.</param>
+        </member>
+    </members>
+</doc>

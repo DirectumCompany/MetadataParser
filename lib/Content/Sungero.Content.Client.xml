@@ -1,0 +1,28 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Content.Client</name>
+  </assembly>
+  <members>
+    <member name="M:Sungero.CoreEntities.SignaturesCollectionViewService.Show(Sungero.Content.IElectronicDocument)">
+      <summary>Показать список электронных подписей в отдельном окне.</summary>
+      <param name="document">Список электронных подписей.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.SignaturesCollectionViewService.Show(Sungero.Content.IElectronicDocument,System.String)">
+      <summary>Показать список электронных подписей.</summary>
+      <param name="document">Список электронных подписей.</param>
+      <param name="title">Заголовок окна.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.SignaturesCollectionViewService.Show(Sungero.Content.IElectronicDocumentVersions)">
+      <summary>Показать список электронных подписей в отдельном окне.</summary>
+      <param name="version">Список электронных подписей.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.SignaturesCollectionViewService.Show(Sungero.Content.IElectronicDocumentVersions,System.String)">
+      <summary>Показать список электронных подписей.</summary>
+      <param name="version">Версия.</param>
+      <param name="title">Заголовок.</param>
+    </member>
+    <member name="T:Sungero.CoreEntities.SignaturesCollectionViewService">
+      <summary>Сервис представления списка подписей.</summary>
+    </member>
+  </members>
+</doc>

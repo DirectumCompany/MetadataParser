@@ -1,0 +1,10 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Domain.Client</name>
+  </assembly>
+  <members>
+    <member name="T:Sungero.Core.ExternalLibraryInvokerService">
+      <summary>Вызов методов сторонних сборок.</summary>
+    </member>
+  </members>
+</doc>

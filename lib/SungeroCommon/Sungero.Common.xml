@@ -1,0 +1,2685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.Common.DataProtection.CertificateProvider">
+            <summary>
+            Поставщик сертификатов.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.CertificateProvider.NonPrintableChar">
+            <summary>
+            Ведущий непечатаемый символ, который появляется в отпечатке сертификата при копировании из оснастки.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.CertificateProvider.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.CertificateProvider.certificateThumbprint">
+            <summary>
+              Отпечаток сертификата.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.CertificateProvider.needPrivateKey">
+            <summary>
+              Признак необходимости наличия закрытого ключа.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.CertificateProvider.StoreLocations">
+            <summary>
+            Хранилища, в которых требуется выполнять поиск сертификата.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.CertificateProvider.FindCertificateInStore(System.Security.Cryptography.X509Certificates.StoreLocation)">
+            <summary>
+            Найти подходящий сертификат в указанном расположении.
+            </summary>
+            <param name="storeLocation">Хранилище.</param>
+            <returns>Сертификат.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.CertificateProvider.FindCertificate">
+            <summary>
+            Найти подходящий сертификат.
+            </summary>
+            <returns>Сертификат.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.CertificateProvider.#ctor(System.String,System.Boolean)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="certificateThumbprint">Отпечаток сертификата.</param>
+            <param name="needPrivateKey">Признак необходимости наличия закрытого ключа.</param>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.CertificateProviderFactory">
+            <summary>
+            Фабрика поставщиков сертификатов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.CertificateProviderFactory.Create(Sungero.Common.DataProtection.DataProtectionSettings,System.Boolean)">
+            <summary>
+            Создать поставщика сертификатов.
+            </summary>
+            <param name="settings">Настройки безопасности.</param>
+            <param name="needPrivateKey">Признак необходимости наличия закрытого ключа.</param>
+            <returns>Поставщик сертификатов.</returns>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.DataProtectionSettings">
+            <summary>
+            Настройки для обеспечения защиты данных.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.DataProtectionSettings.CertificateThumbprintSettingName">
+            <summary>
+            Название настройки, содержащей отпечаток сертификата.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.DataProtectionSettings.CertificateFileName">
+            <summary>
+            Имя параметра, содержащего путь к файлу сертификата.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.DataProtectionSettings.CertificateFilePasswordName">
+            <summary>
+            Имя параметра, содержащего пароль от файлу сертификата.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.DataProtectionSettings.configSettings">
+            <summary>
+            Получатель настроек.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.DataProtectionSettings.CertificateThumbprint">
+            <summary>
+            Отпечаток сертификата.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.DataProtectionSettings.CertificateFile">
+            <summary>
+            Файл сертификата.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.DataProtectionSettings.CertificateFilePassword">
+            <summary>
+            Пароль к файлу сертификата.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.DataProtectionSettings.#ctor(ConfigSettings.ConfigSettingsGetter)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="configSettings">Получатель настроек.</param>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.FileCertificateProvider">
+            <summary>
+            Поставщик сертификатов из файла.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.FileCertificateProvider.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.FileCertificateProvider.certificate">
+            <summary>
+            Сертификат.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.FileCertificateProvider.GetCertificate(System.String,System.String)">
+            <summary>
+            Прочитать сертификат из файла.
+            </summary>
+            <param name="filePath">Путь к файлу.</param>
+            <param name="password">Пароль для сертификата, либо null.</param>
+            <returns>Сертификат.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.FileCertificateProvider.#ctor(System.String,System.String)">
+            <summary>
+            Конструтор.
+            </summary>
+            <param name="filePath">Путь к файлу сертификата.</param>
+            <param name="password">Пароль к сертификату.</param>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.FileCertificateProvider.#ctor(System.String)">
+            <summary>
+            Конструтор.
+            </summary>
+            <param name="filePath">Путь к файлу сертификата.</param>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.ICertificateProvider">
+            <summary>
+            Поставщик сертификата.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.ICertificateProvider.Certificate">
+            <summary>
+            Сертификат.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.IJwtTokenValidator">
+            <summary>
+            Валидатор JWT-токена.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.IJwtTokenValidator.Validate(System.String)">
+            <summary>
+            Выполнить валидацию токена.
+            </summary>
+            <param name="token">Токен.</param>
+            <returns>True, если валидация прошла успешно, иначе - false.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.IJwtTokenValidator.ValidateTokenAndGetIdentity(System.String)">
+            <summary>
+            Выполнить валидацию токена и получить из него identity.
+            </summary>
+            <param name="token">Токен.</param>
+            <returns>Identity, если токен валиден, иначе null.</returns>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.JwtTokenProvider">
+            <summary>
+            Провайдер токенов.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.DataProtection.JwtTokenProvider.DefaultTokenIssuer">
+            <summary>
+            Идентификатор издателя токена по умолчанию.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenProvider.certificateProvider">
+            <summary>
+            Провайдер сертификата.
+            </summary>
+            <remarks>
+            Работаем с провайдером, а не напрямую с сертификатом, чтобы получить сертификат только в момент использования.
+            </remarks>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenProvider.issuer">
+            <summary>
+            Идентификатор издателя токена.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenProvider.GenerateToken(System.String,System.TimeSpan,System.String,System.Security.Claims.Claim[])">
+            <summary>
+            Сгенерировать токен.
+            </summary>
+            <param name="audience">Кому предназначается токен.</param>
+            <param name="lifeTime">Время жизни токена.</param>
+            <param name="subjectName">Имя пользователя или имя приложения, которому выдается токен.</param>
+            <param name="claims">Утверждения.</param>
+            <returns>Токен в формате base64.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenProvider.GenerateToken(System.String,System.TimeSpan,System.Security.Claims.ClaimsIdentity,System.Boolean)">
+            <summary>
+            Сгенерировать токен.
+            </summary>
+            <param name="audience">Кому предназначается токен.</param>
+            <param name="lifeTime">Время жизни токена.</param>
+            <param name="identity">Identity, которой выдается токен.</param>
+            <param name="encryptToken">Зашифровать токен.</param>
+            <returns>Токен в формате base64.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenProvider.ValidateToken(System.String,System.String,System.String,System.Security.Claims.Claim[])">
+            <summary>
+            Выполнить валидацию токена.
+            </summary>
+            <param name="token">Токен.</param>
+            <param name="audience">Кому предназначен токен.</param>
+            <param name="subjectName">Имя пользователя, для которого выдан токен.</param>
+            <param name="claims">Утверждения, которые должны быть в токене.</param>
+            <returns>True, если токен валиден.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenProvider.ValidateTokenAndGetIdentity(System.String,System.String)">
+            <summary>
+            Выполнить валидацию токена и получить из него identity.
+            </summary>
+            <param name="token">Токен.</param>
+            <param name="validAudience">Валидный владелец токена.</param>
+            <returns>Identity, если токен валиден.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenProvider.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="certificate">Сертификат.</param>
+            <param name="issuer">Идентификатор издателя токена.</param>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenProvider.#ctor(Sungero.Common.DataProtection.ICertificateProvider,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="provider">Провайдер сертификата.</param>
+            <param name="issuer">Идентификатор издателя токена.</param>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.JwtTokenValidator">
+            <summary>
+            Валидатор JWT токенов.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenValidator.certificate">
+            <summary>
+            Сертификат.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenValidator.issuer">
+            <summary>
+            Кто выдал токен.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenValidator.audience">
+            <summary>
+            Кому предназначен токен.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenValidator.subjectName">
+            <summary>
+            Имя пользователя, для которого выдан токен.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenValidator.claims">
+            <summary>
+            Проверяемые утверждения.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DataProtection.JwtTokenValidator.handler">
+            <summary>
+            Обработчик валидации.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenValidator.CreateTokenValidationParameters(System.Boolean,System.Boolean)">
+            <summary>
+            Создать параметры валидации токенов.
+            </summary>
+            <param name="tokenEncrypted">Токен зашифрован.</param>
+            <param name="validateLifetime">Проверять время жизни токена.</param>
+            <returns>Параметры валидации токенов.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenValidator.GetTokenPrincipal(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)">
+            <summary>
+            Получить главную сущность из токена.
+            </summary>
+            <param name="token">Токен.</param>
+            <param name="validationParameters">Параметры валидации токена.</param>
+            <returns>Сущность, если токен валиден, иначе null.</returns>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenValidator.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2,System.String,System.String,System.String,System.Security.Claims.Claim[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="certificate">Сертификат.</param>
+            <param name="issuer">Идентификатор издателя токена.</param>
+            <param name="audience">Кому предназначен токен.</param>
+            <param name="subjectName">Имя пользователя.</param>
+            <param name="claims">Проверяемые утверждения.</param>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.JwtTokenValidator.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2,System.String,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="certificate">Сертификат.</param>
+            <param name="issuer">Идентификатор издателя токена.</param>
+            <param name="audience">Кому предназначен токен.</param>
+        </member>
+        <member name="T:Sungero.Common.DataProtection.SimpleCertificateProvider">
+            <summary>
+            Простой поставщик сертификата.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DataProtection.SimpleCertificateProvider.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Конструтор.
+            </summary>
+            <param name="certificate">Сертификат.</param>
+        </member>
+        <member name="T:Sungero.Common.Debounce">
+            <summary>
+            Отложенное выполнение действия.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Debounce.action">
+            <summary>
+            Действие.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Debounce.timeout">
+            <summary>
+            Время задержки выполнения.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Debounce.cts">
+            <summary>
+            Источник для токенов отмены действия.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Debounce.InvokeAsync">
+            <summary>
+            Выполнить действие асинхронно.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Debounce.Invoke(System.Action,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить действие.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="timeout">Время задержки выполнения действия.</param>
+            <param name="token">Токен отмены выполнения действия.</param>
+        </member>
+        <member name="M:Sungero.Common.Debounce.Invoke(System.Action,System.TimeSpan)">
+            <summary>
+            Выполнить действие.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="timeout">Время задержки выполнения действия.</param>
+        </member>
+        <member name="M:Sungero.Common.Debounce.InvokeAsync(System.Action,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить действие асинхронно.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="timeout">Время задержки выполнения действия.</param>
+            <param name="token">Токен отмены выполнения действия.</param>
+        </member>
+        <member name="M:Sungero.Common.Debounce.SetTimeout(System.TimeSpan)">
+            <summary>
+            Задать таймаут.
+            </summary>
+            <param name="timeout">Значение таймаута.</param>
+        </member>
+        <member name="M:Sungero.Common.Debounce.InvokeInternal(System.Action{System.Threading.CancellationToken},System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Внутренняя реализация отложенного выполнения действия.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="timeout">Время задержки выполнения действия.</param>
+            <param name="token">Токен отмены выполнения действия.</param>
+        </member>
+        <member name="M:Sungero.Common.Debounce.Cancel">
+            <summary>
+            Отменить выполнение действия.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Debounce.ResetDebounce">
+            <summary>
+            Сбросить задержку выполнения.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Debounce.#ctor(System.Action{System.Threading.CancellationToken},System.TimeSpan)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="timeout">Время задержки выполнения действия.</param>
+        </member>
+        <member name="T:Sungero.Common.DisposableObject">
+            <summary>
+            Объект, при вызове Dispose которого, срабатывает заданный Action.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DisposableObject.disposeAction">
+            <summary>
+            Действие вызываемое при dispose объекта.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DisposableObject.#ctor(System.Action)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="disposeAction">Действие вызываемое при dispose объекта.</param>
+        </member>
+        <member name="T:Sungero.Common.ExceptionHandler">
+            <summary>
+            Обработчик исключений.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.ExceptionHandler.log">
+            <summary>
+            Логгер. Важно, чтобы логгер инициализировался лениво, т.к. на момент вызова
+            <see cref="M:Sungero.Common.ExceptionHandler.SubscribeToUnhandledException"/> логирование может быть не настроено,
+            и возникнет исключение.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.ExceptionHandler.SubscribeToUnhandledException">
+            <summary>
+            Подписаться на необработанные исключения.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.ExclusiveInvoker">
+            <summary>
+            Эксклюзивный вызывальщик действий в рамках процессов Sungero.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.ExclusiveInvoker.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.ExclusiveInvoker.defaultByProcessTimeout">
+            <summary>
+            Дефолтное время ожидания блокировки для эксклюзивного выполнения метода в рамках одного процесса.
+            </summary>
+        </member>
+        <member name="E:Sungero.Common.ExclusiveInvoker.AbandonedMutexExceptionThrown">
+            <summary>
+            Событие на возникновение AbandonedMutexException.
+            </summary>
+            <remarks>Используется для тестов.</remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.Invoke``1(System.Func{``0},System.String,System.TimeSpan)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках всех процессов Sungero (в т.ч. текущего).
+            </summary>
+            <typeparam name="T">Тип результата действия.</typeparam>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="syncObjectId">ИД объекта синхронизации.</param>
+            <param name="timeout">Время ожидания.</param>
+            <returns>Результат выполнения действия.</returns>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.Invoke(System.Func{System.Threading.Tasks.Task},System.String,System.TimeSpan)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках всех процессов Sungero (в т.ч. текущего).
+            </summary>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="syncObjectId">ИД объекта синхронизации.</param>
+            <param name="timeout">Время ожидания.</param>
+            <remarks>
+            Синхронизация выполнения действия между процессами использует именованый глобальный мьютекс,
+            особенностью которого является то, что <see cref="M:System.Threading.Mutex.ReleaseMutex"/> должен быть вызван
+            в том же потоке, что и его захват (<see cref="M:System.Threading.WaitHandle.WaitOne(System.TimeSpan)"/>).
+            Асинхронное ожидание выполнения действия приводит к смене потока и, соответственно, к ошибке.
+            Такой особенностью не обладают семафоры (<see cref="T:System.Threading.Semaphore"/>) - их можно релизить в любом
+            потоке, но для них реализация глобальных именованных версий в .NET CORE под Linux отсутствует.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.Invoke(System.Action,System.String,System.TimeSpan)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках всех процессов Sungero (в т.ч. текущего).
+            </summary>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="syncObjectId">ИД объекта синхронизации.</param>
+            <param name="timeout">Время ожидания.</param>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.Invoke(System.Func{System.Threading.Tasks.Task},System.String,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках всех процессов Sungero (в т.ч. текущего).
+            </summary>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="syncObjectId">ИД объекта синхронизации.</param>
+            <param name="timeout">Время ожидания.</param>
+            <param name="token">Токен отмены выполнения действия.</param>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.Invoke``1(System.Func{System.Threading.Tasks.Task{``0}},System.String,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках всех процессов Sungero (в т.ч. текущего).
+            </summary>
+            <typeparam name="T">Тип результата действия.</typeparam>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="syncObjectId">ИД объекта синхронизации.</param>
+            <param name="timeout">Время ожидания.</param>
+            <param name="token">Токен отмены выполнения действия.</param>
+            <returns>Результат выполнения действия.</returns>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.Invoke``1(System.Func{System.Threading.Tasks.Task{``0}},System.String,System.TimeSpan)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках всех процессов Sungero (в т.ч. текущего).
+            </summary>
+            <typeparam name="T">Тип результата действия.</typeparam>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="syncObjectId">ИД объекта синхронизации.</param>
+            <param name="timeout">Время ожидания.</param>
+            <returns>Результат выполнения действия.</returns>
+            <remarks>
+            Нельзя делать асинхронное ожидание выполнения действия - это приведет к ошибке.
+            Подробности см. в пояснении к <see cref="M:Sungero.Common.ExclusiveInvoker.Invoke(System.Func{System.Threading.Tasks.Task},System.String,System.TimeSpan)"/>.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess(System.String,System.Action,System.Boolean,System.TimeSpan)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках одного процесса.
+            </summary>
+            <param name="resourceName">Имя ресурса для блокировки.</param>
+            <param name="action">Действие.</param>
+            <param name="needThrowException">Нужно ли генерировать исключение, если блокировку получить не удалось.</param>
+            <param name="timeout">Время ожидания.</param>
+            <remarks>
+            См. <see cref="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess``1(System.String,System.Func{``0},System.TimeSpan)"/>
+            TODO: После отказа от WCF - заменить вызовы на lock.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess``1(System.String,System.Func{``0},System.TimeSpan)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках одного процесса.
+            </summary>
+            <param name="resourceName">Имя ресурса для блокировки.</param>
+            <param name="action">Действие.</param>
+            <param name="timeout">Время ожидания.</param>
+            <remarks>
+            Блокировка действует для всех доменов приложения внутри процесса. Актуально только пока у нас есть WCF-СП, т.к.
+            речь об особенности хостинга WCF-сервиса в IIS - пока один экземпляр приложения останавливается, второй в это время
+            может стартовать в том же процессе worker'а, но в другом домене. По сути, является глобальной блокировкой, но имя
+            объекта синхронизации привязано к ИД текущего процесса.
+            TODO: После отказа от WCF - заменить вызовы на lock.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess(System.String,System.Action,System.Boolean)">
+            <summary>
+            Выполнить действие эксклюзивно в рамках одного процесса.
+            </summary>
+            <param name="resourceName">Имя ресурса для блокировки.</param>
+            <param name="action">Действие.</param>
+            <param name="needThrowException">Нужно ли генерировать исключение, если блокировку получить не удалось.</param>
+            <remarks>
+            См. <see cref="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess``1(System.String,System.Func{``0},System.TimeSpan)"/>
+            TODO: После отказа от WCF - заменить вызовы на lock.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess``1(System.String,System.Func{``0})">
+            <summary>
+            Выполнить действие эксклюзивно в рамках одного процесса.
+            </summary>
+            <param name="resourceName">Имя ресурса для блокировки.</param>
+            <param name="action">Действие.</param>
+            <remarks>
+            См. <see cref="M:Sungero.Common.ExclusiveInvoker.InvokeForProcess``1(System.String,System.Func{``0},System.TimeSpan)"/>
+            TODO: После отказа от WCF - заменить вызовы на lock.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveInvoker.CreateLock(System.String,System.TimeSpan)">
+            <summary>
+            Создать блокировку.
+            </summary>
+            <param name="resourceName">Имя ресурса для блокировки.</param>
+            <param name="timeSpan">Время ожидания блокировки.</param>
+            <returns>IDisposable-объект для снятия блокировки.</returns>
+            <remarks>
+            Мьютекс должен быть захвачен (<see cref="M:System.Threading.WaitHandle.WaitOne(System.TimeSpan)"/>)
+            и освобожден (<see cref="M:System.Threading.Mutex.ReleaseMutex"/>) в одном и том же потоке.
+            </remarks>
+        </member>
+        <member name="T:Sungero.Common.ExclusiveTimeoutException">
+            <summary>
+            Эксклюзивное падение по таймауту.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveTimeoutException.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveTimeoutException.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="message">Сообщение.</param>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveTimeoutException.#ctor(System.String,System.Exception)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="message">Сообщение.</param>
+            <param name="innerException">Внутреннее исключение.</param>
+        </member>
+        <member name="M:Sungero.Common.ExclusiveTimeoutException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="info">Сериализованные данные об исключении.</param>
+            <param name="context">Информация о контексте.</param>
+        </member>
+        <member name="T:Sungero.Common.Extensions.DictionaryExtensions">
+            <summary>
+            Расширения для работы со словарем.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Extensions.DictionaryExtensions.RemoveWithDispose(System.Collections.Generic.IDictionary{System.Object,System.Object},System.Object)">
+            <summary>
+            Удалить значение из словаря с попыткой вызова у него Dispose.
+            </summary>
+            <param name="dictionary">Словарь.</param>
+            <param name="key">Ключ.</param>
+        </member>
+        <member name="T:Sungero.Common.GuidExtensions">
+            <summary>
+            Расширения для Guid.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.GuidExtensions.ToShortString(System.Guid)">
+            <summary>
+            Получить первые 8 символов у идентификатора.
+            </summary>
+            <param name="id">Идентификатор.</param>
+            <returns>Первые 8 символов.</returns>
+        </member>
+        <member name="T:Sungero.Common.LinqExtensions">
+            <summary>
+            Расширения для Linq.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.LinqExtensions.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Добавить в коллекцию перечень элементов.
+            </summary>
+            <typeparam name="T">Тип элементов коллекции.</typeparam>
+            <param name="collection">Коллекция.</param>
+            <param name="source">Перечень элементов, которые необходимо добавить.</param>
+        </member>
+        <member name="M:Sungero.Common.LinqExtensions.SafeSequenceEqual``1(``0[],``0[])">
+            <summary>
+            Проверить два массива на эквивалентность содержимого с учетом того, что коллекции могут быть Null.
+            </summary>
+            <typeparam name="T">Тип элементов массива.</typeparam>
+            <param name="first">Первая массив.</param>
+            <param name="second">Вторая массив.</param>
+            <returns>True, если содержимое массивов эквивалетно или они оба null. Иначе - false.</returns>
+        </member>
+        <member name="M:Sungero.Common.LinqExtensions.Single``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.String)">
+            <summary>
+            Вернуть единственный элемент по предикату.
+            </summary>
+            <typeparam name="TSource">Тип элементов.</typeparam>
+            <param name="source">Исходная последовательность.</param>
+            <param name="predicate">Предикат.</param>
+            <param name="itemDescription">Описание искомого элемента.</param>
+            <returns>Единственный элемент последовательности.</returns>
+            <exception cref="T:System.InvalidOperationException">Если найдено ноль или больше одного элемента.</exception>
+        </member>
+        <member name="M:Sungero.Common.LinqExtensions.Single``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Вернуть единственный элемент.
+            </summary>
+            <typeparam name="TSource">Тип элементов.</typeparam>
+            <param name="source">Исходная последовательность.</param>
+            <param name="itemDescription">Описание искомого элемента.</param>
+            <returns>Единственный элемент последовательности.</returns>
+            <exception cref="T:System.InvalidOperationException">Если найдено ноль или больше одного элемента.</exception>
+        </member>
+        <member name="M:Sungero.Common.LinqExtensions.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.String)">
+            <summary>
+            Найти единственный элемент по предикату или сгенерировать сообщение об ошибке, если таких элементов несколько.
+            </summary>
+            <typeparam name="TSource">Тип элементов.</typeparam>
+            <param name="source">Исходная последовательность.</param>
+            <param name="predicate">Предикат.</param>
+            <param name="itemDescription">Описание искомого элемента.</param>
+            <returns>Единственный элемент последовательности, соответствующий предикату, или значение типа данных по умолчанию, если соответствующего элемента не найдено.</returns>
+            <exception cref="T:System.InvalidOperationException">Если найдено больше одного элемента.</exception>
+        </member>
+        <member name="T:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions">
+            <summary>
+            Методы расширения для IDirectoryInfo.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions.GetDirectorySizeInMb(System.IO.Abstractions.IDirectoryInfo)">
+            <summary>
+            Получить размер содержимого директории в мегабайтах.
+            </summary>
+            <param name="directoryInfo">Инфо о директории.</param>
+            <returns>Размер папки в мегабайтах.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions.GetDirectorySizeInBytes(System.IO.Abstractions.IDirectoryInfo)">
+            <summary>
+            Получить размер содержимого директории в байтах.
+            </summary>
+            <param name="directoryInfo">Инфо о директории.</param>
+            <returns>Размер папки в байтах.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions.GetDirectorySizeInBytesRecursive(System.IO.Abstractions.IDirectoryInfo)">
+            <summary>
+            Получить размер содержимого директории в байтах.
+            </summary>
+            <param name="directoryInfo">Инфо о директории.</param>
+            <returns>Размер папки в байтах.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions.SafeCreateDirectory(System.IO.Abstractions.IDirectoryInfo)">
+            <summary>
+            Создать директорию по указанному пути (будет произведено несколько попыток).
+            </summary>
+            <param name="dir">System.IO.Abstractions.IDirectoryInfo.</param>
+            <returns><c>true</c>, если директория создана, а не существовала ранее.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions.SafeDeleteDirectory(System.IO.Abstractions.IDirectoryInfo)">
+            <summary>
+            Удалить директорию (будет несколько попыток).
+            </summary>
+            <param name="dir">System.IO.Abstractions.IDirectoryInfo.</param>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.DirectoryInfoExtensions.SafeDeleteDirectory(System.IO.Abstractions.IDirectoryInfo,System.Int32,System.Int32)">
+            <summary>
+            Удалить директорию (будет несколько попыток).
+            </summary>
+            <param name="dir">System.IO.Abstractions.IDirectoryInfo.</param>
+            <param name="maxRetries">Максимальное количество попыток ожидания разблокировки.</param>
+            <param name="waitingTimeInMs">Время ожидания перед очередной попыткой, мс.</param>
+        </member>
+        <member name="T:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor">
+            <summary>
+            Исполнитель действия в файловой системой с повтором в случае блокировки файла.
+            </summary>
+            <remarks>
+            Производит несколько попыток выполнить действие.
+            При исключении "System.IO.IOException: The process cannot access the file" делает ограниченное количество повторов.
+            </remarks>
+        </member>
+        <member name="F:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.DefaultMaxRetries">
+            <summary>
+            Максимальное количество попыток на ожидание разблокировки по умолчанию.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.DefaultWaitingTimeInMs">
+            <summary>
+            Время ожидания по умолчанию перед очередной попыткой, мс.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.maxRetries">
+            <summary>
+            Максимальное количество попыток ожидания разблокировки.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.waitingTimeInMs">
+            <summary>
+            Время ожидания перед очередной попыткой, мс.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.DefaultInstance">
+            <summary>
+            Экземпляр со значениями по умолчанию.
+            </summary>
+            <remarks>
+            Для кастомных значений надо использовать конструктор с параметрами.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.TryExecute(System.Action)">
+            <summary>
+            Попытаться выполнить действие связанное с файлом или папкой (будет произведено несколько попыток).
+            </summary>
+            <param name="action">Выполняемое действие.</param>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.TryExecute``1(System.Func{``0})">
+            <summary>
+            Попытаться выполнить действие связанное с файлом или папкой (будет произведено несколько попыток).
+            </summary>
+            <param name="action">Выполняемое действие.</param>
+            <returns>Возвращаемое из действия значение.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileSystemHelpers.FileSystemActionExecutor.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="maxRetries">Максимальное количество попыток ожидания разблокировки.</param>
+            <param name="waitingTimeInMs">Время ожидания перед очередной попыткой, мс.</param>
+        </member>
+        <member name="T:Sungero.Common.FileWatcher">
+            <summary>
+            Наблюдатель за файлами.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.Asterisk">
+            <summary>
+            Символ, применяемый в файловой маске.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.matchPattern">
+            <summary>
+            Вернуть признак того, соответствует ли переданное имя файла заданной маске.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.sync">
+            <summary>
+            Объект синхронизации.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.changedFiles">
+            <summary>
+            Список измененных файлов.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.directoryPath">
+            <summary>
+            Путь к наблюдаемой папке.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.fileMask">
+            <summary>
+            Маска для файлов, за которыми ведется наблюдение.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.filePath">
+            <summary>
+            Путь к файлу, за которым ведется наблюдение (если задан не по маске).
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.debouncedFilesChangedHandler">
+            <summary>
+            Обработчик события на изменение файлов (выполняется с задержкой).
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.interval">
+            <summary>
+            Интервал срабатывания таймера, следящего за появлением файлов после их переименования или удаления.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.timer">
+            <summary>
+            Таймер, следящий за появлением файлов после их переименования или удаления.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileWatcher.watcher">
+            <summary>
+            Системный наблюдатель за файловой системой.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.IsTargetExist">
+            <summary>
+            Вернуть признак того, что объект наблюдения существует.
+            </summary>
+            <returns>True - если объект наблюдения существует.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.TimerElapsed">
+            <summary>
+            Обработчик события срабатывания таймера, следящего за появлением файла после его удаления или переименования.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.FileSystemChangedHandler(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            Обработчик изменения состояния файловой системы.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры.</param>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.OnFilesChanged(System.Action{System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken},System.Threading.CancellationToken)">
+            <summary>
+            Событие на изменение файлов.
+            </summary>
+            <param name="filesChangedHandler">Обработчик события на изменение файлов.</param>
+            <param name="token">Токен отмены операции.</param>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.CreateWatcher">
+            <summary>
+            Создать системного наблюдателя за файловой системой.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.CreateTimer">
+            <summary>
+            Создать таймер, следящий за появлением объекта наблюдения после его переименования или удаления.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.ReCreateWatcherOrTimer">
+            <summary>
+            Пересоздать наблюдателя за файловой системой или таймер.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.DisposeWatcher">
+            <summary>
+            Задиспоузить наблюдателя за файловой системой.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.DisposeTimer">
+            <summary>
+            Задиспоузить таймер.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.CreateMatchPatternMethod">
+            <summary>
+            Создать тело метода MatchPattern.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.#ctor(System.String,System.String,System.Action{System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken},System.TimeSpan)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="folderPath">Путь к папке, за которой надо наблюдать.</param>
+            <param name="fileMask">Маска файлов, за которыми надо наблюдать.</param>
+            <param name="filesChangedHandler">Обработчик события изменения файлов.</param>
+            <param name="debounce">Отсрочка, по истечении которой будет вызван обработчик события изменения файлов.</param>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.#ctor(System.String,System.Action{System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken},System.TimeSpan)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="filePath">Путь к файлу, за которым надо наблюдать. В качестве имени можно задать маску.</param>
+            <param name="filesChangedHandler">Обработчик изменения файлов.</param>
+            <param name="debounce">Отсрочка, по истечении которой, будет вызван обработчик события изменения файлов.</param>
+        </member>
+        <member name="M:Sungero.Common.FileWatcher.#ctor(System.String,System.Action{System.Threading.CancellationToken},System.TimeSpan)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="filePath">Путь к файлу, за которым надо наблюдать. Может быть задана маска.</param>
+            <param name="fileChangedHandler">Обработчик изменения файла.</param>
+            <param name="debounce">Отсрочка, по истечении которой, будет вызван обработчик события изменения файла.</param>
+        </member>
+        <member name="T:Sungero.Common.Json.NetCoreTypeJsonConverter">
+            <summary>
+            Конвертер для Type в среде .NET Core.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Json.NetCoreTypeJsonConverter.PrivateCoreLibRegex">
+            <summary>
+            Регулярка для поиска сборки System.Private.CoreLib.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Json.NetCoreTypeJsonConverter.ConvertTypeName(System.String)">
+            <summary>
+            Преобразовать имя типа.
+            </summary>
+            <param name="typeName">Имя типа.</param>
+        </member>
+        <member name="T:Sungero.Common.OperationStorage">
+            <summary>
+            Хранилище данных асинхронной операции.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.OperationStorage.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.OperationStorage.asyncStorage">
+            <summary>
+            Хранилище для данных, которые пробрасываются в дочерние потоки через async/await.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.OperationStorage.Values">
+            <summary>
+            Значения, находящиеся в хранилище.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.OperationStorage.InternalStorage">
+            <summary>
+            Хранилище данных.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.CreateNew">
+            <summary>
+            Создать новое хранилище.
+            </summary>
+            <returns>Объект освобождения, после вызова Dispose которого будет возвращено предыдущее хранилище.</returns>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.Reset">
+            <summary>
+            Сбросить хранилище.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.TryGetData``1(System.Object,``0@)">
+            <summary>
+            Попытаться получить данные из хранилища по заданному ключу.
+            </summary>
+            <typeparam name="T">Тип данных.</typeparam>
+            <param name="key">Ключ.</param>
+            <param name="value">Данные.</param>
+            <returns>True, если данные найдены, иначе false.</returns>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.GetData``1(System.Object)">
+            <summary>
+            Получить данные из хранилища по заданному ключу.
+            </summary>
+            <typeparam name="T">Тип данных.</typeparam>
+            <param name="key">Ключ.</param>
+            <returns>Данные.</returns>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.SetData``1(System.Object,``0)">
+            <summary>
+            Занести данные в хранилище.
+            </summary>
+            <typeparam name="T">Тип данных.</typeparam>
+            <param name="key">Ключ.</param>
+            <param name="value">Данные.</param>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.Remove(System.Object)">
+            <summary>
+            Удалить данные из хранилища по заданному ключу.
+            </summary>
+            <param name="key">Ключ.</param>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.RemoveValue(System.Object)">
+            <summary>
+            Удалить все вхождения объекта из хранилища.
+            </summary>
+            <param name="value">Объект.</param>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.Clear">
+            <summary>
+            Очистить хранилище.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.OperationStorage.LogValues">
+            <summary>
+            Залогировать состояние хранилища.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.RestClient.FailedRequestException">
+            <summary>
+            Ошибка для неудачно выполненного запроса.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.FailedRequestException.StatusCode">
+            <summary>
+            Код HTTP-ошибки.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.FailedRequestException.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpStatusCode">Код HTTP-ошибки.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.FailedRequestException.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpStatusCode">Код HTTP-ошибки.</param>
+            <param name="message">Сообщение.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.FailedRequestException.#ctor(System.Net.HttpStatusCode,System.String,System.Exception)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpStatusCode">Код HTTP-ошибки.</param>
+            <param name="message">Сообщение.</param>
+            <param name="inner">Вложенное исключение.</param>
+        </member>
+        <member name="T:Sungero.Common.RestClient.HttpRequest">
+            <summary>
+            Запрос.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.AuthenticationHeader">
+            <summary>
+            Заголовок Authorization запроса.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.QueryParameters">
+            <summary>
+            Параметры запроса.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.ApiPath">
+            <summary>
+            Метод api.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.HttpMethod">
+            <summary>
+            Тип метода.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.Content">
+            <summary>
+            Контент.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.CacheControlValue">
+            <summary>
+            Значение заголовка CacheControl.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.TransferEncodingChunked">
+            <summary>
+            Передавать контент блоками.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.HttpRequest.CustomHeaders">
+            <summary>
+            Особые заголовки запроса.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.HttpRequest.CreateUri(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Uri)">
+            <summary>
+            Сформировать Uri.
+            </summary>
+            <param name="apiPath">Путь к методу api.</param>
+            <param name="queryParams">Параметры запроса.</param>
+            <param name="baseUri">Базовый Uri.</param>
+            <returns>Полный путь для запроса.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.HttpRequest.AddSpanAttribute(System.String,System.Object)">
+            <summary>
+            Добавить атрибут к спану запроса.
+            </summary>
+            <param name="key">Ключ.</param>
+            <param name="value">Значение.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.HttpRequest.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.HttpRequest.#ctor(System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpMethod">Тип метода.</param>
+            <param name="apiPath">Путь api.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.HttpRequest.#ctor(System.Net.Http.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpMethod">Тип метода.</param>
+            <param name="apiPath">Путь api.</param>
+            <param name="queryParams">Параметры запроса.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.HttpRequest.#ctor(System.Net.Http.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Net.Http.HttpContent)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpMethod">Тип метода.</param>
+            <param name="apiPath">Путь api.</param>
+            <param name="queryParams">Параметры запроса.</param>
+            <param name="content">Контент.</param>
+        </member>
+        <member name="T:Sungero.Common.RestClient.IHttpRequest">
+            <summary>
+            Запрос.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IHttpRequest.CreateRequest(System.Uri)">
+            <summary>
+            Создать запрос.
+            </summary>
+            <param name="baseUri">Базовый Uri.</param>
+            <returns>Запрос.</returns>
+        </member>
+        <member name="P:Sungero.Common.RestClient.IHttpRequest.AdditionalSpanAttributes">
+            <summary>
+            Дополнительные параметры для записи в лог.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.RestClient.IRequestExecutor">
+            <summary>
+            Исполнитель запрсов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRequestExecutor.ExecuteAsync``1(Sungero.Common.RestClient.IHttpRequest,System.Func{System.Net.Http.HttpResponseMessage,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения из ответа.</typeparam>
+            <param name="httpRequest">Запрос.</param>
+            <param name="getResult">Функция получения результата из ответа.</param>
+            <param name="token">Токен синхронизации.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRequestExecutor.ExecuteAsync``1(Sungero.Common.RestClient.IHttpRequest,System.Func{System.Net.Http.HttpResponseMessage,System.Threading.Tasks.Task{``0}},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения из ответа.</typeparam>
+            <param name="httpRequest">Запрос.</param>
+            <param name="getResult">Функция получения результата из ответа.</param>
+            <param name="closeResponse">Признак необходимости закрыть пришедший ответ и освободить ресурсы.</param>
+            <param name="token">Токен синхронизации.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="T:Sungero.Common.RestClient.IRestClient">
+            <summary>
+            Клиент для запросов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteAsync``1(Sungero.Common.RestClient.IHttpRequest,System.Func{System.Net.Http.HttpResponseMessage,System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения из ответа.</typeparam>
+            <param name="httpRequest">Запрос.</param>
+            <param name="getResult">Функция получения результата из ответа.</param>
+            <returns>Результат из ответа.</returns>
+            <returns>Задача.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteAsync(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+            <returns>Задача.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.Execute(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteAsync(Sungero.Common.RestClient.IHttpRequest,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+            <param name="token">Токен синхронизации.</param>
+            <returns>Задача.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteAsync``1(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения из ответа.</typeparam>
+            <param name="httpRequest">Запрос.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.Execute``1(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения из ответа.</typeparam>
+            <param name="httpRequest">Запрос.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteAsync``1(Sungero.Common.RestClient.IHttpRequest,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения из ответа.</typeparam>
+            <param name="httpRequest">Запрос.</param>
+            <param name="token">Токен синхронизации.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.LoadBytesAsync(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.LoadBytesAsync(Sungero.Common.RestClient.IHttpRequest,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+            <param name="token">Токен синхронизации.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.LoadStringAsync(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+            <returns>Результат в виде строки.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.LoadStringAsync(Sungero.Common.RestClient.IHttpRequest,System.Threading.CancellationToken)">
+            <summary>
+            Выполнить запрос.
+            </summary>
+            <param name="httpRequest">Запрос.</param>
+            <param name="token">Токен синхронизации.</param>
+            <returns>Результат в виде строки.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteStreamAsync(Sungero.Common.RestClient.IHttpRequest)">
+            <summary>
+            Получить поток в ответ на запрос.
+            </summary>
+            <param name="request">Запрос.</param>
+            <returns>Поток из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.IRestClient.ExecuteStreamAsync(Sungero.Common.RestClient.IHttpRequest,System.Threading.CancellationToken)">
+            <summary>
+            Получить поток в ответ на запрос.
+            </summary>
+            <param name="request">Запрос.</param>
+            <param name="token">Токен отмены.</param>
+            <returns>Поток из ответа.</returns>
+        </member>
+        <member name="T:Sungero.Common.RestClient.RepeatableRequestWrapper">
+            <summary>
+            Обертка над исполнителем запросов, добавляющая логику их переповторов.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RepeatableRequestWrapper.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RepeatableRequestWrapper.repeatableStatusCodes">
+            <summary>
+            Статус-коды, при получении которых возможен переповтор запроса.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RepeatableRequestWrapper.repeatableSocketCodes">
+            <summary>
+            Коды ошибок на уровне сокетов, при возникновении которых возможен переповтор запроса.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RepeatableRequestWrapper.maxRepeatCount">
+            <summary>
+            Максимальное количество повторов запроса.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RepeatableRequestWrapper.repeatTimeout">
+            <summary>
+            Время ожидания перед следующим повтором запроса.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RepeatableRequestWrapper.requestExecutor">
+            <summary>
+            Исполнитель запросов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RepeatableRequestWrapper.#ctor(Sungero.Common.RestClient.IRequestExecutor,System.Int32,System.TimeSpan)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="requestExecutor">Исполнитель запросов.</param>
+            <param name="maxRepeatCount">Максимальное количество переповторов запроса.</param>
+            <param name="repeatTimeout">Время ожидание перед следующим повтором запроса.</param>
+        </member>
+        <member name="T:Sungero.Common.RestClient.RequestExecutor">
+            <summary>
+            Исполнитель запросов.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.RequestExecutor.LogLevel">
+            <summary>
+            Уровень логирования.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RequestExecutor.callerInfo">
+            <summary>
+            Информация о источнике запроса.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.RequestExecutor.CallerHeaderName">
+            <summary>
+            Хидер, в котором передается идентификатор вызывающего.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RequestExecutor.client">
+            <summary>
+            Клиент.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RequestExecutor.serviceUri">
+            <summary>
+            Адрес сервиса.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RequestExecutor.serviceName">
+            <summary>
+            Имя сервиса.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RequestExecutor.EnsureSuccessStatusCode(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Удостовериться, что запрос был выполнен успешно.
+            </summary>
+            <param name="response">Ответное сообщение.</param>
+            <returns>Ничего или будет сгенерировано исключение <see cref="T:Sungero.Common.RestClient.FailedRequestException"/>.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RequestExecutor.ProcessResponse``1(System.Func{System.Net.Http.HttpResponseMessage,System.Threading.Tasks.Task{``0}},System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Обработать ответ от сервиса.
+            </summary>
+            <typeparam name="T">Тип возвращаемых данных.</typeparam>
+            <param name="getResult">Функция обработки ответа.</param>
+            <param name="response">Ответ сервиса.</param>
+            <returns>Результат обработки.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RequestExecutor.#ctor(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpClient">Http-клиент.</param>
+            <param name="serviceAddress">Базовый адрес сервиса.</param>
+            <param name="serviceName">Имя сервиса.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RequestExecutor.#cctor">
+            <summary>
+            Статический конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.RestClient.RestClient">
+            <summary>
+            Клиент для обращения к rest-сервисам.
+            </summary>
+            <remarks>Обертка над <see cref="T:System.Net.Http.HttpClient"/>.</remarks>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RestClient.requestExecutor">
+            <summary>
+            Исполнитель запросов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClient.GetResultAsync``1(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Получить результат запроса.
+            </summary>
+            <typeparam name="T">Тип результата запроса.</typeparam>
+            <param name="response">Результат запроса.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClient.GetStreamResultAsync(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Получить результат запроса.
+            </summary>
+            <param name="response">Результат запроса.</param>
+            <returns>Результат из ответа.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClient.GetBytesAsync(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Получить результат запроса ввиде массива байт.
+            </summary>
+            <param name="response">Результат запроса.</param>
+            <returns>Результат из ответа ввиде массива байт.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClient.GetStringAsync(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Получить результат запроса в виде строки.
+            </summary>
+            <param name="response">Результат запроса.</param>
+            <returns>Результат из ответа в виде строки.</returns>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClient.#ctor(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="httpClient">Http-клиент.</param>
+            <param name="serviceAddress">Базовый адрес сервиса.</param>
+            <param name="serviceName">Имя сервиса.</param>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClient.#ctor(Sungero.Common.RestClient.IRequestExecutor)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="requestExecutor">Исполнитель запросов.</param>
+        </member>
+        <member name="T:Sungero.Common.RestClient.RestClientRequestSpan">
+            <summary>
+            Спан для запросов, которые выполняет rest-клиент.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClientRequestSpan.Create(System.Uri,System.String)">
+            <summary>
+            Создать лог.
+            </summary>
+            <param name="requestUri">Адрес запроса.</param>
+            <param name="serviceName">Имя сервиса, к которому отправляется запрос.</param>
+        </member>
+        <member name="T:Sungero.Common.RestClient.RestClientSettings">
+            <summary>
+            Настройки rest-клиента.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RestClientSettings.DisableCheckServerIdentitySettingName">
+            <summary>
+            Название настройки, отвечающей за отмену проверки достоверности сервера.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RestClientSettings.instance">
+            <summary>
+            Ленивый экземпляр настроек.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.RestClientSettings.Instance">
+            <summary>
+            Экземпляр настроек.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RestClient.RestClientSettings.configSettings">
+            <summary>
+            Получатель настроек.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RestClient.RestClientSettings.DisableCheckServerIdentity">
+            <summary>
+            Признак отмены проверки достоверности сервера.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RestClient.RestClientSettings.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.ServiceProvider">
+            <summary>
+            Обертка над провайдером сервисов.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.ServiceProvider.Initialized">
+            <summary>
+            Признак инициализации.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.ServiceProvider.Instance">
+            <summary>
+            Экземпляр одиночка.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.ServiceProvider.Initialize(System.IServiceProvider)">
+            <summary>
+            Инициализация.
+            </summary>
+            <param name="serviceProvider">Провайдер сервисов.</param>
+        </member>
+        <member name="T:Sungero.Common.ServiceUtils">
+            <summary>
+            Вспомогательные служебные утилиты.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.ServiceUtils.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.ServiceUtils.GenerateUniqueId">
+            <summary>
+            Сгенерировать уникальный идентификатор.
+            </summary>
+            <returns>Уникальный идентификатор.</returns>
+        </member>
+        <member name="M:Sungero.Common.ServiceUtils.SetThreadPoolMinThreads(System.Int32)">
+            <summary>
+            Установить минимальное число потоков, создаваемых <see cref="T:System.Threading.ThreadPool"/> по запросу.
+            </summary>
+            <param name="threadsCount">Число потоков.</param>
+        </member>
+        <member name="M:Sungero.Common.ServiceUtils.IsNetFrameworkAssembly(System.Reflection.Assembly)">
+            <summary>
+            Вернуть признак того, что сборка предназначена для .Net Framework.
+            </summary>
+            <param name="assembly">Сборка.</param>
+            <remarks>Используется для определения текущего runtime.</remarks>
+        </member>
+        <member name="M:Sungero.Common.ServiceUtils.GetThreadPoolStatistic">
+            <summary>
+            Получить статистику по трэдпулу.
+            </summary>
+            <returns>Объект, содержащий сведения о трэдпуле.</returns>
+        </member>
+        <member name="T:Sungero.Common.Settings.PairsSettings">
+            <summary>
+            Тип настроек, которые предоставляют пары значений.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Settings.PairsSettings.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Settings.PairsSettings.configSettings">
+            <summary>
+            Получатель настроек.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Settings.PairsSettings.BlockName">
+            <summary>
+            Имя блока со значениями.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Settings.PairsSettings.KeyName">
+            <summary>
+            Имя атрибута ключа.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Settings.PairsSettings.ValueName">
+            <summary>
+            Имя атрибута значения.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Settings.PairsSettings.Pairs">
+            <summary>
+            Список настроек.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Settings.PairsSettings.OnLoadConfigError(System.Exception)">
+            <summary>
+            Реакция на чтение конфига, с недопустимыми символами.
+            <param name="ex">Исключение.</param>
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Settings.PairsSettings.CreatePairs">
+            <summary>
+            Создать список настроек.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Settings.PairsSettings.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="blockName">Имя блока со значениями.</param>
+            <param name="keyName">Имя атрибута ключа.</param>
+            <param name="valueName">Имя атрибута значения.</param>
+        </member>
+        <member name="T:Sungero.Common.Timer">
+            <summary>
+            Таймер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Timer.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.Timer.innerTimer">
+            <summary>
+            Внутренний таймер.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Timer.Interval">
+            <summary>
+            Интервал срабатывания таймера.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Timer.Elapsed">
+            <summary>
+            Действие, выполняемое при срабатывании таймера.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Timer.ImmediateStart">
+            <summary>
+            Признак немедленного старта таймера.
+            </summary>
+            <remarks>
+            Если True, то это значит, что Elapsed будет выполнен сразу же.
+            Если False - перед первым выполнением Elapsed проходит Interval.
+            </remarks>
+        </member>
+        <member name="F:Sungero.Common.Timer.disposed">
+            <summary>
+            Признак того, что был вызван Dispose.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Timer.Start">
+            <summary>
+            Запустить таймер.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Timer.Stop">
+            <summary>
+            Остановить таймер.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Timer.TimerElapsedCallback(System.Object)">
+            <summary>
+            Обратный вызов при срабатывании внутреннего таймера.
+            </summary>
+            <param name="state">Состояние.</param>
+        </member>
+        <member name="M:Sungero.Common.Timer.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.Utils.AssemblyProductInfo">
+            <summary>
+            Информация о продукте.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Utils.AssemblyProductInfo.CompanyName">
+            <summary>
+            Имя компании.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Utils.AssemblyProductInfo.ProductName">
+            <summary>
+            Имя продукта.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.Utils.AssemblyProductInfo.NormalizedProductName">
+            <summary>
+            Нормализованное (без пробелов) имя продукта.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.Utils.AssemblyProductInfo.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+            <param name="assemblyWithInfo">Сборка, содержащая информацию о продукте.</param>
+        </member>
+        <member name="M:Sungero.Common.Utils.AssemblyProductInfo.#ctor">
+            <summary>
+            Конструктор для тестирования.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.CropAlignments">
+            <summary>
+            Режим обрезки изображения.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.CropAlignments.None">
+            <summary>
+            Не обрезать.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.CropAlignments.Left">
+            <summary>
+            Выровнять по левому краю.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.CropAlignments.Top">
+            <summary>
+            Выровнять по верхнему краю.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.CropAlignments.Right">
+            <summary>
+            Выровнять по правому краю.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.CropAlignments.Bottom">
+            <summary>
+            Выровнять по нижнему краю.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.CropAlignments.Center">
+            <summary>
+            Выровнять по центру.
+            </summary>
+        </member>
+        <member name="T:Sungero.Common.DirectoryUtils">
+            <summary>
+            Класс-расширение для работы с каталогами.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DirectoryUtils.log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.DirectoryUtils.createOrCleanDirectoryRetryTimeout">
+            <summary>
+            Время ожидания между повторами создания/очистки каталога.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.TryCreateOrCleanDirectory(System.String)">
+            <summary>
+            Рекурсивное удаление каталога с обработкой исключения доступа.
+            </summary>
+            <param name="path">Имя каталога, который необходимо удалить.</param>
+            <returns>True, если удаление прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.TryCreateOrCleanDirectory(System.String,System.String@)">
+            <summary>
+            Рекурсивное удаление каталога с обработкой исключения доступа.
+            </summary>
+            <param name="path">Имя каталога, который необходимо удалить.</param>
+            <param name="error">Текст ошибки, если операция завершилась с ошибкой.</param>
+            <returns>True, если удаление прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.TryCreateOrCleanDirectory(System.String,System.TimeSpan,System.Predicate{System.IO.FileInfo},System.String@)">
+            <summary>
+            Создание каталога либо его рекурсивная очистка с обработкой исключений доступа.
+            </summary>
+            <param name="path">Имя каталога, который необходимо очистить/создать.</param>
+            <param name="timeout">Время, в течение которого будет предприниматься попытка очистить/создать каталог.</param>
+            <param name="excludeFilePredicate">Исключающий предикат.</param>
+            <param name="error">Текст ошибки, если операция завершилась с ошибкой.</param>
+            <returns>True, если операция выполнена успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.InternalTryCreateOrCleanDirectory(System.String,System.Boolean,System.Predicate{System.IO.FileInfo},System.String@)">
+            <summary>
+            Внутренняя реализация создания/рекурсивной очистки каталога с обработкой исключений при доступе к нему или его файлам.
+            </summary>
+            <param name="path">Имя каталога, который необходимо удалить.</param>
+            <param name="isFirstAttempt">Признак того, что это первая попытка удаления каталога.</param>
+            <param name="excludeFilePredicate">Исключающий предикат.</param>
+            <param name="error">Текст ошибки, если операция завершилась с ошибкой.</param>
+            <returns>True, если удаление каталога прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.CreateOrCleanDirectory(System.String,System.Predicate{System.IO.FileInfo})">
+            <summary>
+            Создать или очистить директорию.
+            </summary>
+            <param name="directoryPath">Путь к директории.</param>
+            <param name="excludeFilePattern">Исключающий предикат.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.DeleteFiles(System.IO.DirectoryInfo,System.Predicate{System.IO.FileInfo})">
+            <summary>
+            Удалить файлы в папке по маске.
+            </summary>
+            <param name="directory">Папка.</param>
+            <param name="excludeFilePattern">Исключающий предикат.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.IsDirectoryEmpty(System.String)">
+            <summary>
+            Проверить, является ли папка пустой.
+            </summary>
+            <param name="directoryPath">Путь к папке.</param>
+            <returns>True, если папка пустая.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.DeleteEmptyDirectories(System.String)">
+            <summary>
+            Удалить пустые папки рекурсивно. Не удаляет корневую папку.
+            </summary>
+            <param name="directoryPath">Корневая папка.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.CleanDirectoryFiles(System.String,System.Predicate{System.IO.FileInfo})">
+            <summary>
+            Зачистить файлы в папке. Рекурсивная.
+            </summary>
+            <param name="directoryPath">Корневая папка.</param>
+            <param name="excludeFilePattern">Исключающий фильтр.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.TryDeleteDirectory(System.String)">
+            <summary>
+            Рекурсивное удаление каталога с обработкой исключения доступа.
+            </summary>
+            <param name="path">Имя каталога, который необходимо удалить.</param>
+            <returns>True, если удаление прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.InternalTryDeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            Внутренняя реализация рекурсивного удаления каталога с обработкой исключений при доступе к каталогу или его файлам.
+            </summary>
+            <param name="path">Имя каталога, который необходимо удалить.</param>
+            <param name="isFirstAttempt">Признак того, что это первая попытка удаления каталога.</param>
+            <returns>True, если удаление каталога прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateFiles(System.String)">
+            <summary>
+            Безопасно перечислить все файлы в папке.
+            </summary>
+            <param name="sourceFolder">Папка, в которой перечисляются файлы.</param>
+            <returns>Список файлов.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateFiles(System.String,System.String)">
+            <summary>
+            Безопасно перечислить файлы в папке (учитываются только файлы непосредственно в самой папке).
+            </summary>
+            <param name="sourceFolder">Папка, в которой перечисляются файлы.</param>
+            <param name="searchPattern">Строка поиска.</param>
+            <returns>Список файлов.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateFiles(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            Безопасно перечислить файлы в папке.
+            </summary>
+            <param name="sourceFolder">Папка, в которой перечисляются файлы.</param>
+            <param name="searchPattern">Строка поиска.</param>
+            <param name="searchOption">Область поиска (возможно искать рекурсивно по всему дереву папок).</param>
+            <remarks>В случае ошибки доступа к файлу он просто пропускается.</remarks>
+            <returns>Список файлов.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateDirectories(System.String)">
+            <summary>
+            Безопасно перечислить все подпапки в папке (учитываются только подпапки непосредственно в самой папке).
+            </summary>
+            <param name="sourceFolder">Папка, в которой перечисляются подпапки.</param>
+            <returns>Список папок.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateDirectories(System.String,System.String)">
+            <summary>
+            Безопасно перечислить подпапки в папке (учитываются только подпапки непосредственно в самой папке).
+            </summary>
+            <param name="sourceFolder">Папка, в которой перечисляются подпапки.</param>
+            <param name="searchPattern">Строка поиска.</param>
+            <returns>Список папок.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateDirectories(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            Безопасно перечислить подпапки в папке.
+            </summary>
+            <param name="sourceFolder">Папка, в которой перечисляются подпапки.</param>
+            <param name="searchPattern">Строка поиска.</param>
+            <param name="searchOption">Область поиска (возможно искать рекурсивно по всему дереву папок).</param>
+            <remarks>В случае ошибки доступа к папке она просто пропускается.</remarks>
+            <returns>Список папок.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.CopyFilesRecursively(System.String,System.String,System.Boolean,System.Action{System.String,System.Boolean})">
+            <summary>
+            Копирование папки с вложениями.
+            </summary>
+            <param name="sourcePath">Путь до источника.</param>
+            <param name="destinationPath">Путь папки назначения.</param>
+            <param name="overwrite">Перезаписывать ли файл.</param>
+            <param name="copyFileCallback">Метод, который вызывается при копировании каждого файла.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.CopyFilesRecursively(System.String,System.String,System.Boolean,System.Action{System.String,System.Boolean},System.Boolean)">
+            <summary>
+            Копирование папки с вложениями.
+            </summary>
+            <param name="sourcePath">Путь до источника.</param>
+            <param name="destinationPath">Путь папки назначения.</param>
+            <param name="overwrite">Перезаписывать ли файл.</param>
+            <param name="copyFileCallback">Метод, который вызывается при копировании каждого файла.</param>
+            <param name="ignoreTooLongPaths">Признак, игнорировать ли ошибки, связанные со слишком длинным путем.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.RemoveDirectoryAttribute(System.String,System.IO.FileAttributes)">
+            <summary>
+            Убрать атрибут каталога.
+            </summary>
+            <param name="path">Имя каталога.</param>
+            <param name="attributes">Атрибут, который необходимо удалить.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.CopyDirectory(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Скопировать папку по указанному пути, создав ее, если ее не существует.
+            </summary>
+            <param name="sourcePath">Источник копирования.</param>
+            <param name="destinationPath">Цель копирования.</param>
+            <param name="copySubdirectories">Копировать подпапки.</param>
+            <param name="overwriteExistingFiles">Заменить существующие файлы.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.GetEmptySubdirectories(System.String)">
+            <summary>
+            Получить список пустых подпапок для указанной папки.
+            </summary>
+            <param name="directoryToSearch">Полный путь к папке для поиска пустых папок.</param>
+            <returns>Список пустых подпапок.</returns>
+            <remarks>
+            Подпапка считается пустой, если не содержит файлов, в том числе в своих подпапках на любом уровне вложенности.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.RemoveAllFileAttributeInDirectory(System.String,System.Boolean)">
+            <summary>
+            Удалить атрибуты у всех файлов в каталоге.
+            </summary>
+            <param name="path">Имя каталога.</param>
+            <param name="recursive">Признак, нужно ли удалять атрибуты файлов во вложенных каталогах.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.SafeEnumerateDirectoryItems(System.String,System.IO.SearchOption,System.Func{System.String,System.Collections.Generic.IEnumerable{System.String}})">
+            <summary>
+            Безопасно перечислить объекты в папке.
+            </summary>
+            <param name="sourceFolder">Папка, в которой нужно перечислить объекты.</param>
+            <param name="searchOption">Область поиска.</param>
+            <param name="getItems">Функция для получения конкретных объектов в папке.</param>
+            <remarks>В случае ошибки доступа к объекту он просто пропускается.</remarks>
+            <returns>Список объектов в папке.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.EnsureDirectory(System.String)">
+            <summary>
+            Проверить, что папка существует, и создать ее если нет.
+            </summary>
+            <param name="directoryPath">Путь к папке.</param>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.GetDirectorySeparatorUsedInPath(System.String)">
+            <summary>
+            Получить разделитель папок, использованный в пути.
+            </summary>
+            <param name="path">Путь.</param>
+            <returns>Символ-разделитель.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.PathEndsWithDirectorySeparator(System.String)">
+            <summary>
+            Путь заканчивается разделителем папок.
+            </summary>
+            <param name="path">Путь.</param>
+            <returns>True, если заканчивается.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.AddDirectorySeparator(System.String)">
+            <summary>
+            Добавить разделитель папок в конец пути.
+            Сделано по мотивам: https://stackoverflow.com/questions/20405965/how-to-ensure-there-is-trailing-directory-separator-in-paths.
+            </summary>
+            <param name="path">Путь.</param>
+            <returns>Путь с разделителем папок.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.TrimEndingDirectorySeparator(System.String)">
+            <summary>
+            Убрать разделитель папок в конце пути.
+            </summary>
+            <param name="path">Путь.</param>
+            <returns>Путь без разделителя.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.ReplaceToAltDirectorySeparator(System.String)">
+            <summary>
+            Заменить разделители папок на слеш (AltDirectorySeparator).
+            </summary>
+            <param name="directoryPath">Путь.</param>
+            <returns>Путь со слешами вместо разделителей.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.IsFileLocatedInDirectory(System.String,System.String)">
+            <summary>
+            Вернуть признак того, что файл находится в папке.
+            </summary>
+            <param name="fileFullPath">Полный путь к файлу.</param>
+            <param name="directoryFullPath">Полный путь к папке.</param>
+            <returns>True - если файл находится в указанной папке, иначе False.</returns>
+        </member>
+        <member name="M:Sungero.Common.DirectoryUtils.IsFilePathWithExtension(System.String)">
+            <summary>
+            Проверить, указывает ли переданный путь на файл с расширением.
+            </summary>
+            <param name="filePath">Путь.</param>
+            <returns><c>True</c> если путь указывает на файл с расширением, <c>False</c> - иначе.</returns>
+        </member>
+        <member name="T:Sungero.Common.FileUtils">
+            <summary>
+            Класс-расширение для работы с файлами.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileUtils.InvalidCharInFileNameReplacement">
+            <summary>
+            Символ, на который заменяются все недопустимые символы в имени файла.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileUtils.reservedWords">
+            <summary>
+            Зарезервированные имена в Windows.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.FileUtils.invalidFileNameChars">
+            <summary>
+            Список запрещенных символов в именах файлов.
+            </summary>
+            <remarks>
+            Список взят для Windows, т.к. он там более строгий,
+            в Linux среди запрещенных всего два символа отсюда.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.TryDeleteFile(System.String)">
+            <summary>
+            Удаление файла с обработкой исключения доступа к файлу.
+            </summary>
+            <param name="fileName">Путь до файла.</param>
+            <returns>true, если удаление файла прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.TryDeleteFile(System.String,System.Boolean)">
+            <summary>
+            Удаление файла с игнорированием любых исключений при доступе к файлу.
+            </summary>
+            <param name="fileName">Путь до файла.</param>
+            <param name="silentMode">Тихий режим без вывода сообщений в лог.</param>
+            <returns>True, если удаление файла прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.TryDeleteFile(System.String,System.String@)">
+            <summary>
+            Удаление файла с игнорированием любых исключений при доступе к файлу.
+            </summary>
+            <param name="fileName">Путь до файла.</param>
+            <param name="error">Сообщение об ошибке, если результат false.</param>
+            <returns>True, если удаление файла прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.InternalTryDeleteFile(System.String,System.Boolean)">
+            <summary>
+            Внутренняя реализация удаления файла с обработкой исключений при доступе к файлу.
+            </summary>
+            <param name="fileName">Путь до файла.</param>
+            <param name="isFirstAttempt">Признак того, что это первая попытка удаления файла.</param>
+            <returns>True, если удаление файла прошло успешно.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.SetFileAttribute(System.String,System.IO.FileAttributes)">
+            <summary>
+            Установить атрибут файла.
+            </summary>
+            <param name="filePath">Путь к файлу.</param>
+            <param name="attributes">Атрибут, который необходимо установить.</param>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.RemoveFileAttribute(System.String,System.IO.FileAttributes)">
+            <summary>
+            Убрать атрибут файла.
+            </summary>
+            <param name="filePath">Путь к файлу.</param>
+            <param name="attributes">Атрибут, который необходимо удалить.</param>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.ReplaceInvalidChars(System.String)">
+            <summary>
+            Заменить некорректные символы.
+            </summary>
+            <param name="name">Строка с именем.</param>
+            <returns>Преобразованная строка.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.CoerceReservedWords(System.String)">
+            <summary>
+            Обработать зарезервированные слова в названии файла.
+            </summary>
+            <param name="validFileName">Название файла.</param>
+            <returns>Корректное название файла.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.CoerceSpaces(System.String)">
+            <summary>
+            Обработать пробелы.
+            </summary>
+            <param name="name">Имя.</param>
+            <returns>Обработанная строка имени.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.IsValidFileName(System.String)">
+            <summary>
+            Проверить, является ли имя файла валидным.
+            </summary>
+            <param name="fileName">Имя файла.</param>
+            <returns>True, если переданная строка является валидным именем файла.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.NormalizeFileName(System.String)">
+            <summary>
+            Очищает некорректные символы в имени файла.
+            </summary>
+            <param name="fileName">Имя файла.</param>
+            <returns>Корректное для файловой системы имя файла.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.GetUniqueFilePath(System.String,System.String,System.Boolean)">
+            <summary>
+            Возвращает полное уникальное имя файла на основе пути к папке и имени файла. Если файл занят, то добавляет цифру в конце.
+            </summary>
+            <param name="directoryPath">Папка.</param>
+            <param name="name">Имя.</param>
+            <param name="useExistingFile">Использовать существующий файл.</param>
+            <returns>Полное имя файла.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.ReplaceXmlFile(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            Замена xml файла с простой проверкой на различие.
+            </summary>
+            <param name="config">Xml-файл.</param>
+            <param name="configPath">Путь к файлу.</param>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.ToBytes(System.Xml.Linq.XDocument)">
+            <summary>
+            Преобразовать xml-конфиг в набор байт.
+            </summary>
+            <param name="config">Xml-конфиг.</param>
+            <returns>Набор байт.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.GetFileContent(System.String)">
+            <summary>
+            Получить содержимое файла.
+            </summary>
+            <param name="newConfig">Путь к файлу.</param>
+            <returns>Null, если файл не найден.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.OpenRead(System.String)">
+            <summary>
+            Открыть и получить содержимое файла.
+            </summary>
+            <param name="path">Полное имя файла.</param>
+            <returns>Поток данных из файла.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.OpenEditableRead(System.String)">
+            <summary>
+            Открыть и получить содержимое редактируемого файла.
+            </summary>
+            <param name="path">Полное имя файла.</param>
+            <returns>Поток данных из файла.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.IsLockedForRead(System.String)">
+            <summary>
+            Проверить заблокированность файла на чтение.
+            </summary>
+            <param name="path">Путь к файлу.</param>
+            <returns>Признак заблокированности файла для чтения.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.HasIOExceptionError(System.Exception)">
+            <summary>
+            Проверить, содержит ли исключение ввода-вывода реальную ошибку.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <returns>True - если есть ошибка.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.GetRelativePath(System.String,System.String)">
+            <summary>
+            Получить путь к файлу относительно указанной папки.
+            </summary>
+            <param name="filePath">Полный путь к файлу.</param>
+            <param name="rootFolderPath">Путь к корневой папке, в которой лежит файл.</param>
+            <returns>Относительный путь к файлу.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.ForceCreate(System.String)">
+            <summary>
+            Принудительно создать файл.
+            </summary>
+            <param name="filePath">Путь к файлу.</param>
+            <returns>Поток.</returns>
+            <remarks>Создаёт подпапки в случае их отсутствия.</remarks>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.CopyFile(System.String,System.String)">
+            <summary>
+            Скопировать файл с созданием папки, если ее еще нет.
+            </summary>
+            <param name="source">Источник.</param>
+            <param name="destination">Назначение.</param>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.GetFileMd5Hash(System.String)">
+            <summary>
+            Посчитать MD5-хеш для файла.
+            </summary>
+            <param name="path">Путь к файлу.</param>
+            <returns>Хеш.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.CanReadFile(System.String,System.TimeSpan)">
+            <summary>
+            Проверить возможность чтения файла.
+            </summary>
+            <param name="path">Путь к файлу.</param>
+            <param name="timeout">Время, в течение которого будет предприниматься попытка проверить доступ к файлу.</param>
+            <returns>True - если файл можно открыть на чтение, иначе false.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.CanWriteIfExists(System.String,System.TimeSpan)">
+            <summary>
+            Проверить доступ к файлу на запись, если он существует.
+            </summary>
+            <param name="path">Путь к файлу.</param>
+            <param name="timeout">Время, в течение которого будет предприниматься попытка проверить доступ к файлу.</param>
+            <returns>True - если есть доступ к файлу или его не существует.</returns>
+        </member>
+        <member name="M:Sungero.Common.FileUtils.CanGetAccessToFile(System.Func{System.Boolean},System.TimeSpan)">
+            <summary>
+            Проверить возможность получения доступа к файлу.
+            </summary>
+            <param name="testAccess">Метод проверки доступа к файлу.</param>
+            <param name="timeout">Время, в течение которого будет предприниматься попытка проверить доступ к файлу.</param>
+            <returns>True - если доступ к файлу имеется, иначе false.</returns>
+        </member>
+        <member name="T:Sungero.Common.GraphicsUtils">
+            <summary>
+            Вспомогательные методы по работе с графикой вне контекста WPF.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.GraphicsUtils.ResizeImage(System.Drawing.Image,System.Int32,System.Int32,Sungero.Common.CropAlignments)">
+            <summary>
+            Изменить размер изображения с использованием высококачественной бикубической интерполяции.
+            </summary>
+            <param name="image">Исходное изображение.</param>
+            <param name="width">Ширина.</param>
+            <param name="height">Высота.</param>
+            <param name="cropAlignment">Режим обрезки изображения.</param>
+            <returns>Изображение с измененным размером.</returns>
+            <remarks>См. http://stackoverflow.com/questions/249587/high-quality-image-scaling-library.</remarks>
+        </member>
+        <member name="M:Sungero.Common.GraphicsUtils.CopyResolution(System.Drawing.Image,System.Drawing.Bitmap)">
+            <summary>
+            Скопировать разрешение картинки по осям.
+            </summary>
+            <param name="source">Источник.</param>
+            <param name="destination">Конечная картинка.</param>
+        </member>
+        <member name="M:Sungero.Common.GraphicsUtils.GetCropRectangle(System.Int32,System.Int32,System.Int32,System.Int32,Sungero.Common.CropAlignments)">
+            <summary>
+            Получить прямоугольную область для обрезки изображения.
+            </summary>
+            <param name="currentWidth">Текущая ширина изображения.</param>
+            <param name="currentHeight">Текущая высота изображения.</param>
+            <param name="desiredWidth">Требуемая ширина изображения.</param>
+            <param name="desiredHeight">Требуемая высота изображения.</param>
+            <param name="cropAlignment">Режим обрезки изображения.</param>
+            <returns>Область заданного размера.</returns>
+        </member>
+        <member name="T:Sungero.Common.HashUtils">
+            <summary>
+            Утилиты для работы с хешем.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.HashUtils.ComputeMd5Hash(System.IO.Stream)">
+            <summary>
+            Посчитать MD5-хеш от данных потока.
+            </summary>
+            <param name="source">Поток.</param>
+            <returns>Хеш от данных потока.</returns>
+        </member>
+        <member name="M:Sungero.Common.HashUtils.ComputeMd5Hash(System.String)">
+            <summary>
+            Посчитать MD5-хеш от строки.
+            </summary>
+            <param name="source">Строка.</param>
+            <returns>Хеш от строки.</returns>
+        </member>
+        <member name="T:Sungero.Common.RegistryUtils">
+            <summary>
+            Класс для работы с реестром.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RegistryUtils.companyName">
+            <summary>
+            Имя компании.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RegistryUtils.productPathTemplate">
+            <summary>
+            Шаблон пути до раздела продукта в реестре.
+            </summary>
+        </member>
+        <member name="F:Sungero.Common.RegistryUtils.parametersPathTemplate">
+            <summary>
+            Шаблон пути до раздела параметров установки продукта в реестре.
+            </summary>
+        </member>
+        <member name="P:Sungero.Common.RegistryUtils.RegistryLocalMachine">
+            <summary>
+            Базовый раздел реестра HKEY_LOCAL_MACHINE.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.RegistryUtils.GetPersistentParameters(System.String)">
+            <summary>
+            Получить сохранённые параметры установки продукта и их значения.
+            </summary>
+            <param name="productName">Имя продукта.</param>
+            <returns>Словарь имя -параметра - значение.</returns>
+        </member>
+        <member name="M:Sungero.Common.RegistryUtils.GetParametersKey(System.String)">
+            <summary>
+            Получить ключ для сохраненных значений параметров.
+            </summary>
+            <param name="productName">Название продукта.</param>
+            <returns>Ключ.</returns>
+        </member>
+        <member name="M:Sungero.Common.RegistryUtils.GetCompanyName">
+            <summary>
+            Получить имя компании.
+            </summary>
+            <returns>Имя компании.</returns>
+        </member>
+        <member name="T:Sungero.Common.StringUtils">
+            <summary>
+            Хэлпер для обработки строк.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.StringUtils.ReplaceNewLines(System.String,System.String)">
+            <summary>
+            Заменить символы переноса строк.
+            </summary>
+            <param name="value">Строка.</param>
+            <param name="replaceValue">На что заменить.</param>
+            <returns>Строка без символов перевода строк.</returns>
+        </member>
+        <member name="T:Sungero.Common.TaskUtils">
+            <summary>
+            Вспомагательные методы для работы с Task'ами.
+            </summary>
+            <remarks>
+            Копипаста здесь намеренная - мы оборачиваем каждый из имеющихся конструкторов так, чтобы не зависеть
+            от измений в .NET. Например, они передумают и дефолтными для отсутвующих параметров больше не будут
+            CancellationToken.None и TaskCreateOptions.None.
+            </remarks>
+        </member>
+        <member name="F:Sungero.Common.TaskUtils.defaultRetryTimeout">
+            <summary>
+            Таймаут переповтора по-умолчанию.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.SuppressFlow">
+            <summary>
+            Запретить проброс AsyncLocal-значений в дочерние потоки.
+            </summary>
+            <returns>IDisposable для отключения запрета. Может быть null, если SuppressFlow уже был вызван.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow(System.Action)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow(System.Action,System.Threading.CancellationToken)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Action{``0},``0)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Action{``0},``0,System.Threading.CancellationToken)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Action{``0},``0,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <param name="ct">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Action{``0},``0,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Func{``0})">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow(System.Action,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="ct">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.CreateSuppressFlow``1(System.Func{``0},System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Создать таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="ct">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow(System.Action)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{``0})">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <returns>Таска.</returns>
+            <remarks>Для случая, когда передается асинхронная лямбда.</remarks>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <returns>Таска.</returns>
+            <remarks>Для случая, когда передается асинхронная лямбда.</remarks>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow(System.Action,System.Threading.CancellationToken)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+            <remarks>Для случая, когда передается асинхронная лямбда.</remarks>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+            <remarks>Для случая, когда передается асинхронная лямбда.</remarks>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow(System.Action,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{``0},System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="options">Параметры.</param>
+            <remarks>
+            Метод добавлен для того, чтобы его случайно не использовали, получив через generic.
+            <see cref="M:System.Threading.Tasks.TaskFactory.StartNew``1(System.Func{``0})"/> не поддерживает асинхронные лямбды, поэтому передав
+            в <see cref="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{``0},System.Threading.Tasks.TaskCreationOptions)"/> лямбду async (...) => ... await ...
+            не будет никакого ожидания даже если его вызвать с await - все выполнится
+            по принципу fire_and_forget в отдельной таске.
+            </remarks>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow(System.Action,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="token">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{``0},System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="token">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску, но без передачи в нее AsyncLocal-полей.
+            </summary>
+            <param name="func">Функция.</param>
+            <param name="token">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+            <remarks>Подробности в описании к <see cref="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.TaskCreationOptions)"/>.</remarks>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Action{``0},``0)">
+            <summary>
+            Запустить таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Action{``0},``0,System.Threading.CancellationToken)">
+            <summary>
+            Запустить таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <param name="ct">Токен отмены.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Action{``0},``0,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <param name="ct">Токен отмены.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.RunSuppressFlow``1(System.Action{``0},``0,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Запустить таску без передачи в неё AsyncLocal-полей.
+            </summary>
+            <param name="action">Действие.</param>
+            <param name="data">Данные.</param>
+            <param name="options">Параметры.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.WaitFor(System.Func{System.Boolean},System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Подождать, пока выполнится действие.
+            </summary>
+            <param name="action">Действие. Должно возвращать True, если успешно выполнилось.</param>
+            <param name="timeout">Время ожидания.</param>
+            <param name="retryTimeout">Время ожидания между повторами.</param>
+            <returns>True, если дождались.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.WaitFor(System.Func{System.Boolean},System.TimeSpan)">
+            <summary>
+            Подождать, пока выполнится действие.
+            </summary>
+            <param name="action">Действие. Должно возвращать True, если успешно выполнилось.</param>
+            <param name="timeout">Время ожидания.</param>
+            <returns>True, если дождались.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Threading.Tasks.Task})">
+            <summary>
+            Параллельная асинхронная обработка элементов коллекции.
+            </summary>
+            <param name="data">Обрабатываемые данные.</param>
+            <param name="action">Действие, выполняемое над каждым элементом.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Threading.Tasks.Task},System.Int32)">
+            <summary>
+            Параллельная асинхронная обработка элементов коллекции.
+            </summary>
+            <param name="data">Обрабатываемые данные.</param>
+            <param name="action">Действие, выполняемое над каждым элементом.</param>
+            <param name="degreeOfParalellism">Уровень параллелизма - какое количество элементов будут обрабатываться одновременно.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Sungero.Common.TaskUtils.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Threading.Tasks.Task},System.Int32,System.Boolean)">
+            <summary>
+            Параллельная асинхронная обработка элементов коллекции.
+            </summary>
+            <param name="data">Обрабатываемые данные.</param>
+            <param name="action">Действие, выполняемое над каждым элементом.</param>
+            <param name="degreeOfParalellism">Уровень параллелизма - какое количество элементов будут обрабатываться одновременно.</param>
+            <param name="isSupressFlow">Подавить asynclocal поля.</param>
+        </member>
+        <member name="T:Sungero.Common.XmlUtils">
+            <summary>
+            Методы расширения для работы с LINQ-XML.
+            </summary>
+        </member>
+        <member name="M:Sungero.Common.XmlUtils.GetAttributeValue(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Получить значение атрибута.
+            </summary>
+            <param name="element">Элемент, содержащий атрибут.</param>
+            <param name="attributeName">Имя атрибута.</param>
+            <returns>Значение атрибута в виде строки, либо пусто.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,79 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.CoreEntities.ClientBase</name>
+  </assembly>
+  <members>
+    <member name="M:Sungero.Core.CalendarMeeting.SetDefaultStartAndEndDate(System.Nullable{System.DateTime})">
+      <summary>Заполнить время начала и окончания встречи значениями по умолчанию.</summary>
+      <param name="date">Время встречи.</param>
+    </member>
+    <member name="M:Sungero.Core.MeetingsCalendar.ShowMeeting(Sungero.Core.CalendarMeeting)">
+      <summary>Отобразить карточку встречи.</summary>
+      <param name="calendarMeeting">Встреча.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.CertificateExtensions.GetValidationErrors(Sungero.CoreEntities.ICertificate)">
+      <summary>Получить список ошибок проверки сертификата.</summary>
+      <param name="certificate">Сертификат.</param>
+      <returns>Список ошибок, которые возникли при проверке сертификата.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.CertificateExtensions.GetValidationErrors(Sungero.CoreEntities.ICertificate,System.DateTime)">
+      <summary>Получить список ошибок проверки сертификата на указанную дату.</summary>
+      <param name="certificate">Сертификат.</param>
+      <param name="verificationDateTime">Дата и время проверки сертификата.</param>
+      <returns>Список ошибок, которые возникли при проверке сертификата на указанную дату.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.CertificateExtensions.ShowCertificate(Sungero.CoreEntities.ICertificate)">
+      <summary>Показать сведения о сертификате.</summary>
+      <param name="certificate">Сертификат.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.CertificateExtensions.ShowCertificate(Sungero.Domain.Shared.ISignatureCertificate)">
+      <summary>Показать сведения о сертификате.</summary>
+      <param name="certificate">Сертификат, который использовался при подписании.</param>
+    </member>
+    <member name="M:Sungero.CoreEntities.CertificateExtensions.ShowSelectCertificate(System.Collections.Generic.IEnumerable{Sungero.CoreEntities.ICertificate})">
+      <summary>Открыть окно для выбора сертификата.</summary>
+      <param name="certificates">Список сертификатов.</param>
+      <returns>Выбранный сертификат.</returns>
+    </member>
+    <member name="M:Sungero.CoreEntities.CertificateExtensions.ShowSelectCertificate(System.Collections.Generic.IEnumerable{Sungero.CoreEntities.ICertificate},System.String,System.String)">
+      <summary>Открыть окно для выбора сертификата.</summary>
+      <param name="certificates">Список сертификатов.</param>
+      <param name="title">Заголовок сообщения.</param>
+      <param name="message">Сообщение.</param>
+      <returns>Выбранный сертификат.</returns>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.Description">
+      <summary>Описание встречи.</summary>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.EndTime">
+      <summary>Время окончания.</summary>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.ICalendar">
+      <summary>Календарь.</summary>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.IsAllDay">
+      <summary>Признак того, что встреча создана на весь день.</summary>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.Location">
+      <summary>Место.</summary>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.StartTime">
+      <summary>Время начала.</summary>
+    </member>
+    <member name="P:Sungero.Core.CalendarMeeting.Summary">
+      <summary>Тема.</summary>
+    </member>
+    <member name="T:Sungero.Core.CalendarMeeting">
+      <summary>Встреча.</summary>
+    </member>
+    <member name="T:Sungero.Core.MeetingsCalendar">
+      <summary>Календарь встреч.</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.CertificateExtensions">
+      <summary>Работа с сертификатами.</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.GroupClientHandlers">
+      <summary>Обработчики событий сущности IGroup.</summary>
+    </member>
+  </members>
+</doc>

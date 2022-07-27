@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.JobApi</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.JobApi.JobConfigurationMessage">
+            <summary>
+            Сообщение планировщику для переконфигурирования одного джоба.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobConfigurationMessage.JobInfo">
+            <summary>
+            Джоб.
+            </summary>
+        </member>
+        <member name="T:Sungero.JobApi.JobConstants">
+            <summary>
+            Константы.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobConstants.ConfigureQueueName">
+            <summary>
+            Имя очереди планировщика.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobConstants.JobDebugCallbackQueueName">
+            <summary>
+            Имя очереди для сообщений о завершении отладки джоба.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobConstants.ExecuteDisabledHeaderName">
+            <summary>
+            Заголовок, содержащий признак того, что джоб надо выполнить вне зависимости от того, отключен он или нет.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobConstants.JobNameLoggingHeaderKey">
+            <summary>
+            Ключ, по которому среди заголовков сообщения можно найти имя джоба для дополнительного логирования.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobConstants.MaxJobPriority">
+            <summary>
+            Максимальный приоритет джоба.
+            </summary>
+        </member>
+        <member name="T:Sungero.JobApi.JobInfo">
+            <summary>
+            Информация о джобе.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobInfo.Id">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobInfo.Name">
+            <summary>
+            Имя.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobInfo.NextExecutingTime">
+            <summary>
+            Время следующего запуска (UTC).
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobInfo.IsHighPriority">
+            <summary>
+            У джоба высокий приоритет.
+            </summary>
+        </member>
+        <member name="T:Sungero.JobApi.JobMessage">
+            <summary>
+            Сообщение для очереди воркера.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobMessage.Id">
+            <summary>
+            ИД сообщения.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobMessage.JobId">
+            <summary>
+            Идентификатор джоба.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobMessage.IsManual">
+            <summary>
+            Признак ручного старта джоба.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobMessage.IsDebug">
+            <summary>
+            Признак отладки джоба.
+            </summary>
+        </member>
+        <member name="M:Sungero.JobApi.JobMessage.Create(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Создать сообщение.
+            </summary>
+            <param name="jobId">Идентификатор джоба.</param>
+            <param name="isManual">Признак ручного старта джоба.</param>
+            <param name="isDebug">Признак отладки джоба.</param>
+            <returns>Созданное сообщение.</returns>
+        </member>
+        <member name="M:Sungero.JobApi.JobMessage.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="T:Sungero.JobApi.JobMessagePriority">
+            <summary>
+            Приоритет сообщения. 
+            </summary>
+        </member>
+        <member name="F:Sungero.JobApi.JobMessagePriority.Low">
+            <summary>
+            Низкий.
+            </summary>
+        </member>
+        <member name="F:Sungero.JobApi.JobMessagePriority.High">
+            <summary>
+            Высокий.
+            </summary>
+        </member>
+        <member name="F:Sungero.JobApi.JobMessagePriority.Manual">
+            <summary>
+            Ручной.
+            </summary>
+        </member>
+        <member name="T:Sungero.JobApi.JobsConfigurationMessage">
+            <summary>
+            Сообщение планировщику для конфигурирования джобов.
+            </summary>
+        </member>
+        <member name="P:Sungero.JobApi.JobsConfigurationMessage.JobsInfo">
+            <summary>
+            Коллекция джобов.
+            </summary>
+        </member>
+    </members>
+</doc>

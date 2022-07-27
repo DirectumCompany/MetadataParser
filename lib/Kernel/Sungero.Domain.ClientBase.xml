@@ -1,0 +1,680 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Domain.ClientBase</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Core.MessageType.Error">
+      <summary>Ошибка.</summary>
+    </member>
+    <member name="F:Sungero.Core.MessageType.Information">
+      <summary>Информация.</summary>
+    </member>
+    <member name="F:Sungero.Core.MessageType.None">
+      <summary>Неопределен.</summary>
+    </member>
+    <member name="F:Sungero.Core.MessageType.Question">
+      <summary>Вопрос.</summary>
+    </member>
+    <member name="F:Sungero.Core.MessageType.Warning">
+      <summary>Предупреждение.</summary>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateConfirmDialog(System.String)">
+      <summary>Создать диалог подтверждения.</summary>
+      <param name="text">Текст вопроса.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateConfirmDialog(System.String,System.String)">
+      <summary>Создать диалог подтверждения.</summary>
+      <param name="text">Текст вопроса.</param>
+      <param name="description">Описание.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateConfirmDialog(System.String,System.String,System.String)">
+      <summary>Создать диалог подтверждения.</summary>
+      <param name="text">Текст вопроса.</param>
+      <param name="description">Описание.</param>
+      <param name="title">Заголовок.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateInputDialog(System.String)">
+      <summary>Создать диалог ввода.</summary>
+      <param name="title">Заголовок.</param>
+      <returns>Диалог ввода.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateInputDialog(System.String,System.String)">
+      <summary>Создать диалог ввода.</summary>
+      <param name="title">Заголовок.</param>
+      <param name="text">Текст сообщения.</param>
+      <returns>Диалог ввода.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateSearchDialog``1">
+      <summary>Создать диалог поиска.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <returns>Диалог поиска.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateSearchDialog``1(System.String)">
+      <summary>Создать диалог поиска и указать заголовок.</summary>
+      <param name="title">Заголовок.</param>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <returns>Диалог поиска.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateTaskDialog(System.String)">
+      <summary>Создать диалог с пользователем.</summary>
+      <param name="text">Текст сообщения.</param>
+      <returns>Диалог с пользователем.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateTaskDialog(System.String,Sungero.Core.MessageType)">
+      <summary>Создать диалог с пользователем.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="type">Тип сообщения.</param>
+      <returns>Диалог с пользователем.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateTaskDialog(System.String,System.String)">
+      <summary>Создать диалог с пользователем.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+      <returns>Диалог с пользователем.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateTaskDialog(System.String,System.String,Sungero.Core.MessageType)">
+      <summary>Создать диалог с пользователем.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+      <param name="type">Тип сообщения.</param>
+      <returns>Диалог с пользователем.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.CreateTaskDialog(System.String,System.String,Sungero.Core.MessageType,System.String)">
+      <summary>Создать диалог с пользователем.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+      <param name="type">Тип сообщения.</param>
+      <param name="title">Заголовок.</param>
+      <returns>Диалог с пользователем.</returns>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.NotifyMessage(System.String)">
+      <summary>Показать всплывающее сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.ShowMessage(System.String)">
+      <summary>Показать сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.ShowMessage(System.String,Sungero.Core.MessageType)">
+      <summary>Показать сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="type">Тип сообщения.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.ShowMessage(System.String,System.String)">
+      <summary>Показать сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.ShowMessage(System.String,System.String,Sungero.Core.MessageType)">
+      <summary>Показать сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+      <param name="type">Тип сообщения.</param>
+    </member>
+    <member name="M:Sungero.Core.Dialogs.ShowMessage(System.String,System.String,Sungero.Core.MessageType,System.String)">
+      <summary>Показать сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+      <param name="type">Тип сообщения.</param>
+      <param name="title">Заголовок.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.Show(Sungero.Domain.Shared.IEntity)">
+      <summary>Показать карточку сущности.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.Show(Sungero.Domain.Shared.IEntity,System.String)">
+      <summary>Показать карточку сущности.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+      <param name="title">Дополнительный заголовок карточки.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.Show(System.Type)">
+      <summary>Показать список сущностей.</summary>
+      <param name="entityType">Тип сущности.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.Show(System.Type,System.Int32)">
+      <summary>Показать карточку сущности по идентификатору.</summary>
+      <param name="entityType">Тип сущности.</param>
+      <param name="id">Идентификатор сущности.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowModal(Sungero.Domain.Shared.IEntity)">
+      <summary>Показать карточку сущности в модальном окне.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowModal(Sungero.Domain.Shared.IEntity,System.String)">
+      <summary>Показать карточку сущности в модальном окне.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+      <param name="title">Дополнительный заголовок карточки.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowModal``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в модальном окне.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowModal``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в модальном окне.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.
+            Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+            Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+            Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelect``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.
+            Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelect``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+            Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.ShowSelect``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+            Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.Show``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+    </member>
+    <member name="M:Sungero.Core.EntityViewsExtensions.Show``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+    </member>
+    <member name="M:Sungero.Core.IDialogService.CreateConfirmDialog(System.String,System.String,System.String)">
+      <summary>Создать диалог подтверждения.</summary>
+      <param name="text">Текст вопроса.</param>
+      <param name="description">Описание.</param>
+      <param name="title">Заголовок.</param>
+    </member>
+    <member name="M:Sungero.Core.IDialogService.CreateInputDialog(System.String,System.String)">
+      <summary>Создать диалог ввода.</summary>
+      <param name="title">Заголовок диалога.</param>
+      <param name="text">Текст диалога.</param>
+      <returns>Диалог ввода.</returns>
+    </member>
+    <member name="M:Sungero.Core.IDialogService.CreateSearchDialog``1(System.String)">
+      <summary>Создать диалог поиска и указать заголовок.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <returns>Диалог поиска.</returns>
+    </member>
+    <member name="M:Sungero.Core.IDialogService.CreateTaskDialog(System.String,System.String,Sungero.Core.MessageType,System.String)">
+      <summary>Создать диалог с пользователем.</summary>
+      <param name="text">Основной текст.</param>
+      <param name="description">Описание.</param>
+      <param name="type">Тип диалога.</param>
+      <param name="title">Заголовок.</param>
+      <returns>Диалог с пользователем.</returns>
+    </member>
+    <member name="M:Sungero.Core.IDialogService.NotifyMessage(System.String)">
+      <summary>Показать всплывающее сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+    </member>
+    <member name="M:Sungero.Core.IDialogService.ShowMessage(System.String,System.String,Sungero.Core.MessageType,System.String)">
+      <summary>Показать сообщение.</summary>
+      <param name="text">Текст сообщения.</param>
+      <param name="description">Описание.</param>
+      <param name="type">Тип сообщения.</param>
+      <param name="title">Заголовок.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.Show(Sungero.Domain.Shared.IEntity)">
+      <summary>Показать карточку сущности.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.Show(Sungero.Domain.Shared.IEntity,System.String)">
+      <summary>Показать карточку сущности.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+      <param name="title">Дополнительный заголовок карточки.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.Show(System.Type)">
+      <summary>Показать список сущностей.</summary>
+      <param name="entityType">Тип сущности.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.Show(System.Type,System.Int32)">
+      <summary>Показать карточку сущности по идентификатору.</summary>
+      <param name="entityType">Тип сущности.</param>
+      <param name="id">Идентификатор сущности.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowModal(Sungero.Domain.Shared.IEntity)">
+      <summary>Показать карточку сущности в модальном окне.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowModal(Sungero.Domain.Shared.IEntity,System.String)">
+      <summary>Показать карточку сущности в модальном окне.</summary>
+      <param name="entity">Сущность, для которой будет показана карточка.</param>
+      <param name="title">Дополнительный заголовок карточки.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowModal``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в модальном окне.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowModal``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в модальном окне.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelectInFlatList``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.</summary>
+      <typeparam name="T">Тип субъекта прав.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Выбранный субъект прав. Null, если не было ничего выбрано.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelectMany``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну или несколько сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Список выбранных сущностей. Список будет пустой, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelect``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelect``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.ShowSelect``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+      <summary>Показать список сущностей в режиме выбора.
+    Пользователь сможет выбрать одну сущность.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+      <param name="searchText">Строка, по которой будет установлен фильтр для списка сущностей. Значение строки будет отображаться в быстром поиске.</param>
+      <returns>Выбранная сущность. Null, если ни одна сущность не была выбрана.</returns>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.Show``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Показать список сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+    </member>
+    <member name="M:Sungero.Core.IEntityViewsExtensions.Show``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+      <summary>Показать список сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="entities">Список сущностей, которые будут показаны.</param>
+      <param name="title">Дополнительный заголовок формы.</param>
+    </member>
+    <member name="M:Sungero.Core.IExtensionInputDialog.AddSelectMany``1(CommonLibrary.IInputDialog,System.String,System.Boolean,``0[])">
+      <summary>Добавить контрол "Выпадающий список со множественным выбором" для сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="dialog">Диалог ввода.</param>
+      <param name="title">Заголовок контрола.</param>
+      <param name="isRequired">Признак того, что контрол является обязательным для заполнения.</param>
+      <param name="defaultValue">Значения по умолчанию.</param>
+      <returns>Контрол "Выпадающий список со множественным выбором" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.IExtensionInputDialog.AddSelect``1(CommonLibrary.IInputDialog,System.String,System.Boolean,``0)">
+      <summary>Добавить контрол "Выпадающий список" для сущности.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="dialog">Диалог ввода.</param>
+      <param name="title">Заголовок контрола.</param>
+      <param name="isRequired">Признак того, что контрол является обязательным для заполнения.</param>
+      <param name="defaultValue">Значение по умолчанию.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.INavigationDialogValue`1.From(System.Collections.Generic.IEnumerable{`0})">
+      <summary>Определить список допустимых значений.</summary>
+      <param name="items">Cписок допустимых значений.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.INavigationDialogValue`1.From(`0[])">
+      <summary>Определить список допустимых значений.</summary>
+      <param name="items">Cписок допустимых значений.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.INavigationDialogValue`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+      <summary>Определить список допустимых значений.</summary>
+      <param name="filter">Условие фильтрации.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.INavigationDialogValue`1.WithLabel(System.String)">
+      <summary>Добавить метку.</summary>
+      <param name="label">Текст метки.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.ISelectManyDialogValue`1.From(System.Collections.Generic.IEnumerable{`0})">
+      <summary>Определить список допустимых значений.</summary>
+      <param name="items">Cписок допустимых значений.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.ISelectManyDialogValue`1.From(`0[])">
+      <summary>Определить список допустимых значений.</summary>
+      <param name="items">Cписок допустимых значений.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.ISelectManyDialogValue`1.Where(System.Func{`0,System.Boolean})">
+      <summary>Отфильтровать список допустимых значений по условию.</summary>
+      <param name="filter">Условие фильтрации.</param>
+      <returns>Контрол "Выпадающий список" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.ISelectManyDialogValue`1.WithLabel(System.String)">
+      <summary>Добавить метку.</summary>
+      <param name="label">Текст метки.</param>
+      <returns>Контрол "Выпадающий список со множественным выбором" для сущностей.</returns>
+    </member>
+    <member name="M:Sungero.Core.ZipClientExtensions.Export(Sungero.Core.IZip)">
+      <summary>Экспортировать Zip-архив.</summary>
+      <param name="zip">Zip-архив.</param>
+    </member>
+    <member name="M:Sungero.Domain.Client.ValidateFilterPanelEventArgs.AddError(CommonLibrary.LocalizedString)">
+      <summary>Добавить сообщение об ошибке.</summary>
+      <param name="message">Строка локализации с текстом ошибки.</param>
+    </member>
+    <member name="M:Sungero.Domain.Client.ValidateFilterPanelEventArgs.AddError(CommonLibrary.LocalizedString,Sungero.Domain.Shared.IFilterControlInfo[])">
+      <summary>Добавить сообщение об ошибке для контролов на панели фильтрации.</summary>
+      <param name="message">Строка локализации с текстом ошибки.</param>
+      <param name="controlsInfo">Контролы на панели фильтрации, запонение которых нужно проверить.</param>
+    </member>
+    <member name="M:Sungero.Domain.Client.ValidateFilterPanelEventArgs.AddError(System.String)">
+      <summary>Добавить сообщение об ошибке.</summary>
+      <param name="message">Текст ошибки.</param>
+    </member>
+    <member name="M:Sungero.Domain.Client.ValidateFilterPanelEventArgs.AddError(System.String,Sungero.Domain.Shared.IFilterControlInfo[])">
+      <summary>Добавить сообщение об ошибке для контролов на панели фильтрации.</summary>
+      <param name="message">Текст ошибки.</param>
+      <param name="controlsInfo">Контролы на панели фильтрации, запонение которых нужно проверить.</param>
+    </member>
+    <member name="M:Sungero.Presentation.FormShowingEventArgs.HideAction(Sungero.Domain.Shared.IActionInfo)">
+      <summary>Скрыть действие с ленты.</summary>
+      <param name="action">Действие.</param>
+    </member>
+    <member name="M:Sungero.Presentation.ValueInputEventArgs`1.AddError(CommonLibrary.LocalizedString,Sungero.Domain.Shared.IPropertyInfo[])">
+      <summary>Добавить сообщение об ошибке для свойства.</summary>
+      <param name="message">Текст информации.</param>
+      <param name="relatedPropertiesInfo">Информация о связанных свойствах.</param>
+    </member>
+    <member name="M:Sungero.Presentation.ValueInputEventArgs`1.AddError(System.String,Sungero.Domain.Shared.IPropertyInfo[])">
+      <summary>Добавить сообщение об ошибке для свойства.</summary>
+      <param name="message">Текст ошибки.</param>
+      <param name="relatedPropertiesInfo">Информация о связанных свойствах.</param>
+    </member>
+    <member name="M:Sungero.Presentation.ValueInputEventArgs`1.AddInformation(CommonLibrary.LocalizedString,Sungero.Domain.Shared.IPropertyInfo[])">
+      <summary>Добавить информационное сообщение для свойства.</summary>
+      <param name="message">Текст информации.</param>
+      <param name="relatedPropertiesInfo">Информация о связанных свойствах.</param>
+    </member>
+    <member name="M:Sungero.Presentation.ValueInputEventArgs`1.AddInformation(System.String,Sungero.Domain.Shared.IPropertyInfo[])">
+      <summary>Добавить информационное сообщение для свойства.</summary>
+      <param name="message">Текст информации.</param>
+      <param name="relatedPropertiesInfo">Информация о связанных свойствах.</param>
+    </member>
+    <member name="M:Sungero.Presentation.ValueInputEventArgs`1.AddWarning(CommonLibrary.LocalizedString,Sungero.Domain.Shared.IPropertyInfo[])">
+      <summary>Добавить предупреждение для свойства.</summary>
+      <param name="message">Текст предупреждения.</param>
+      <param name="relatedPropertiesInfo">Информация о связанных свойствах.</param>
+    </member>
+    <member name="M:Sungero.Presentation.ValueInputEventArgs`1.AddWarning(System.String,Sungero.Domain.Shared.IPropertyInfo[])">
+      <summary>Добавить предупреждение для свойства.</summary>
+      <param name="message">Текст предупреждения.</param>
+      <param name="relatedPropertiesInfo">Информация о связанных свойствах.</param>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.Abort">
+      <summary>Кнопка "Прервать".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.Cancel">
+      <summary>Кнопка "Отмена".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.Ignore">
+      <summary>Кнопка "Пропустить".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.No">
+      <summary>Кнопка "Нет".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.Ok">
+      <summary>Кнопка "ОК".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.Retry">
+      <summary>Кнопка "Повторить".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.Yes">
+      <summary>Кнопка "Да".</summary>
+    </member>
+    <member name="P:Sungero.Core.DialogButtons.YesToAll">
+      <summary>Кнопка "Да для всех".</summary>
+    </member>
+    <member name="P:Sungero.Core.HyperlinkAttribute.DisplayNameResource">
+      <summary>Код строки локализации с отображаемым именем функции.</summary>
+    </member>
+    <member name="P:Sungero.Core.INavigationDialogValue`1.EmptyText">
+      <summary>Текст, который отображается в пустом контроле.</summary>
+    </member>
+    <member name="P:Sungero.Core.NeedShortcutAttribute.Name">
+      <summary>Имя создаваемого ярлыка.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.IExecuteActionArgs.CloseFormAfterAction">
+      <summary>Признак того, что форма закроется после выполнения действия.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.IExecuteMessageActionArgs.ClearMessageAfterAction">
+      <summary>Признак того, что нужно очистить сообщение валидации после выполнения действия.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.ShowingSignDialogEventArgs.CanApprove">
+      <summary>Признак того, что в диалоге будет разрешена утверждающая подпись.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.ShowingSignDialogEventArgs.CanEndorse">
+      <summary>Признак того, что в диалоге будет разрешена согласующая подпись.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.ShowingSignDialogEventArgs.Hint">
+      <summary>Подсказка для пользователя.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.SignatoryInfoObtainingEventArgs.AdditionalInfo">
+      <summary>Дополнительная информация.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.SignatoryInfoObtainingEventArgs.FullName">
+      <summary>Полное имя.</summary>
+    </member>
+    <member name="P:Sungero.Domain.Client.ValidateFilterPanelEventArgs.IsValid">
+      <summary>Признак того, что панель фильтрации валидная.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.ActionVisibility.HiddenActions">
+      <summary>Скрытые действия.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.EntityEventArgs.Entity">
+      <summary>Сущность.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.FormRefreshEventArgs.Title">
+      <summary>Заголовок формы.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.FormShowingEventArgs.Title">
+      <summary>Заголовок формы.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.ValueInputEventArgs`1.NewValue">
+      <summary>Новое значение.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.ValueInputEventArgs`1.OldValue">
+      <summary>Предыдущее значение.</summary>
+    </member>
+    <member name="P:Sungero.Presentation.ValueInputEventArgs`1.Property">
+      <summary>Получить информацию о свойстве для которого сработало событие.</summary>
+    </member>
+    <member name="T:Sungero.Core.DialogButtons">
+      <summary>Кнопки диалогов.</summary>
+    </member>
+    <member name="T:Sungero.Core.Dialogs">
+      <summary>Диалоги.</summary>
+    </member>
+    <member name="T:Sungero.Core.EntityViewsExtensions">
+      <summary>Методы-расширения для работы с представлениями сущностей.</summary>
+    </member>
+    <member name="T:Sungero.Core.ExtensionInputDialog">
+      <summary>Класс расширение для InputDialog с возможностью выбора сущностей.</summary>
+    </member>
+    <member name="T:Sungero.Core.ExternalLibraryInvokerService">
+      <summary>Вызов методов сторонних сборок.</summary>
+      <summary>Вызов методов сторонних сборок.</summary>
+    </member>
+    <member name="T:Sungero.Core.HyperlinkAttribute">
+      <summary>Атрибут для указания функций модуля, которые могут вызываться по гиперссылке.</summary>
+    </member>
+    <member name="T:Sungero.Core.IDialogService">
+      <summary>Сервис работы с диалогами.</summary>
+    </member>
+    <member name="T:Sungero.Core.IExtensionInputDialog">
+      <summary>Расширение для класса InputDialog с возможностью выбора сущностей.</summary>
+    </member>
+    <member name="T:Sungero.Core.IExternalLibraryInvoker">
+      <summary>Вызов методов сторонних сборок.</summary>
+    </member>
+    <member name="T:Sungero.Core.INavigationDialogValue`1">
+      <summary>Контрол "Выпадающий список" для сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Core.ISelectManyDialogValue`1">
+      <summary>Контрол "Выпадающий список со множественным выбором" для сущностей.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+    <member name="T:Sungero.Core.MessageType">
+      <summary>Тип сообщения.</summary>
+    </member>
+    <member name="T:Sungero.Core.NeedShortcutAttribute">
+      <summary>Аттрибут для пометки клиентских функций модуля, для который требуется создание ярлыка для запуска из ОС.</summary>
+    </member>
+    <member name="T:Sungero.Core.ZipClientExtensions">
+      <summary>Работа c Zip-архивом.</summary>
+    </member>
+    <member name="T:Sungero.Domain.Client.ShowingSignDialogEventArgs">
+      <summary>Аргументы события "До показа диалога подписания".</summary>
+    </member>
+    <member name="T:Sungero.Domain.Client.SignatoryInfoObtainingEventArgs">
+      <summary>Аргументы события "Получение информации о подписавшем".</summary>
+    </member>
+    <member name="T:Sungero.Domain.Client.ValidateFilterPanelEventArgs">
+      <summary>Аргументы события "Проверка фильтра".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.BooleanValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Логическое".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.DateTimeValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Дата".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.DoubleValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Вещественное".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.EntityEventArgs">
+      <summary>Аргументы события сущности.</summary>
+    </member>
+    <member name="T:Sungero.Presentation.EnumerationValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Перечисление".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.FormClosingEventArgs">
+      <summary>Аргументы события "Закрытие формы".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.FormRefreshEventArgs">
+      <summary>Аргументы события "Обновление формы".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.FormShowingEventArgs">
+      <summary>Аргументы события "Показ формы".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.GuidValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Уникальный идентификатор".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.IntegerValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Целое".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.StringValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Строка".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.TextValueInputEventArgs">
+      <summary>Аргументы события "Изменение значения контрола" для свойства типа "Текст".</summary>
+    </member>
+    <member name="T:Sungero.Presentation.ValueInputEventArgs`1">
+      <summary>Аргументы события "Изменение значения контрола".</summary>
+      <typeparam name="T">Тип свойства.</typeparam>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,59 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.Reporting.Shared</name>
+  </assembly>
+  <members>
+    <member name="F:Sungero.Core.ReportExportFormat.Excel">
+      <summary>Формат Microsoft Excel.</summary>
+    </member>
+    <member name="F:Sungero.Core.ReportExportFormat.Pdf">
+      <summary>Формат PDF.</summary>
+    </member>
+    <member name="F:Sungero.Core.ReportExportFormat.Word">
+      <summary>Формат Microsoft Word.</summary>
+    </member>
+    <member name="M:Sungero.Reporting.IReport.CanExecute">
+      <summary>Проверить права на выполнение отчета.</summary>
+      <returns>true, Если есть права.</returns>
+    </member>
+    <member name="M:Sungero.Reporting.IReport.ExportToFile(System.String)">
+      <summary>Сохранить отчет в файл.</summary>
+      <param name="fileName">Имя файла.</param>
+      <returns>Имя файла, куда сохранился отчет.</returns>
+      <remarks>В зависимости от формата экспорта может измениться расширение файла.</remarks>
+    </member>
+    <member name="M:Sungero.Reporting.IReport.Open">
+      <summary>Открыть отчет.</summary>
+    </member>
+    <member name="P:Sungero.Core.DefaultReportAccessRightsTypes.Execute">
+      <summary>Выполнение.</summary>
+    </member>
+    <member name="P:Sungero.Reporting.IReport.ExportFormat">
+      <summary>Формат экспорта.</summary>
+    </member>
+    <member name="P:Sungero.Reporting.IReport.Info">
+      <summary>Информация об отчете.</summary>
+    </member>
+    <member name="P:Sungero.Reporting.IReport.Name">
+      <summary>Имя отчета.</summary>
+    </member>
+    <member name="P:Sungero.Reporting.Shared.ReportInfo.Name">
+      <summary>Имя отчета.</summary>
+    </member>
+    <member name="P:Sungero.Reporting.Shared.ReportInfo.ReportTypeId">
+      <summary>Идентификатор типа отчета.</summary>
+    </member>
+    <member name="T:Sungero.Core.DefaultReportAccessRightsTypes">
+      <summary>Базовые типы прав на отчеты.</summary>
+    </member>
+    <member name="T:Sungero.Core.ReportExportFormat">
+      <summary>Формат экспорта.</summary>
+    </member>
+    <member name="T:Sungero.Reporting.IReport">
+      <summary>Отчет.</summary>
+    </member>
+    <member name="T:Sungero.Reporting.Shared.ReportInfo">
+      <summary>Информация об отчете.</summary>
+    </member>
+  </members>
+</doc>

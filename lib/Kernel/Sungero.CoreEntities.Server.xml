@@ -1,0 +1,27 @@
+﻿<doc>
+  <assembly>
+    <name>Sungero.CoreEntities.Server</name>
+  </assembly>
+  <members>
+    <member name="M:Sungero.Core.HistoryExtensions.WhereHistory``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{Sungero.Domain.Shared.IHistory,System.Boolean}})">
+      <summary>Отфильтровать по истории работы.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+      <param name="source">Фильтруемый запрос.</param>
+      <param name="expression">Фильтр по истории.</param>
+      <returns>Отфильтрованный по истории список сущностей.</returns>
+    </member>
+    <member name="T:Sungero.Core.HistoryExtensions">
+      <summary>Класс расширений для работы с историей.</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.FolderFilteringEventArgs">
+      <summary>Аргументы события "Фильтрация".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.FolderPropertyFilteringEventArgs">
+      <summary>Аргументы события "Фильтрация выбора из списка".</summary>
+    </member>
+    <member name="T:Sungero.CoreEntities.SubstitutionFilteringServerHandler`1">
+      <summary>Обработчики событий фильтрации.</summary>
+      <typeparam name="T">Тип сущности.</typeparam>
+    </member>
+  </members>
+</doc>

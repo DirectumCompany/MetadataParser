@@ -1,0 +1,1203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.Logging.ExceptionExtensions">
+            <summary>
+            Расширения для исключений.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.ExceptionExtensions.ToStringWithoutTypeAndMessage(System.Exception)">
+            <summary>
+            Получить описание исключения без "тип: сообщение" в начале строки.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="T:Sungero.Logging.IJsonLog">
+            <summary>
+            Интерфейс для логирования в Json.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.Operation(System.String)">
+            <summary>
+            Логировать операцию. 
+            </summary>
+            <param name="operation">Операция.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.Context(System.String)">
+            <summary>
+            Логировать контекст. 
+            </summary>
+            <param name="context">Контекcт.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.Message(System.String)">
+            <summary>
+            Логировать сообщение. 
+            </summary>
+            <param name="message">Сообщение.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.Message(System.String,System.Object[])">
+            <summary>
+            Логировать сообщение.
+            </summary>
+            <param name="message">Сообщение.</param>
+            <param name="args">Строки для форматирования сообщения.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+            <remarks>Важен порядок строк, форматирование идет по порядку.</remarks>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.Message(System.String,System.Object)">
+            <summary>
+            Логировать сообщение.
+            </summary>
+            <param name="message">Сообщение.</param>
+            <param name="logObject">Объект для логирования и форматирования сообщения.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.LogObject(System.Object)">
+            <summary>
+            Логировать объект. 
+            </summary>
+            <param name="logObject">Объект для логирования.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+        </member>
+        <member name="M:Sungero.Logging.IJsonLog.Duration(System.Int64)">
+            <summary>
+            Логировать длительность. 
+            </summary>
+            <param name="duration">Длительность.</param>
+            <returns>Экземпляр объекта логирования.</returns>
+        </member>
+        <member name="T:Sungero.Logging.ILog">
+            <summary>
+            Интерфейс логера.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Info(System.String,System.Object[])">
+            <summary>
+            Info.
+            </summary>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Info(System.Exception)">
+            <summary>
+            Info.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Info(System.Exception,System.String,System.Object[])">
+            <summary>
+            Info.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Debug(System.String,System.Object[])">
+            <summary>
+            Debug.
+            </summary>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Debug(System.Exception)">
+            <summary>
+            Debug.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Debug(System.Exception,System.String,System.Object[])">
+            <summary>
+            Debug.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Trace(System.String,System.Object[])">
+            <summary>
+            Trace.
+            </summary>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Trace(System.Exception)">
+            <summary>
+            Trace.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Trace(System.Exception,System.String,System.Object[])">
+            <summary>
+            Trace.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Warn(System.String,System.Object[])">
+            <summary>
+            Warn.
+            </summary>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Warn(System.Exception)">
+            <summary>
+            Warn.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Warn(System.Exception,System.String,System.Object[])">
+            <summary>
+            Warn.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Error(System.String,System.Object[])">
+            <summary>
+            Error.
+            </summary>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Error(System.Exception)">
+            <summary>
+            Error.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Error(System.Exception,System.String,System.Object[])">
+            <summary>
+            Error.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Fatal(System.String,System.Object[])">
+            <summary>
+            Fatal.
+            </summary>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Fatal(System.Exception)">
+            <summary>
+            Fatal.
+            </summary>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Fatal(System.Exception,System.String,System.Object[])">
+            <summary>
+            Fatal.
+            </summary>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Log(Sungero.Logging.LogLevel,System.String,System.Object[])">
+            <summary>
+            Выполнить запись в лог.
+            </summary>
+            <param name="level">Уровень логирования.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Log(Sungero.Logging.LogLevel,System.Exception)">
+            <summary>
+            Выполнить запись в лог.
+            </summary>
+            <param name="level">Уровень логирования.</param>
+            <param name="exception">Исключение.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Log(Sungero.Logging.LogLevel,System.Exception,System.String,System.Object[])">
+            <summary>
+            Выполнить запись в лог.
+            </summary>
+            <param name="level">Уровень логирования.</param>
+            <param name="exception">Исключение.</param>
+            <param name="messageTemplate">Шаблон сообщения.</param>
+            <param name="args">Аргументы.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.Log(Sungero.Logging.LogEvent)">
+            <summary>
+            Выполнить запись в лог.
+            </summary>
+            <param name="logEvent">Событие логирования.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.WithProperty(System.String,System.Object)">
+            <summary>
+            Логирование произвольного свойства.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="propertyValue">Значение свойства.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILog.WithObject(System.Object)">
+            <summary>
+            Логирование произвольного объекта.
+            </summary>
+            <param name="obj">Значение.</param>
+        </member>
+        <member name="P:Sungero.Logging.ILog.IsDebugEnabled">
+            <summary>
+            Разрешено логирование уровня Sungero.Common.LogLevel.Debug.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.ILog.IsTraceEnabled">
+            <summary>
+            Разрешено логирование уровня Sungero.Common.LogLevel.Trace.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.ILog.IsWarnEnabled">
+            <summary>
+            Разрешено логирование уровня Sungero.Common.LogLevel.Warn.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.ILog.IsErrorEnabled">
+            <summary>
+            Разрешено логирование уровня Sungero.Common.LogLevel.Error.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.ILog.IsInfoEnabled">
+            <summary>
+            Разрешено логирование уровня Sungero.Common.LogLevel.Info.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.ILog.IsFatalEnabled">
+            <summary>
+            Разрешено логирование уровня Sungero.Common.LogLevel.Fatal.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.ILoggable">
+            <summary>
+            Интерфейс объекта, подлежащего логированию.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.ILoggable.ObjectForLog">
+            <summary>
+            Объект, подлежащий логированию.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.ILoggerConfiguration">
+            <summary>
+            Интерфейс конфигурации логера.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.ILoggerConfiguration.RegisterExtension(Sungero.Logging.ILoggerExtension)">
+            <summary>
+            Зарегистрировать расширение логирования.
+            </summary>
+            <param name="extension">Расширение логирования.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILoggerConfiguration.RegisterLoggedObjectTransformation``1(System.Func{``0,System.Object})">
+            <summary>
+            Сконфигурировать сериализацию логирования для определенного типа.
+            </summary>
+            <typeparam name="T">Тип.</typeparam>
+            <param name="objectTransformation">Функция преобразования исходного объекта в логируемый объект.</param>
+        </member>
+        <member name="M:Sungero.Logging.ILoggerConfiguration.Configure">
+            <summary>
+            Сконфигурировать логирование.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.ILoggerConfiguration.Configure(System.String)">
+            <summary>
+            Сконфигурировать логирование.
+            </summary>
+            <param name="configFile">Имя конфиг файла.</param>
+        </member>
+        <member name="T:Sungero.Logging.ILoggerExtension">
+            <summary>
+            Интерфейс расширения логгирования.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.ILoggerExtension.ModifyLogEvent(Sungero.Logging.LogEvent)">
+            <summary>
+            Внести изменения в событие логирования.
+            </summary>
+            <param name="logEvent">Событие логирования.</param>
+        </member>
+        <member name="T:Sungero.Logging.JsonStringDictionary`2">
+            <summary>
+            Словарь с преобразованием в строку JSON-формата.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.JsonStringDictionary`2.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.JsonStringDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="dictionary">Словарь, элементы которого копируются в создаваемый словарь.</param>
+        </member>
+        <member name="T:Sungero.Logging.AssemblyVersionLayoutRenderer">
+            <summary>
+            Запись версии приложения в лог.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.AssemblyVersionLayoutRenderer.version">
+            <summary>
+            Версия приложения.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.AssemblyVersionLayoutRenderer.GetVersion">
+            <summary>
+            Получить версию приложения.
+            </summary>
+            <returns>Версия приложения.</returns>
+        </member>
+        <member name="T:Sungero.Logging.DateOffsetLayoutRenderer">
+            <summary>
+            Форматер даты, который отображает дату вместе с часовым поясом.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.FixedLengthLayoutRenderer">
+            <summary>
+            Фиксированный размер сообщения в логе.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.FixedLengthLayoutRenderer.MaxLength">
+            <summary>
+            Gets or sets the number of characters to pad the output to.
+            </summary>
+            <remarks>
+            Positive padding values cause left padding, negative values
+            cause right padding to the desired width.
+            </remarks>
+        </member>
+        <member name="P:Sungero.Logging.FixedLengthLayoutRenderer.KeepRightPart">
+            <summary>
+            В случае True - сохраняется правая часть сообщения и удаляется левая,
+            иначе в случае False удаляется правая часть сообщения.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.TextAppendLayoutRenderer">
+            <summary>
+            Добавляем к сообщению в логе символы в начале и в конце.
+            </summary>
+            <remarks>
+            В случае если есть NDC контекст, то пишем его с отступами, если нет то ничего не пишем.
+            </remarks>
+        </member>
+        <member name="P:Sungero.Logging.TextAppendLayoutRenderer.AddToStart">
+            <summary>
+            Добавить в начало.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TextAppendLayoutRenderer.AddToEnd">
+            <summary>
+            Добавить в конец.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.LogEvent">
+            <summary>
+            Событие логирования.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LogEvent.LogLevel">
+            <summary>
+            Уровень логгирования.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LogEvent.MessageTemplate">
+            <summary>
+            Шаблон сообщения.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LogEvent.MessageArgs">
+            <summary>
+            Аргументы сообщения.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LogEvent.Exception">
+            <summary>
+            Исключение.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LogEvent.Properties">
+            <summary>
+            Дополнительные параметры события.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.LoggerConfiguration">
+            <summary>
+            Конфигурация логера.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.LoggerConfiguration.JsonConverter">
+            <summary>
+            Преобразователь json.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LoggerConfiguration.JsonConverter.originalConverter">
+            <summary>
+            Оригинальный преобразователь.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.JsonConverter.#ctor(NLog.IJsonConverter)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="originalConverter">Оригинальный преобразователь.</param>
+        </member>
+        <member name="F:Sungero.Logging.LoggerConfiguration.objectTransformations">
+            <summary>
+            Словарь соответствия функций преобразования логируемых объектов их типу.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LoggerConfiguration.loggerExtensions">
+            <summary>
+            Расширения логгера.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LoggerConfiguration.LoggerExtensions">
+            <summary>
+            Cписок расширений логирования.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LoggerConfiguration.isStartLogged">
+            <summary>
+            Признак того, что старт приложения уже был залогирован и повторно логировать не надо.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.LogApplicationStarted">
+            <summary>
+            Залогировать старт приложения.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.LoadFallbackConfiguration">
+            <summary>
+            Применить резервные настройки логирования.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.GetFileName(System.String)">
+            <summary>
+            Получить имя файла по пути.
+            </summary>
+            <remarks>
+            Стандартный <see cref="M:System.IO.Path.GetFileName(System.String)"/> не подходит, т.к. под .net framework он некорректно обрабатывает <see cref="F:System.IO.Path.AltDirectorySeparatorChar"/>.
+            </remarks>
+            <param name="path">Путь.</param>
+            <returns>Имя файла.</returns>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.CheckAndFixLockedFileTargetPathsIfNeeded">
+            <summary>
+            Проверить FileTarget-ы на доступность для записи и изменить пути на резервные по необходимости.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.UnwrapTarget(NLog.Targets.Target)">
+            <summary>
+            Извлечь таргет из обертки.
+            </summary>
+            <param name="target">Таргет.</param>
+            <returns>Распакованный таргет.</returns>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.ConfigureDefaultTransformations(NLog.Config.ISetupSerializationBuilder)">
+            <summary>
+            Настроить преобразования для сериализации по-умолчанию.
+            </summary>
+            <param name="setupSerializationBuilder">Объект настройки сериализации.</param>
+        </member>
+        <member name="M:Sungero.Logging.LoggerConfiguration.ConfigureObjectTransformations">
+            <summary>
+            Настроить преобразования объектов для сериализации.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.LoggingSettings">
+            <summary>
+            Настройки логирования из конфига.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LoggingSettings.LogsPathSettingName">
+            <summary>
+            Имя настройки, содержащая путь до папки с лог-файлами.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LoggingSettings.LogLanguageSettingName">
+            <summary>
+            Имя настройки, содержащей язык для логирования.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LoggingSettings.Instance">
+            <summary>
+            Одиночка.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LoggingSettings.configSettings">
+            <summary>
+            Получатель настроек.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LoggingSettings.LogsPath">
+            <summary>
+            Путь до папки с лог-файлами.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.LoggingSettings.LogCulture">
+            <summary>
+            Культура для логирования.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.LoggingSettings.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.LogLevel">
+            <summary>
+            Уровни логирования.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Trace">
+            <summary>
+            Трассировка.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Debug">
+            <summary>
+            Отладка.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Info">
+            <summary>
+            Информация.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Warn">
+            <summary>
+            Предупреждение.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Error">
+            <summary>
+            Ошибка.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Fatal">
+            <summary>
+            Критическая ошибка.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogLevel.Off">
+            <summary>
+            Логирование отключено. 
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.LogPropertyName">
+            <summary>
+            Имена параметров лога.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogPropertyName.UserName">
+            <summary>
+            Имя параметра лога с именем текущего пользователя.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.LogPropertyName.Tenant">
+            <summary>
+            Имя параметра с идентификатором тенанта.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.Logs">
+            <summary>
+            Точка доступа для создания логгеров.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.Logs.DefaultConfigFileName">
+            <summary>
+            Имя конфигурационного файла по-умолчанию.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.Logs.loggers">
+            <summary>
+            Кеш всех логгеров.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.Logs.Сonfiguration">
+            <summary>
+            Конфигурация логера.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.Logs.Flush">
+            <summary>
+            Отправить логи в источники.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.Logs.GetLogger``1">
+            <summary>
+            Создать логер.
+            </summary>
+            <typeparam name="T">Тип, для которого создается логгер.</typeparam>
+            <returns>Логгер.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Logs.GetLogger(System.Type)">
+            <summary>
+            Создать логгер.
+            </summary>
+            <param name="type">Тип, для которого создается логгер.</param>
+            <returns>Логгер.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Logs.GetLogger(System.String)">
+            <summary>
+            Создать логгер.
+            </summary>
+            <param name="loggerName">Имя логгера.</param>
+            <returns>Логгер.</returns>
+        </member>
+        <member name="T:Sungero.Logging.NLogWrapper">
+            <summary>
+            Обертка над NLog логгером.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.NLogWrapper.СustomPropertiesObjectName">
+            <summary>
+            Название объекта кастомных свойств. Оно же используется в конфигах логирования.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.NLogWrapper.logLevelsMap">
+            <summary>
+            Карта соответствий наших уровней логирования и NLog-овских.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.NLogWrapper.customProperties">
+            <summary>
+            Словарь произвольных свойств логирования.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.NLogWrapper.AddCustomProperties(NLog.LogEventInfo)">
+            <summary>
+            Добавить произвольные свойства в событие логирования.
+            </summary>
+            <param name="logEventInfo">Информация о событии логирования.</param>
+        </member>
+        <member name="M:Sungero.Logging.NLogWrapper.ModifyLogEventByExtensions(Sungero.Logging.LogEvent)">
+            <summary>
+            Выполнить модификацию собития логирования расширениями.
+            </summary>
+            <param name="logEvent">Событие логирования.</param>
+        </member>
+        <member name="M:Sungero.Logging.NLogWrapper.IsLogLevelEnabled(Sungero.Logging.LogLevel)">
+            <summary>
+            Проверить разрешено ли логирование данного уровня.
+            </summary>
+            <param name="logLevel">Уровень логирования.</param>
+            <returns>Разрешено ли логирование данного уровня.</returns>
+        </member>
+        <member name="M:Sungero.Logging.NLogWrapper.DoWithLogCulture(System.Action)">
+            <summary>
+            Выполнить действие с переключением на культуру логирования.
+            </summary>
+            <param name="action">Действие.</param>
+        </member>
+        <member name="M:Sungero.Logging.NLogWrapper.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="loggerName">Имя логера.</param>
+        </member>
+        <member name="M:Sungero.Logging.NLogWrapper.#ctor(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="loggerName">Имя логера.</param>
+            <param name="customProperties">Кастомные свойства.</param>
+        </member>
+        <member name="T:Sungero.Logging.SpanAttributes">
+            <summary>
+            Атрибуты спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.SpanAttributes.AttributesSplitter">
+            <summary>
+            Разделитель атрибутов спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.SpanAttributes.KeyValueSplitter">
+            <summary>
+            Разделитель ключа/значения атрибутов спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.SpanAttributes.items">
+            <summary>
+            Атрибуты спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.SpanAttributes.Item(System.String)">
+            <summary>
+            Получить атрибут по ключу.
+            </summary>
+            <param name="key">Ключ.</param>
+            <returns>Атрибут.</returns>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Add(System.String,System.Object)">
+            <summary>
+            Добавить атрибут.
+            </summary>
+            <param name="key">Ключ.</param>
+            <param name="value">Значение.</param>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Insert(System.Int32,System.String,System.Object)">
+            <summary>
+            Вставить атрибут по указанному индексу.
+            </summary>
+            <param name="index">Индекс вставки.</param>
+            <param name="key">Ключ.</param>
+            <param name="value">Значение.</param>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Add(Sungero.Logging.SpanAttributes)">
+            <summary>
+            Добавить атрибуты из указанной коллекции.
+            </summary>
+            <param name="source">Коллекция-источник.</param>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Clone">
+            <summary>
+            Клонировать коллекцию.
+            </summary>
+            <returns>Клонированная коллекция.</returns>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Insert(System.Int32,System.Tuple{System.String,System.Object})">
+            <summary>
+            Добавить атрибут по указанному индексу.
+            </summary>
+            <param name="index">Индекс вставки.</param>
+            <param name="attribute">Ключ-значение.</param>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Add(System.Tuple{System.String,System.Object})">
+            <summary>
+            Добавить атрибут.
+            </summary>
+            <param name="attribute">Атрибут.</param>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Add(System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Object}})">
+            <summary>
+            Добавить атрибуты.
+            </summary>
+            <param name="attributes">Атрибуты.</param>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.AttributeToString(System.Tuple{System.String,System.Object})">
+            <summary>
+            Получить представление в виде строки для атрибута.
+            </summary>
+            <param name="attribute">Атирбут.</param>
+            <returns>Представление в виде строки.</returns>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.Parse(System.String)">
+            <summary>
+            Распарсить из текстового представления.
+            </summary>
+            <param name="rawString">Строка атрибутов.</param>
+            <returns>Коллекция атрибутов.</returns>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.ToDictionary">
+            <summary>
+            Получить атрибуты в виде словаря.
+            </summary>
+            <returns>Словарь, содержащий имена атрибутов и их значения.</returns>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.ParsePart(System.String)">
+            <summary>
+            Распарсить пару ключ-значение для атрибута.
+            </summary>
+            <param name="part">Часть строки.</param>
+            <returns>Атрибут.</returns>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.SpanAttributes.#ctor(Sungero.Logging.SpanAttributes)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="attributes">Начальные значения.</param>
+        </member>
+        <member name="T:Sungero.Logging.SpanStatus">
+            <summary>
+            Статус спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.SpanStatus.Ok">
+            <summary>
+            Спан завершился успешно, или еще не был завершен.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.SpanStatus.Failed">
+            <summary>
+            Спан завершился с ошибкой.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.SpanStatus.Canceled">
+            <summary>
+            Спан был отменен.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.Tracer">
+            <summary>
+            Точка входа для создания спанов трассировки и выполнения кода внутри этих спанов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.StartSpan(System.Func{Sungero.Logging.TraceSpan})">
+            <summary>
+            Стартовать спан.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <returns>Спан.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.StartSpan``1(System.Func{``0})">
+            <summary>
+            Стартовать спан.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <returns>Спан.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace(System.Func{Sungero.Logging.TraceSpan},System.Action)">
+            <summary>
+            Выполнить код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace``1(System.Func{``0},System.Action{``0})">
+            <summary>
+            Выполнить код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace``1(System.Func{Sungero.Logging.TraceSpan},System.Func{``0})">
+            <summary>
+            Выполнить код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <typeparam name="TResult">Тип возвращаемого из кода результата.</typeparam>
+            <returns>Результат выполнения кода.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace``2(System.Func{``0},System.Func{``0,``1})">
+            <summary>
+            Выполнить код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <typeparam name="TResult">Тип возвращаемого из кода результата.</typeparam>
+            <returns>Результат выполнения кода.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace(System.Func{Sungero.Logging.TraceSpan},System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Выполнить асинхронно код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace``1(System.Func{``0},System.Func{``0,System.Threading.Tasks.Task})">
+            <summary>
+            Выполнить асинхронно код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace``1(System.Func{Sungero.Logging.TraceSpan},System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Выполнить асинхронно код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <typeparam name="TResult">Тип возвращаемого результата.</typeparam>
+            <returns>Таска.</returns>
+        </member>
+        <member name="M:Sungero.Logging.Tracer.Trace``2(System.Func{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            Выполнить асинхронно код в рамках спана.
+            </summary>
+            <param name="spanFactory">Фабрика создания спанов.</param>
+            <param name="func">Выполняемый код.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <typeparam name="TResult">Тип возвращаемого результата.</typeparam>
+            <returns>Таска.</returns>
+        </member>
+        <member name="T:Sungero.Logging.TraceSpan">
+            <summary>
+            Класс для логирования операций.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.DurationAttributeName">
+            <summary>
+            Имя атрибута, содержащего длительность операции.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.StatusAttributeName">
+            <summary>
+            Имя атрибута, содержащего статус спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.SpanNameAttributeName">
+            <summary>
+            Имя атрибута, содержащего имя спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.StartedAttributeName">
+            <summary>
+            Имя атрибута, содержащего дату старта операции.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.predefinedAttributes">
+            <summary>
+            Предопределенные атрибуты спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.startedSpans">
+            <summary>
+            Перечень запущенных операций логирования.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.SpanId">
+            <summary>
+            Уникальный идентификатор спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.CanAddToStartedSpans">
+            <summary>
+            Признак того, что спан небходимо добавлять в коллекцию StartedSpans, чтобы его можно было найти.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.Name">
+            <summary>
+            Имя спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.StartedSpans">
+            <summary>
+            Запущенные спаны.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.LogLevel">
+            <summary>
+            Уровень логирования спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.LoggerName">
+            <summary>
+            Имя логгера.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.Log">
+            <summary>
+            Логгер.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.ThreadId">
+            <summary>
+            ИД потока, в котором стартовал спан.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.Attributes">
+            <summary>
+            Атрибуты спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.Started">
+            <summary>
+            Время старта спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.Duration">
+            <summary>
+            Длительность выполнения спана. Заполняется после завершения спана.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.IsRunning">
+            <summary>
+            Признак, что спан запущен.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.Status">
+            <summary>
+            Статус спана.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.timer">
+            <summary>
+            Таймер, для вычисления длительности.
+            </summary>
+        </member>
+        <member name="F:Sungero.Logging.TraceSpan.pauseTimerCount">
+            <summary>
+            Количество остановок таймера.
+            </summary>
+        </member>
+        <member name="P:Sungero.Logging.TraceSpan.IsPaused">
+            <summary>
+            Признак, что таймер стоит на паузе.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.Start">
+            <summary>
+            Стартовать спан.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.WriteStart">
+            <summary>
+            Записать старт в лог.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.Done">
+            <summary>
+            Завершить спан.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.WriteDone(System.Int64)">
+            <summary>
+            Записать завершение в лог.
+            </summary>
+            <param name="elapsed">Длительность операции.</param>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.Fail">
+            <summary>
+            Завершить спан с ошибкой.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.Cancel">
+            <summary>
+            Отменить спан.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.Pause">
+            <summary>
+            Остановить таймер.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.Resume">
+            <summary>
+            Продолжить работу таймера.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.EnsureResume">
+            <summary>
+            Гарантированно продолжить работу таймера.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.TryExecute(System.Action)">
+            <summary>
+            Безопасно выполнить метод.
+            </summary>
+            <param name="method">Метод.</param>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.HandleSpanStarted(Sungero.Logging.TraceSpan)">
+            <summary>
+            Стартовал вложенный спан.
+            </summary>
+            <param name="span">Вложенный спан.</param>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.HandleSpanDone(Sungero.Logging.TraceSpan)">
+            <summary>
+            Завершился вложенный спан.
+            </summary>
+            <param name="span">Вложенный спан.</param>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.HandleSpanStarted">
+            <summary>
+            Уведомить запущенные спаны о старте вложенного спана.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.HandleSpanDone">
+            <summary>
+            Уведомить запущенные спаны о завершении вложенного спана.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.GetLogEvent(System.String,System.Nullable{System.Int64})">
+            <summary>
+            Сформировать событие логирования.
+            </summary>
+            <param name="status">Статус спана.</param>
+            <param name="duration">Длительность операции.</param>
+            <returns>Событие логирования.</returns>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.GetLogAttributes(System.String,System.Nullable{System.Int64})">
+            <summary>
+            Получить логируемые атрибуты.
+            </summary>
+            <param name="status">Статус спана.</param>
+            <param name="duration">Длительность операции.</param>
+            <returns>Словарь, содержащий имена и значения логируемых атрибутов спана.</returns>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpan.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="T:Sungero.Logging.TraceSpanExtensions">
+            <summary>
+            Класс расширений для добавления информации в спаны.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpanExtensions.WithLogger``1(``0,System.String)">
+            <summary>
+            Задать имя логгера для спана.
+            </summary>
+            <param name="span">Спан.</param>
+            <param name="loggerName">Имя логгера.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <returns>Спан.</returns>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpanExtensions.WithLogLevel``1(``0,Sungero.Logging.LogLevel)">
+            <summary>
+            Задать уровень логирования для спана.
+            </summary>
+            <param name="span">Спан.</param>
+            <param name="logLevel">Уровень логирования.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <returns>Спан.</returns>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpanExtensions.WithAttribute``1(``0,System.String,System.Object,System.Boolean)">
+            <summary>
+            Добавить атрибут к спану.
+            </summary>
+            <param name="span">Спан.</param>
+            <param name="key">Ключ атрибута.</param>
+            <param name="value">Значение.</param>
+            <param name="addNullValue">Признак необходимости добавлять новый атрибут, если его значение равно null.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <returns>Спан.</returns>
+        </member>
+        <member name="T:Sungero.Logging.TraceSpanFactory">
+            <summary>
+            Базовая фабрика спанов.
+            </summary>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpanFactory.Create``1(System.String)">
+            <summary>
+            Создать спан.
+            </summary>
+            <param name="spanName">Имя спана.</param>
+            <typeparam name="T">Тип спана.</typeparam>
+            <returns>Спан.</returns>
+        </member>
+        <member name="M:Sungero.Logging.TraceSpanFactory.Create(System.String)">
+            <summary>
+            Создать спан.
+            </summary>
+            <param name="spanName">Имя спана.</param>
+            <returns>Спан.</returns>
+        </member>
+    </members>
+</doc>

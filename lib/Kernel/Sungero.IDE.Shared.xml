@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sungero.IDE.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:Sungero.IDE.Shared.DeployInfo">
+            <summary>
+            Информация о публикации.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Shared.DeployRepository`1">
+            <summary>
+            Репозиторий сущностей "Деплой".
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="T:Sungero.IDE.Shared.DeployState">
+            <summary>
+            Состояние публикации.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Shared.IDeployRepositoryImplementer`1">
+            <summary>
+            Интерфейс реализации репозитория сущности "Деплой".
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="T:Sungero.IDE.Shared.FullDeployInfo">
+            <summary>
+            Информация о полной публикации.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Shared.FullDeployRepository`1">
+            <summary>
+            Репозиторий сущностей "Полный деплой".
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="T:Sungero.IDE.Shared.FullDeployState">
+            <summary>
+            Состояние полной публикации.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Shared.IFullDeployRepositoryImplementer`1">
+            <summary>
+            Интерфейс реализации репозитория сущности "Полный деплой".
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="T:Sungero.IDE.Shared.RecipientInfo">
+            <summary>
+            Информация об IRecipient для отображения в редакторе схем в SDS.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Shared.RecipientInfo.Id">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Shared.RecipientInfo.Name">
+            <summary>
+            Имя пользователя/группы.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Shared.RecipientInfo.Sid">
+            <summary>
+            Guid-идентификатор.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.Shared.RecipientInfo.RecipientType">
+            <summary>
+            Тип.
+            </summary>
+        </member>
+        <member name="M:Sungero.IDE.Shared.RecipientInfo.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:Sungero.IDE.Shared.RecipientInfo.#ctor(System.Int32,System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="id">Идентификатор.</param>
+            <param name="sid">Guid-идентификатор.</param>
+            <param name="name">Имя пользователя/группы.</param>
+            <param name="type">Тип.</param>
+        </member>
+        <member name="M:Sungero.IDE.Shared.RecipientInfo.Equals(Sungero.IDE.Shared.RecipientInfo)">
+            <summary>
+            Проверяет равенство объектов <see cref="T:Sungero.IDE.Shared.RecipientInfo"/>.
+            </summary>
+            <param name="other">Объект RecipientInfo.</param>
+            <returns><c>true</c>, если объекты равны.</returns>
+        </member>
+        <member name="T:Sungero.IDE.IDeploy">
+            <summary>
+            Сущность деплой.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.DeployFinish">
+            <summary>
+            Время деплоя.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.Owner">
+            <summary>
+            Владелец деплоя.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.HostName">
+            <summary>
+            Имя машины с которой произошел деплой.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.DeployPackage">
+            <summary>
+            ZIP архив пакета деплоя в формате бинарных данных.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.DeployPackageUid">
+            <summary>
+            Уникальный идентификатор пакета.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.IsFastDeploy">
+            <summary>
+            Признак, что это быстрый деплой. Если true - быстрый, false или null - полный.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.ForceClientUpdate">
+            <summary>
+            Признак необходимости перезапуска клиента.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.State">
+            <summary>
+            Состояние деплоя.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.Info">
+            <summary>
+            Информация о деплое.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IDeploy.AccessRights">
+            <summary>
+            Права доступа для деплоя.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.Deploys">
+            <summary>
+            Репозиторий сущностей "Деплой".
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.FullDeploySharedHandlers">
+            <summary>
+            Общие обработчики событий полной публикации.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.IFullDeploy">
+            <summary>
+            Полный деплой.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.Name">
+            <summary>
+            Имя сборки.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.Version">
+            <summary>
+            Версия.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.AssemblyData">
+            <summary>
+            Интерфейсная сборка.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.AssemblyDataHash">
+            <summary>
+            Хеш содержимого.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.ModuleGuid">
+            <summary>
+            Guid модуля.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.State">
+            <summary>
+            Состояние полного деплоя.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.Info">
+            <summary>
+            Информация о полном деплое.
+            </summary>
+        </member>
+        <member name="P:Sungero.IDE.IFullDeploy.AccessRights">
+            <summary>
+            Права доступа для полного деплоя.
+            </summary>
+        </member>
+        <member name="T:Sungero.IDE.FullDeploys">
+            <summary>
+            Репозиторий сущностей "Полный деплой".
+            </summary>
+        </member>
+    </members>
+</doc>
